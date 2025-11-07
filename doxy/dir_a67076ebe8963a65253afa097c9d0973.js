@@ -37,6 +37,7 @@ var dir_a67076ebe8963a65253afa097c9d0973 =
     [ "GPIO_Defs_ESP32_TWILIGHTLORD_ETH.hpp", "_g_p_i_o___defs___e_s_p32___t_w_i_l_i_g_h_t_l_o_r_d___e_t_h_8hpp.html", "_g_p_i_o___defs___e_s_p32___t_w_i_l_i_g_h_t_l_o_r_d___e_t_h_8hpp" ],
     [ "GPIO_Defs_ESP32_WT32ETH01.hpp", "_g_p_i_o___defs___e_s_p32___w_t32_e_t_h01_8hpp.html", "_g_p_i_o___defs___e_s_p32___w_t32_e_t_h01_8hpp" ],
     [ "GPIO_Defs_ESP32_WT32ETH01_Wasatch.hpp", "_g_p_i_o___defs___e_s_p32___w_t32_e_t_h01___wasatch_8hpp.html", "_g_p_i_o___defs___e_s_p32___w_t32_e_t_h01___wasatch_8hpp" ],
+    [ "GPIO_Defs_ESP32_XIAO_S3.hpp", "_g_p_i_o___defs___e_s_p32___x_i_a_o___s3_8hpp.html", "_g_p_i_o___defs___e_s_p32___x_i_a_o___s3_8hpp" ],
     [ "GPIO_Defs_ESP8266_D1_mini_lolinsd.hpp", "_g_p_i_o___defs___e_s_p8266___d1__mini__lolinsd_8hpp.html", "_g_p_i_o___defs___e_s_p8266___d1__mini__lolinsd_8hpp" ],
     [ "GPIO_Defs_ESP8266_ESP01S.hpp", "_g_p_i_o___defs___e_s_p8266___e_s_p01_s_8hpp.html", "_g_p_i_o___defs___e_s_p8266___e_s_p01_s_8hpp" ],
     [ "GPIO_Defs_ESP8266_ESPS_V3.hpp", "_g_p_i_o___defs___e_s_p8266___e_s_p_s___v3_8hpp.html", "_g_p_i_o___defs___e_s_p8266___e_s_p_s___v3_8hpp" ],

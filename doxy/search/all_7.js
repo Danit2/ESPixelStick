@@ -121,10 +121,11 @@ var searchData=
   ['gpio_5fdefs_5fesp32_5ftwilightlord_5feth_2ehpp_118',['GPIO_Defs_ESP32_TWILIGHTLORD_ETH.hpp',['../_g_p_i_o___defs___e_s_p32___t_w_i_l_i_g_h_t_l_o_r_d___e_t_h_8hpp.html',1,'']]],
   ['gpio_5fdefs_5fesp32_5fwt32eth01_2ehpp_119',['GPIO_Defs_ESP32_WT32ETH01.hpp',['../_g_p_i_o___defs___e_s_p32___w_t32_e_t_h01_8hpp.html',1,'']]],
   ['gpio_5fdefs_5fesp32_5fwt32eth01_5fwasatch_2ehpp_120',['GPIO_Defs_ESP32_WT32ETH01_Wasatch.hpp',['../_g_p_i_o___defs___e_s_p32___w_t32_e_t_h01___wasatch_8hpp.html',1,'']]],
-  ['gpio_5fdefs_5fesp8266_5fd1_5fmini_5flolinsd_2ehpp_121',['GPIO_Defs_ESP8266_D1_mini_lolinsd.hpp',['../_g_p_i_o___defs___e_s_p8266___d1__mini__lolinsd_8hpp.html',1,'']]],
-  ['gpio_5fdefs_5fesp8266_5fesp01s_2ehpp_122',['GPIO_Defs_ESP8266_ESP01S.hpp',['../_g_p_i_o___defs___e_s_p8266___e_s_p01_s_8hpp.html',1,'']]],
-  ['gpio_5fdefs_5fesp8266_5fesps_5fv3_2ehpp_123',['GPIO_Defs_ESP8266_ESPS_V3.hpp',['../_g_p_i_o___defs___e_s_p8266___e_s_p_s___v3_8hpp.html',1,'']]],
-  ['gpio_5fdefs_5fesp8266_5fgeneric_2ehpp_124',['GPIO_Defs_ESP8266_Generic.hpp',['../_g_p_i_o___defs___e_s_p8266___generic_8hpp.html',1,'']]],
-  ['gpioid_125',['GpioId',['../classc___external_input.html#a27bb9f5810aa4f6805aa48369f56f453',1,'c_ExternalInput']]],
-  ['gpiopin_126',['GpioPin',['../struct_output_channel_id_to_gpio_and_port_entry__t.html#a686a817d1f29961de5c7cba2e317ad14',1,'OutputChannelIdToGpioAndPortEntry_t::GpioPin'],['../structc___output_mgr_1_1_driver_info__t.html#a1334e1a75b8b247913bf56348f0c4b85',1,'c_OutputMgr::DriverInfo_t::GpioPin']]]
+  ['gpio_5fdefs_5fesp32_5fxiao_5fs3_2ehpp_121',['GPIO_Defs_ESP32_XIAO_S3.hpp',['../_g_p_i_o___defs___e_s_p32___x_i_a_o___s3_8hpp.html',1,'']]],
+  ['gpio_5fdefs_5fesp8266_5fd1_5fmini_5flolinsd_2ehpp_122',['GPIO_Defs_ESP8266_D1_mini_lolinsd.hpp',['../_g_p_i_o___defs___e_s_p8266___d1__mini__lolinsd_8hpp.html',1,'']]],
+  ['gpio_5fdefs_5fesp8266_5fesp01s_2ehpp_123',['GPIO_Defs_ESP8266_ESP01S.hpp',['../_g_p_i_o___defs___e_s_p8266___e_s_p01_s_8hpp.html',1,'']]],
+  ['gpio_5fdefs_5fesp8266_5fesps_5fv3_2ehpp_124',['GPIO_Defs_ESP8266_ESPS_V3.hpp',['../_g_p_i_o___defs___e_s_p8266___e_s_p_s___v3_8hpp.html',1,'']]],
+  ['gpio_5fdefs_5fesp8266_5fgeneric_2ehpp_125',['GPIO_Defs_ESP8266_Generic.hpp',['../_g_p_i_o___defs___e_s_p8266___generic_8hpp.html',1,'']]],
+  ['gpioid_126',['GpioId',['../classc___external_input.html#a27bb9f5810aa4f6805aa48369f56f453',1,'c_ExternalInput']]],
+  ['gpiopin_127',['GpioPin',['../struct_output_channel_id_to_gpio_and_port_entry__t.html#a686a817d1f29961de5c7cba2e317ad14',1,'OutputChannelIdToGpioAndPortEntry_t::GpioPin'],['../structc___output_mgr_1_1_driver_info__t.html#a1334e1a75b8b247913bf56348f0c4b85',1,'c_OutputMgr::DriverInfo_t::GpioPin']]]
 ];
