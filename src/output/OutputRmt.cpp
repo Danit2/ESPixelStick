@@ -15,6 +15,11 @@
 #ifdef ARDUINO_ARCH_ESP32
 #include "output/OutputRmt.hpp"
 
+// ensure debug macros are always defined
+#ifndef RMT_DEBUG_COUNTER
+#define RMT_DEBUG_COUNTER(p)
+#endif
+
 #include <driver/rmt.h>
 #if defined(RMT_API_V5) && RMT_API_V5
     #include <driver/rmt_tx.h>
