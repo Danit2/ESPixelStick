@@ -35,16 +35,22 @@ c_OutputRmt::c_OutputRmt() {}
 c_OutputRmt::~c_OutputRmt()
 {
 #if ESP_IDF_VERSION_MAJOR < 5
-    // Legacy direct register reset
+    // -------- Legacy ESP32 (IDF 4.x) --------
     if (OutputRmtConfig.RmtChannelId != rmt_channel_t(-1))
     {
         rmt_driver_uninstall(OutputRmtConfig.RmtChannelId);
-        RMT.apb_conf.fifo_mask = 0;
+        // Nur klassischer ESP32 hat 'apb_conf'
+        #ifdef SOC_RMT_SUPPORT_TX_SYNCHRO
+            // neuere Chips
+        #else
+            RMT.apb_conf.fifo_mask = 0;
+        #endif
     }
 #else
-    // IDF v5 uses handle-based API
-    if (rmt_tx_channel_handle != nullptr)
+    // -------- New API (IDF 5.x) --------
+    if (rmt_tx_channel_handle)
     {
+        rmt_disable(rmt_tx_channel_handle);
         rmt_del_channel(rmt_tx_channel_handle);
         rmt_tx_channel_handle = nullptr;
     }
@@ -62,7 +68,7 @@ void c_OutputRmt::Begin(OutputRmtConfig_t config, c_OutputCommon* pParentPtr)
 
 #if ESP_IDF_VERSION_MAJOR < 5
     // ---------------- OLD ESP32 (IDF 4.x) ----------------
-    rmt_config_t rmt_tx;
+    rmt_config_t rmt_tx = {};
     rmt_tx.channel    = config.RmtChannelId;
     rmt_tx.gpio_num   = config.DataPin;
     rmt_tx.mem_block_num = 1;
@@ -86,10 +92,6 @@ void c_OutputRmt::Begin(OutputRmtConfig_t config, c_OutputCommon* pParentPtr)
         .trans_queue_depth = 4,
     };
     ESP_ERROR_CHECK(rmt_new_tx_channel(&tx_chan_config, &rmt_tx_channel_handle));
-
-    rmt_translator_config_t translator_config = {};
-    ESP_ERROR_CHECK(rmt_new_translator(&translator_config, &rmt_translator_handle));
-
     ESP_ERROR_CHECK(rmt_enable(rmt_tx_channel_handle));
 #endif
 }
@@ -105,9 +107,12 @@ bool c_OutputRmt::StartNewFrame()
 #else
     if (rmt_tx_channel_handle)
     {
-        // Use translator-less raw send
+        // Beispiel: sende vorbereitete Daten (hier Dummy)
+        rmt_item32_t item = {};
+        item.level0 = 1; item.duration0 = 10;
+        item.level1 = 0; item.duration1 = 10;
         rmt_transmit_config_t tx_cfg = {};
-        ESP_ERROR_CHECK(rmt_transmit(rmt_tx_channel_handle, SendBuffer, sizeof(SendBuffer), &tx_cfg));
+        ESP_ERROR_CHECK(rmt_transmit(rmt_tx_channel_handle, &item, sizeof(item), &tx_cfg));
     }
 #endif
     return true;
