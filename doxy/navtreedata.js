@@ -60,15 +60,16 @@ var NAVTREEINDEX =
 "_g_p_i_o___defs___e_s_p32___m_h___e_t___l_i_v_e___mini_kit_8hpp.html",
 "_g_p_i_o___defs___e_s_p32___q_u_i_n_l_e_d___q_u_a_d___e_t_h_8hpp.html#acd6e6f0240598bf75d38ce85c4b91d92",
 "_g_p_i_o___defs___e_s_p32___solo2go_8hpp.html",
-"_g_p_i_o___defs___e_s_p32__kr__lights__msm_8hpp.html#a87e454c1f4806d5434e00260a82c6b61",
-"_output_mgr_8hpp.html",
-"classc___f_p_p_discovery.html#ad55f04ef98a7f5a291b6b190702cbe8b",
-"classc___input_e131.html#ac18882d8a5a97e6d69c42c498af823bd",
-"classc___input_m_q_t_t.html#a47969701bda3653feea63fc0628d4071",
-"classc___output_pixel.html#a3d3b5e86a0a0ffeb89c2509922d870ed",
-"classfsm___play_effect__state.html#a1a3503d12d47dfb5e3c8cfc2a3deeda0",
-"fseq_8h.html#a5226152cf60d80852dfdbc094a8e4eb6",
-"struct_f_s_e_q_raw_header.html#ae14d93d12fe8c8526442cac8a8900b25"
+"_g_p_i_o___defs___e_s_p32___x_i_a_o___s3_8hpp.html#a8d39e18b6d5858fcfac86983ef8b7f81",
+"_output_g_e_c_e_uart_8hpp.html",
+"classc___f_p_p_discovery.html#a39129a05c7f60b4e9e2a96fce7dc6465",
+"classc___input_e131.html#a15895b3f2f8627744022fe5466278491",
+"classc___input_f_p_p_remote_play_list.html#aa15a2509664914994d710aaef6a406dc",
+"classc___output_mgr.html#ae4c32186cb120fd92fc9075cfc9bfa13",
+"classfsm___external_input__boot.html#a0335b6f4d497ac2ee19de76678625c52",
+"dir_d44c64559bbebec7f509842c48db8b23.html",
+"struct_f_s_e_q_parsed_header.html#ae4860b4ffd1611821fa48ae112fb692b",
+"union_f_p_p_ping_packet.html#a43c037a16b08ce365b44d3824854a9f3"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

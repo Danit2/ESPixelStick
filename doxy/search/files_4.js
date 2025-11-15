@@ -39,8 +39,9 @@ var searchData=
   ['gpio_5fdefs_5fesp32_5ftwilightlord_5feth_2ehpp_36',['GPIO_Defs_ESP32_TWILIGHTLORD_ETH.hpp',['../_g_p_i_o___defs___e_s_p32___t_w_i_l_i_g_h_t_l_o_r_d___e_t_h_8hpp.html',1,'']]],
   ['gpio_5fdefs_5fesp32_5fwt32eth01_2ehpp_37',['GPIO_Defs_ESP32_WT32ETH01.hpp',['../_g_p_i_o___defs___e_s_p32___w_t32_e_t_h01_8hpp.html',1,'']]],
   ['gpio_5fdefs_5fesp32_5fwt32eth01_5fwasatch_2ehpp_38',['GPIO_Defs_ESP32_WT32ETH01_Wasatch.hpp',['../_g_p_i_o___defs___e_s_p32___w_t32_e_t_h01___wasatch_8hpp.html',1,'']]],
-  ['gpio_5fdefs_5fesp8266_5fd1_5fmini_5flolinsd_2ehpp_39',['GPIO_Defs_ESP8266_D1_mini_lolinsd.hpp',['../_g_p_i_o___defs___e_s_p8266___d1__mini__lolinsd_8hpp.html',1,'']]],
-  ['gpio_5fdefs_5fesp8266_5fesp01s_2ehpp_40',['GPIO_Defs_ESP8266_ESP01S.hpp',['../_g_p_i_o___defs___e_s_p8266___e_s_p01_s_8hpp.html',1,'']]],
-  ['gpio_5fdefs_5fesp8266_5fesps_5fv3_2ehpp_41',['GPIO_Defs_ESP8266_ESPS_V3.hpp',['../_g_p_i_o___defs___e_s_p8266___e_s_p_s___v3_8hpp.html',1,'']]],
-  ['gpio_5fdefs_5fesp8266_5fgeneric_2ehpp_42',['GPIO_Defs_ESP8266_Generic.hpp',['../_g_p_i_o___defs___e_s_p8266___generic_8hpp.html',1,'']]]
+  ['gpio_5fdefs_5fesp32_5fxiao_5fs3_2ehpp_39',['GPIO_Defs_ESP32_XIAO_S3.hpp',['../_g_p_i_o___defs___e_s_p32___x_i_a_o___s3_8hpp.html',1,'']]],
+  ['gpio_5fdefs_5fesp8266_5fd1_5fmini_5flolinsd_2ehpp_40',['GPIO_Defs_ESP8266_D1_mini_lolinsd.hpp',['../_g_p_i_o___defs___e_s_p8266___d1__mini__lolinsd_8hpp.html',1,'']]],
+  ['gpio_5fdefs_5fesp8266_5fesp01s_2ehpp_41',['GPIO_Defs_ESP8266_ESP01S.hpp',['../_g_p_i_o___defs___e_s_p8266___e_s_p01_s_8hpp.html',1,'']]],
+  ['gpio_5fdefs_5fesp8266_5fesps_5fv3_2ehpp_42',['GPIO_Defs_ESP8266_ESPS_V3.hpp',['../_g_p_i_o___defs___e_s_p8266___e_s_p_s___v3_8hpp.html',1,'']]],
+  ['gpio_5fdefs_5fesp8266_5fgeneric_2ehpp_43',['GPIO_Defs_ESP8266_Generic.hpp',['../_g_p_i_o___defs___e_s_p8266___generic_8hpp.html',1,'']]]
 ];
