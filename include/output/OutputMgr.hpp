@@ -257,8 +257,14 @@ private:
 
     uint8_t    OutputBuffer[OM_MAX_NUM_CHANNELS];
     uint32_t   UsedBufferSize = 0;
-    gpio_num_t ConsoleTxGpio  = gpio_num_t::GPIO_NUM_1;
-    gpio_num_t ConsoleRxGpio  = gpio_num_t::GPIO_NUM_3;
+
+    #ifndef DEFAULT_CONSOLE_TX_GPIO
+    #define DEFAULT_CONSOLE_TX_GPIO gpio_num_t::GPIO_NUM_1
+    #define DEFAULT_CONSOLE_RX_GPIO gpio_num_t::GPIO_NUM_3
+    #endif // ndef DEFAULT_CONSOLE_TX_GPIO
+
+    gpio_num_t ConsoleTxGpio  = DEFAULT_CONSOLE_TX_GPIO;
+    gpio_num_t ConsoleRxGpio  = DEFAULT_CONSOLE_RX_GPIO;
 
 #if defined(ARDUINO_ARCH_ESP32)
     TaskHandle_t myTaskHandle = NULL;
