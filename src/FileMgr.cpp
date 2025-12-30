@@ -2318,8 +2318,8 @@ bool c_FileMgr::handleFileUpload (
         // DEBUG_V(String("     Got: ") + String(GetSdFileSize(fsUploadFileName)));
         if(IsCompressed(fsUploadFileName))
         {
-            // String reason = F("Reboot after receiving a compressed file");
-            // RequestReboot(reason, 100000);
+            String reason = F("Reboot after receiving a compressed file");
+            RequestReboot(reason, 100000);
         }
 
         fsUploadFileName.clear();
