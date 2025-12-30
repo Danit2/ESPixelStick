@@ -139,7 +139,7 @@ typedef enum
 #elif defined (BOARD_ESP32S3_DEVKITC)
 #   include "platforms/GPIO_Defs_ESP32S3_DevkitC.hpp"
 #elif defined (BOARD_SEEED_XIAO_ESP32S3)
-#   include "platforms/GPIO_Defs_ESP32S3_seed_XIAO.hpp"
+#   include "platforms/GPIO_Defs_ESP32S3_seeed_XIAO.hpp"
 #elif defined (BOARD_ESPS_V3)
 #   include "platforms/GPIO_Defs_ESP8266_ESPS_V3.hpp"
 #elif defined (BOARD_ESPS_ESP3DEUXQUATRO_DMX)

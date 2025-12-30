@@ -36,6 +36,11 @@
 
 #define DEFAULT_RELAY_GPIO      gpio_num_t::GPIO_NUM_44
 
+// Special settings for the ESP32S3 Processors
+#define DEFAULT_CONSOLE_TX_GPIO GPIO_NUM_NC //NC because the S3 communicates directly via USB_CDC and does not have USB to UART. 
+#define DEFAULT_CONSOLE_RX_GPIO GPIO_NUM_NC
+
+
 // Output Types
 #define SUPPORT_OutputType_DMX              // UART / RMT
 #define SUPPORT_OutputType_GECE             // UART / RMT
