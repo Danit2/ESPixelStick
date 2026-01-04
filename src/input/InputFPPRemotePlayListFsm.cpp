@@ -29,6 +29,7 @@
 bool fsm_PlayList_state_WaitForStart::Poll ()
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_WaitForStart::Poll");
 
     // do nothing
 
@@ -41,6 +42,7 @@ bool fsm_PlayList_state_WaitForStart::Poll ()
 void fsm_PlayList_state_WaitForStart::Init (c_InputFPPRemotePlayList* Parent)
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_WaitForStart::Init");
 
     pInputFPPRemotePlayList = Parent;
     pInputFPPRemotePlayList->pCurrentFsmState = &(Parent->fsm_PlayList_state_WaitForStart_imp);
@@ -53,13 +55,14 @@ void fsm_PlayList_state_WaitForStart::Init (c_InputFPPRemotePlayList* Parent)
 void fsm_PlayList_state_WaitForStart::Start (String & FileName, float, uint32_t)
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_WaitForStart::Start");
 
     do // once
     {
         SafeStrncpy(pInputFPPRemotePlayList->FileControl[CurrentFile].FileName, FileName.c_str(), sizeof(pInputFPPRemotePlayList->FileControl[CurrentFile].FileName));
         pInputFPPRemotePlayList->PlayListEntryId = 0;
 
-        // DEBUG_V (String ("PlayItemName: '") + pInputFPPRemotePlayList->PlayItemName + "'");
+        // DEBUG_V (String ("PlayItemName: '") + pInputFPPRemotePlayList->GetFileName() + "'");
 
         pInputFPPRemotePlayList->fsm_PlayList_state_Idle_imp.Init (pInputFPPRemotePlayList);
 
@@ -73,8 +76,9 @@ void fsm_PlayList_state_WaitForStart::Start (String & FileName, float, uint32_t)
 void fsm_PlayList_state_WaitForStart::Stop (void)
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_WaitForStart::Stop");
 
-    // Do nothing
+    // DEBUG_V("Do nothing");
 
     // DEBUG_END;
 
@@ -84,6 +88,7 @@ void fsm_PlayList_state_WaitForStart::Stop (void)
 void fsm_PlayList_state_WaitForStart::GetStatus (JsonObject& jsonStatus)
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_WaitForStart::GetStatus");
 
     // JsonObject FileStatus = jsonStatus[(char*)CN_Idle].to<JsonObject> ();
 
@@ -98,6 +103,7 @@ void fsm_PlayList_state_WaitForStart::GetStatus (JsonObject& jsonStatus)
 bool fsm_PlayList_state_Idle::Poll ()
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_Idle::Poll");
 
     pInputFPPRemotePlayList->ProcessPlayListEntry ();
 
@@ -110,6 +116,7 @@ bool fsm_PlayList_state_Idle::Poll ()
 void fsm_PlayList_state_Idle::Init (c_InputFPPRemotePlayList* Parent)
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_Idle::Init");
 
     pInputFPPRemotePlayList = Parent;
     pInputFPPRemotePlayList->pCurrentFsmState = &(Parent->fsm_PlayList_state_Idle_imp);
@@ -122,6 +129,7 @@ void fsm_PlayList_state_Idle::Init (c_InputFPPRemotePlayList* Parent)
 void fsm_PlayList_state_Idle::Start (String &, float, uint32_t )
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_Idle::Start");
 
     // do nothing
 
@@ -133,8 +141,9 @@ void fsm_PlayList_state_Idle::Start (String &, float, uint32_t )
 void fsm_PlayList_state_Idle::Stop (void)
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_Idle::Stop");
 
-    // Do nothing
+    // DEBUG_V("Do nothing");
 
     // DEBUG_END;
 
@@ -144,6 +153,7 @@ void fsm_PlayList_state_Idle::Stop (void)
 void fsm_PlayList_state_Idle::GetStatus (JsonObject& jsonStatus)
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_Idle::GetStatus");
 
     // JsonObject FileStatus = jsonStatus[(char*)CN_Idle].to<JsonObject> ();
 
@@ -156,17 +166,21 @@ void fsm_PlayList_state_Idle::GetStatus (JsonObject& jsonStatus)
 //-----------------------------------------------------------------------------
 bool fsm_PlayList_state_PlayingFile::Poll ()
 {
-    // xDEBUG_START;
+    //xDEBUG_START;
+    //xDEBUG_V("fsm_PlayList_state_PlayingFile::Poll");
 
     bool Response = pInputFPPRemotePlayList->pInputFPPRemotePlayItem->Poll ();
 
     if (pInputFPPRemotePlayList->pInputFPPRemotePlayItem->IsIdle ())
     {
-        // DEBUG_V ("Done with all entries");
-        pInputFPPRemotePlayList->Stop ();
+        // DEBUG_V ("Play Item has gone idle");
+        if(!pInputFPPRemotePlayList->ProcessPlayListEntry ())
+        {
+            pInputFPPRemotePlayList->Stop ();
+        }
     }
 
-    // xDEBUG_END;
+    //xDEBUG_END;
     return Response;
 
 } // fsm_PlayList_state_PlayingFile::Poll
@@ -175,6 +189,7 @@ bool fsm_PlayList_state_PlayingFile::Poll ()
 void fsm_PlayList_state_PlayingFile::Init (c_InputFPPRemotePlayList* Parent)
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_PlayingFile::Init");
 
     static_assert(sizeof(Parent->InputFPPRemotePlayItem) >= sizeof(c_InputFPPRemotePlayFile)); \
     Parent->pInputFPPRemotePlayItem = new(Parent->InputFPPRemotePlayItem) c_InputFPPRemotePlayFile (Parent->GetInputChannelId ());
@@ -190,6 +205,7 @@ void fsm_PlayList_state_PlayingFile::Init (c_InputFPPRemotePlayList* Parent)
 void fsm_PlayList_state_PlayingFile::Start (String & FileName, float SecondsElapsed, uint32_t PlayCount)
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_PlayingFile::Start");
 
     pInputFPPRemotePlayList->pInputFPPRemotePlayItem->Start (FileName, SecondsElapsed, PlayCount);
 
@@ -201,16 +217,17 @@ void fsm_PlayList_state_PlayingFile::Start (String & FileName, float SecondsElap
 void fsm_PlayList_state_PlayingFile::Stop (void)
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_PlayingFile::Stop");
 
     c_InputFPPRemotePlayItem * pInputFPPRemotePlayItemTemp = pInputFPPRemotePlayList->pInputFPPRemotePlayItem;
 
     // This redirects async requests to a safe place.
     pInputFPPRemotePlayList->fsm_PlayList_state_Idle_imp.Init (pInputFPPRemotePlayList);
     // DEBUG_V ("");
-    
+
     pInputFPPRemotePlayItemTemp->Stop ();
     delete pInputFPPRemotePlayItemTemp;
-    
+
     // DEBUG_END;
 
 } // fsm_PlayList_state_PlayingFile::Stop
@@ -219,6 +236,7 @@ void fsm_PlayList_state_PlayingFile::Stop (void)
 void fsm_PlayList_state_PlayingFile::GetStatus (JsonObject& jsonStatus)
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_PlayingFile::GetStatus");
 
     jsonStatus[F ("repeat")] = pInputFPPRemotePlayList->pInputFPPRemotePlayItem->GetRepeatCount ();
 
@@ -235,6 +253,7 @@ void fsm_PlayList_state_PlayingFile::GetStatus (JsonObject& jsonStatus)
 bool fsm_PlayList_state_PlayingEffect::Poll ()
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_PlayingEffect::Poll");
 
     pInputFPPRemotePlayList->pInputFPPRemotePlayItem->Poll ();
 
@@ -253,6 +272,7 @@ bool fsm_PlayList_state_PlayingEffect::Poll ()
 void fsm_PlayList_state_PlayingEffect::Init (c_InputFPPRemotePlayList* Parent)
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_PlayingEffect::Init");
 
     pInputFPPRemotePlayList = Parent;
     static_assert(sizeof(Parent->InputFPPRemotePlayItem) >= sizeof(c_InputFPPRemotePlayEffect));
@@ -268,9 +288,11 @@ void fsm_PlayList_state_PlayingEffect::Init (c_InputFPPRemotePlayList* Parent)
 void fsm_PlayList_state_PlayingEffect::Start (String & FileName, float SecondsElapsed, uint32_t PlayCount)
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_PlayingEffect::Start");
 
-    // DEBUG_V (String ("FileName: '") + String (FileName) + "'");
-    // DEBUG_V (String ("FrameId: '") + String (FrameId) + "'");
+    // DEBUG_V (String ("      FileName: '") + FileName + "'");
+    // DEBUG_V (String ("SecondsElapsed: '") + String (SecondsElapsed) + "'");
+    // DEBUG_V (String ("       FrameId: '") + String (PlayCount) + "'");
 
     pInputFPPRemotePlayList->pInputFPPRemotePlayItem->SetDuration (SecondsElapsed);
     pInputFPPRemotePlayList->pInputFPPRemotePlayItem->Start (FileName, 0.0, PlayCount);
@@ -283,6 +305,7 @@ void fsm_PlayList_state_PlayingEffect::Start (String & FileName, float SecondsEl
 void fsm_PlayList_state_PlayingEffect::Stop (void)
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_PlayingEffect::Stop");
 
     c_InputFPPRemotePlayItem* pInputFPPRemotePlayItemTemp = pInputFPPRemotePlayList->pInputFPPRemotePlayItem;
 
@@ -302,6 +325,7 @@ void fsm_PlayList_state_PlayingEffect::Stop (void)
 void fsm_PlayList_state_PlayingEffect::GetStatus (JsonObject& jsonStatus)
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_PlayingEffect::GetStatus");
 
     JsonObject EffectStatus = jsonStatus[(char*)CN_Effect].to<JsonObject> ();
     pInputFPPRemotePlayList->pInputFPPRemotePlayItem->GetStatus (EffectStatus);
@@ -316,6 +340,7 @@ void fsm_PlayList_state_PlayingEffect::GetStatus (JsonObject& jsonStatus)
 bool fsm_PlayList_state_Paused::Poll ()
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_Paused::Poll");
 
     if (pInputFPPRemotePlayList->PauseDelayTimer.IsExpired())
     {
@@ -332,6 +357,7 @@ bool fsm_PlayList_state_Paused::Poll ()
 void fsm_PlayList_state_Paused::Init (c_InputFPPRemotePlayList* Parent)
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_Paused::Init");
 
     pInputFPPRemotePlayList = Parent;
     pInputFPPRemotePlayList->pCurrentFsmState = &(Parent->fsm_PlayList_state_Paused_imp);
@@ -344,6 +370,7 @@ void fsm_PlayList_state_Paused::Init (c_InputFPPRemotePlayList* Parent)
 void fsm_PlayList_state_Paused::Start (String& , float , uint32_t )
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_Paused::Start");
 
     // ignore
 
@@ -355,6 +382,7 @@ void fsm_PlayList_state_Paused::Start (String& , float , uint32_t )
 void fsm_PlayList_state_Paused::Stop (void)
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_Paused::Stop");
 
     pInputFPPRemotePlayList->fsm_PlayList_state_Idle_imp.Init (pInputFPPRemotePlayList);
 
@@ -366,6 +394,7 @@ void fsm_PlayList_state_Paused::Stop (void)
 void fsm_PlayList_state_Paused::GetStatus (JsonObject& jsonStatus)
 {
     // DEBUG_START;
+    // DEBUG_V("fsm_PlayList_state_Paused::GetStatus");
 
     JsonObject PauseStatus = jsonStatus[(char*)CN_Paused].to<JsonObject> ();
 

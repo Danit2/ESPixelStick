@@ -106,21 +106,21 @@ void c_InputFPPRemotePlayFile::Sync (String & FileName, float SecondsElapsed)
 //-----------------------------------------------------------------------------
 bool c_InputFPPRemotePlayFile::Poll ()
 {
-    // xDEBUG_START;
+    //xDEBUG_START;
     bool Response = false;
 
     if(!InputIsPaused())
     {
-        // xDEBUG_V("Poll the FSM: Start");
+        //xDEBUG_V("Poll the FSM: Start");
         Response = pCurrentFsmState->Poll ();
-        // xDEBUG_V("Poll the FSM: Done");
+        //xDEBUG_V("Poll the FSM: Done");
     }
     else
     {
         // DEBUG_V("Input is paused.");
     }
 
-    // xDEBUG_END;
+    //xDEBUG_END;
     return Response;
 
 } // Poll
@@ -128,7 +128,7 @@ bool c_InputFPPRemotePlayFile::Poll ()
 //-----------------------------------------------------------------------------
 void c_InputFPPRemotePlayFile::GetStatus (JsonObject& JsonStatus)
 {
-    // xDEBUG_START;
+    //xDEBUG_START;
 
     // NOTE:
     // variables ending in "Total" reflect total     play time
@@ -175,14 +175,14 @@ void c_InputFPPRemotePlayFile::GetStatus (JsonObject& JsonStatus)
     JsonWrite(JsonStatus, CN_time_remaining, buf);
     JsonWrite(JsonStatus, CN_errors,         (!FileMgr.SdCardIsInstalled ()) ? F("No SD Installed") : String(LastFailedPlayStatusMsg));
 
-    // xDEBUG_END;
+    //xDEBUG_END;
 
 } // GetStatus
 
 //-----------------------------------------------------------------------------
 void c_InputFPPRemotePlayFile::ClearStatistics ()
 {
-    // xDEBUG_START;
+    // DEBUG_START;
 
     // NOTE:
 
@@ -193,7 +193,7 @@ void c_InputFPPRemotePlayFile::ClearStatistics ()
 
     memset(LastFailedPlayStatusMsg, 0x0, sizeof(LastFailedPlayStatusMsg));
 
-    // xDEBUG_END;
+    // DEBUG_END;
 
 } // ClearStatistics
 
@@ -219,14 +219,14 @@ void c_InputFPPRemotePlayFile::UpdateElapsedPlayTimeMS ()
 //-----------------------------------------------------------------------------
 uint32_t c_InputFPPRemotePlayFile::CalculateFrameId (uint32_t ElapsedMS, int32_t SyncOffsetMS)
 {
-    // xDEBUG_START;
+    //xDEBUG_START;
 
     uint32_t CurrentFrameId = FileControl[CurrentFile].LastPlayedFrameId;
 
     do // once
     {
         uint32_t AdjustedPlayTime = ElapsedMS + SyncOffsetMS;
-        // xDEBUG_V (String ("AdjustedPlayTime: ") + String (AdjustedPlayTime));
+        //xDEBUG_V (String ("AdjustedPlayTime: ") + String (AdjustedPlayTime));
         if ((0 > SyncOffsetMS) && (ElapsedMS < abs(SyncOffsetMS)))
         {
             CurrentFrameId = 0;
@@ -236,7 +236,7 @@ uint32_t c_InputFPPRemotePlayFile::CalculateFrameId (uint32_t ElapsedMS, int32_t
         }
 
         CurrentFrameId = (AdjustedPlayTime / FileControl[CurrentFile].FrameStepTimeMS);
-        // xDEBUG_V (String ("  CurrentFrameId: ") + String (CurrentFrameId));
+        //xDEBUG_V (String ("  CurrentFrameId: ") + String (CurrentFrameId));
 #ifdef DEBUG_FSEQ
         if(2 < abs(int(CurrentFrameId) - int(FileControl[CurrentFile].LastPlayedFrameId)))
         {
@@ -253,7 +253,7 @@ uint32_t c_InputFPPRemotePlayFile::CalculateFrameId (uint32_t ElapsedMS, int32_t
 
     } while (false);
 
-    // xDEBUG_END;
+    //xDEBUG_END;
 
     return CurrentFrameId;
 
@@ -503,7 +503,7 @@ uint32_t PreviousFileOffset = 0;
 //-----------------------------------------------------------------------------
 uint64_t c_InputFPPRemotePlayFile::ReadFile(uint64_t DestinationIntensityId, uint64_t NumBytesToRead, uint64_t FileOffset)
 {
-    // xDEBUG_START;
+    //xDEBUG_START;
 
     uint64_t NumBytesRead = 0;
 
@@ -518,7 +518,7 @@ uint64_t c_InputFPPRemotePlayFile::ReadFile(uint64_t DestinationIntensityId, uin
         if(nullptr == LocalIntensityBuffer)
         {
             LocalIntensityBuffer = (byte*)malloc(LocalIntensityBufferSize);
-            // DEBUG_V("Allocating local buffer.");
+            //xDEBUG_V("Allocating local buffer.");
             if(nullptr == LocalIntensityBuffer)
             {
                 String Reason = F("Could not allocate a buffer to read SD files. Rebooting. ");
@@ -529,7 +529,7 @@ uint64_t c_InputFPPRemotePlayFile::ReadFile(uint64_t DestinationIntensityId, uin
         // DEBUG_FILE_HANDLE(FileControl[CurrentFile].FileHandleForFileBeingPlayed);
         while (NumBytesRead < NumBytesToRead)
         {
-            // xDEBUG_V();
+            //xDEBUG_V();
             // DEBUG_FILE_HANDLE(FileControl[CurrentFile].FileHandleForFileBeingPlayed);
             uint64_t NumBytesReadThisPass = FileMgr.ReadSdFile(FileControl[CurrentFile].FileHandleForFileBeingPlayed,
                                                                LocalIntensityBuffer,
@@ -547,9 +547,9 @@ uint64_t c_InputFPPRemotePlayFile::ReadFile(uint64_t DestinationIntensityId, uin
                 // DEBUG_V(String ("n1800_Free_Max: ") + String(heap_caps_get_largest_free_block(0x1800)));
                 break;
             }
-            // xDEBUG_V();
-#ifdef DEBUG_FSEQ
-/*
+            //xDEBUG_V();
+            #ifdef DEBUG_FSEQ
+            /*
             uint32_t nonZeroCount = 0;
             for(uint32_t index = 0; index < NumBytesReadThisPass; ++index)
             {
@@ -602,7 +602,7 @@ uint64_t c_InputFPPRemotePlayFile::ReadFile(uint64_t DestinationIntensityId, uin
             {
                 LocalIntensityBufferIndex = 0;
             }
-*/
+            */
             uint32_t CurrentOnPosition = 0;
             for(uint32_t index = 0; index < LocalIntensityBufferSize; ++index)
             {
@@ -628,7 +628,7 @@ uint64_t c_InputFPPRemotePlayFile::ReadFile(uint64_t DestinationIntensityId, uin
             }
             PreviousOnPosition = CurrentOnPosition;
             PreviousFileOffset = FileOffset;
-#endif // def DEBUG_FSEQ
+            #endif // def DEBUG_FSEQ
 
             OutputMgr.WriteChannelData(DestinationIntensityId, NumBytesReadThisPass, LocalIntensityBuffer);
             // DEBUG_FILE_HANDLE(FileControl[CurrentFile].FileHandleForFileBeingPlayed);
@@ -638,11 +638,11 @@ uint64_t c_InputFPPRemotePlayFile::ReadFile(uint64_t DestinationIntensityId, uin
             DestinationIntensityId += NumBytesReadThisPass;
         }
     } while (false);
-    // xDEBUG_V(String("NumBytesToRead: ") + String(NumBytesToRead));
-    // xDEBUG_V(String("  NumBytesRead: ") + String(NumBytesRead));
+    //xDEBUG_V(String("NumBytesToRead: ") + String(NumBytesToRead));
+    //xDEBUG_V(String("  NumBytesRead: ") + String(NumBytesRead));
 
     // DEBUG_FILE_HANDLE(FileControl[CurrentFile].FileHandleForFileBeingPlayed);
 
-    // xDEBUG_END;
+    //xDEBUG_END;
     return NumBytesRead;
 } // ReadFile

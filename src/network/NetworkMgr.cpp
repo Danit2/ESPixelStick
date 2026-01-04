@@ -27,6 +27,11 @@
 #include "service/FPPDiscovery.h"
 #include "WebMgr.hpp"
 #include <Int64String.h>
+#ifdef ARDUINO_ARCH_ESP8266
+#include <ESP8266mDNS.h>
+#else
+#include <ESPmDNS.h>
+#endif // def ARDUINO_ARCH_ESP8266
 
 //-----------------------------------------------------------------------------
 // Methods
@@ -60,6 +65,7 @@ void c_NetworkMgr::AdvertiseNewState ()
         WebMgr.NetworkStateChanged (IsConnected ());
         FileMgr.NetworkStateChanged (IsConnected ());
         FPPDiscovery.NetworkStateChanged (IsConnected ());
+        UpdateMdns(IsConnected ());
     }
 
     // DEBUG_END;
@@ -329,6 +335,31 @@ void c_NetworkMgr::SetEthernetIsConnected (bool newState)
 
     // DEBUG_END;
 } // SetEthernetIsConnected
+
+//-----------------------------------------------------------------------------
+void c_NetworkMgr::UpdateMdns(bool NetworkIsUp)
+{
+    // DEBUG_START;
+
+    if(NetworkIsUp)
+    {
+        if (MDNS.begin(hostname))
+        {
+            // DEBUG_V("MDNS Started");
+            MDNS.addService("http", "tcp", 80);
+        }
+        else
+        {
+            logcon (F("Error setting up MDNS responder!"));
+            // RequestReboot(msg, 10000);
+        }
+    }
+    else
+    {
+        MDNS.end();
+    }
+    // DEBUG_END;
+}
 
 // create a global instance of the network manager
 c_NetworkMgr NetworkMgr;

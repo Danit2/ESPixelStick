@@ -267,7 +267,7 @@ public: struct __attribute__((__packed__, aligned(4))) CSD {
         #endif // def SIMULATE_SD
         uint64_t    size = 0;
         int         entryId = -1;
-        char        Filename[65];
+        String      Filename;
         FileMode    mode = FileMode::FileRead;
         bool        IsOpen = false;
         struct

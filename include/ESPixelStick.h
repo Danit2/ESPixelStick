@@ -106,7 +106,8 @@ extern void PrettyPrint(JsonDocument &jsonStuff, String Name);
 void inline SafeStrncpy(char* dest, const char* src, uint destSize)
 {
     memset(dest, 0x00, destSize);
-    strncpy(dest, src, destSize-1);
+    size_t cpyLen = min(destSize-1, strlen(src));
+    memcpy(dest, src, cpyLen);
 } // SafeStrncpy
 
 template <typename T, typename N>

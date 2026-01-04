@@ -379,7 +379,6 @@ uint32_t c_OutputRelay::Poll ()
     // DEBUG_START;
 
     uint8_t OutputDataIndex = 0;
-    uint8_t newOutputValue = 0;
 
     for (RelayChannel_t & currentRelay : OutputList)
     {

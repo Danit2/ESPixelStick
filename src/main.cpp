@@ -139,6 +139,18 @@ void TestHeap(uint32_t Id)
     LOG_PORT.println(String(" Heap After: ") + ESP.getFreeHeap());
 }
 
+#ifdef CREATE_APP_MAIN
+extern "C" void app_main()
+{
+    initArduino();
+    setup();
+    while (true)
+    {
+        loop();
+    }
+}
+#endif // def CREATE_APP_MAIN
+
 #ifdef ARDUINO_ARCH_ESP32
 void esp_alloc_failed_hook_callback(size_t requested_size, uint32_t caps, const char *function_name)
 {

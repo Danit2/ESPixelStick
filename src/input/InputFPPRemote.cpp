@@ -129,6 +129,7 @@ void c_InputFPPRemote::GetStatus (JsonObject& jsonStatus)
 
     else if (PlayingFile ())
     {
+        // DEBUG_V("Playing Local File");
         JsonObject PlayerObjectStatus = LocalPlayerStatus[StatusType].to<JsonObject> ();
         JsonWrite(PlayerObjectStatus, CN_count, FilePlayCount);
         if(pInputFPPRemotePlayItem)
@@ -356,6 +357,9 @@ bool c_InputFPPRemote::SetConfig (JsonObject& jsonConfig)
     // Clear outbuffer on config change
     OutputMgr.ClearBuffer();
 
+    // make sure any changes made get implemented.
+    StopPlaying();
+
     // DEBUG_END;
 
     return true;
@@ -427,7 +431,8 @@ void c_InputFPPRemote::StartPlaying (String& FileName, time_t ElapsedSeconds, bo
     {
         if(!IsInputChannelActive || IsBooting)
         {
-            // DEBUG_V("Not Starting");
+            // DEBUG_V(String("IsInputChannelActive: ") + String(IsInputChannelActive));
+            // DEBUG_V(String("           IsBooting: ") + String(IsBooting));
             break;
         }
 
@@ -440,9 +445,9 @@ void c_InputFPPRemote::StartPlaying (String& FileName, time_t ElapsedSeconds, bo
         // DEBUG_V (String("                 IsRemote: ")  + String(IsRemote));
         // DEBUG_V (String("ConfiguredLocalFileToPlay: ")  + String(ConfiguredLocalFileToPlay));
 
-        if (IsRemote && (FppSyncOverride || !ConfiguredLocalFileToPlay))
+        if (!ConfiguredLocalFileToPlay || (FppSyncOverride && ConfiguredLocalFileToPlay))
         {
-            if(FileName.equals(CN_No_LocalFileToPlay))
+            if(!ConfiguredLocalFileToPlay)
             {
                 FileName.clear();
             }
@@ -563,8 +568,11 @@ void c_InputFPPRemote::StartPlayingRemoteFile (String& FileName, time_t ElapsedS
             break;
         }
 
-        // DEBUG_V("StopPlaying");
-        StopPlaying ();
+        if(PlayingFile())
+        {
+            // DEBUG_V("StopPlaying");
+            StopPlaying ();
+        }
 
         // DEBUG_V ("Instantiate a new Remote FSEQ file player");
         if(pInputFPPRemotePlayItem)
@@ -572,7 +580,7 @@ void c_InputFPPRemote::StartPlayingRemoteFile (String& FileName, time_t ElapsedS
             // DEBUG_V ("Delete existing play item");
             DeAllocatePlayer();
         }
-        // DEBUG_V ("Start Local FSEQ file player");
+        // DEBUG_V ("Start Remote FSEQ file player");
         AllocatePlayer(c_InputFPPRemotePlayFile, GetInputChannelId ());
         // DEBUG_V(String("pInputFPPRemotePlayItem: 0x") + String(uint32_t(pInputFPPRemotePlayItem), HEX));
         pInputFPPRemotePlayItem->SetSyncOffsetMS (SyncOffsetMS);
@@ -611,7 +619,7 @@ bool c_InputFPPRemote::PlayingFile ()
 //-----------------------------------------------------------------------------
 bool c_InputFPPRemote::PlayingRemoteFile ()
 {
-    // DEBUG_START;
+    //xDEBUG_START;
 
     bool response = false;
 
@@ -619,19 +627,24 @@ bool c_InputFPPRemote::PlayingRemoteFile ()
     {
         if (!PlayingFile ())
         {
+            //xDEBUG_V("Not Playing a file of any kind.");
             break;
         }
 
-        if (!FppSyncOverride && !String(FileBeingPlayed).equals(CN_No_LocalFileToPlay))
+        //xDEBUG_V(String("     FppSyncOverride: ") + String(FppSyncOverride));
+        //xDEBUG_V(String("ConfiguredFileToPlay: '") + ConfiguredFileToPlay + "'");
+        if (!FppSyncOverride && !String(ConfiguredFileToPlay).equals(CN_No_LocalFileToPlay))
         {
+            //xDEBUG_V("Cant Play a remote file. Do Nothing");
             break;
         }
 
+        //xDEBUG_V("Playing a remote file");
         response = true;
 
     } while (false);
 
-    // DEBUG_END;
+    //xDEBUG_END;
     return response;
 
 } // PlayingRemoteFile
@@ -641,7 +654,7 @@ void c_InputFPPRemote::FppStopRemoteFilePlay ()
 {
     // DEBUG_START;
 
-    if(pInputFPPRemotePlayItem)
+    if(PlayingFile())
     {
         FilePlayCount = pInputFPPRemotePlayItem->GetPlayedFileCount();
     }

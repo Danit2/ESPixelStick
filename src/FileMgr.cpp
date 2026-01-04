@@ -152,6 +152,7 @@ c_FileMgr::c_FileMgr ()
     UnLockSd();
 #endif // def ARDUINO_ARCH_ESP32
     fsUploadFileName.reserve(256);
+    InitSdFileList ();
 } // c_FileMgr
 
 //-----------------------------------------------------------------------------
@@ -172,8 +173,6 @@ void c_FileMgr::Begin ()
 
     do // once
     {
-        InitSdFileList ();
-
         if (!LittleFS.begin ())
         {
             String msg = String(CN_stars) + F (" Flash file system did not initialize correctly ") + CN_stars;
@@ -181,13 +180,13 @@ void c_FileMgr::Begin ()
             break;
         }
 
-#ifdef ARDUINO_ARCH_ESP32
-            logcon (String (F ("Flash file system initialized. Used = ")) + String (LittleFS.usedBytes ()) + String (F (" out of ")) + String (LittleFS.totalBytes()) );
-#else
-            logcon (String (F ("Flash file system initialized.")));
-#endif // def ARDUINO_ARCH_ESP32
+        #ifdef ARDUINO_ARCH_ESP32
+        logcon (String (F ("Flash file system initialized. Used = ")) + String (LittleFS.usedBytes ()) + String (F (" out of ")) + String (LittleFS.totalBytes()) );
+        #else
+        logcon (String (F ("Flash file system initialized.")));
+        #endif // def ARDUINO_ARCH_ESP32
 
-            listDir (LittleFS, String ("/"), 3);
+        listDir (LittleFS, String ("/"), 3);
 
         // StartSdCard();
 
@@ -1074,6 +1073,7 @@ void c_FileMgr::InitSdFileList ()
     int index = 0;
     for (auto& currentFileListEntry : FileList)
     {
+        currentFileListEntry.Filename.reserve(256);
         currentFileListEntry.handle  = INVALID_FILE_HANDLE;
         currentFileListEntry.entryId = index++;
     }
@@ -1427,14 +1427,14 @@ bool c_FileMgr::OpenSdFile (const String & _FileName, FileMode Mode, FileId & Fi
         if (-1 != FileListIndex)
         {
             // DEBUG_V(String("Valid FileListIndex: ") + String(FileListIndex));
-            SafeStrncpy(FileList[FileListIndex].Filename, FileName.c_str(), sizeof(FileList[FileListIndex].Filename));
+            FileList[FileListIndex].Filename = FileName;
             // DEBUG_V(String("Got file handle: ") + String(FileHandle));
             LockSd();
             #ifdef SIMULATE_SD
             FileList[FileListIndex].fsFile = ESP_SDFS.open (FileName, &XlateFileMode[Mode]);
             FileList[FileListIndex].IsOpen = true;
             #else
-            FileList[FileListIndex].IsOpen = FileList[FileListIndex].fsFile.open(FileList[FileListIndex].Filename, XlateFileMode[Mode]);
+            FileList[FileListIndex].IsOpen = FileList[FileListIndex].fsFile.open(FileList[FileListIndex].Filename.c_str(), XlateFileMode[Mode]);
             #endif // def SIMULATE_SD
             UnLockSd();
 
@@ -2314,6 +2314,10 @@ bool c_FileMgr::handleFileUpload (
         delay(100);
         BuildFseqList(false);
 
+        OutputMgr.ClearBuffer();
+        OutputMgr.PauseOutputs(false);
+        InputMgr.SetOperationalState(false);
+
         // DEBUG_V(String("Expected: ") + String(totalLen));
         // DEBUG_V(String("     Got: ") + String(GetSdFileSize(fsUploadFileName)));
         if(IsCompressed(fsUploadFileName))
@@ -2368,6 +2372,9 @@ void c_FileMgr::handleFileUploadNewFile (const String & filename)
         FileList[FileListIndex].buffer.offset = 0;
         FileList[FileListIndex].buffer.size = min(uint32_t(OutputMgr.GetBufferSize() & ~(SD_BLOCK_SIZE - 1)), uint32_t(MAX_SD_BUFFER_SIZE));
         FileList[FileListIndex].buffer.DataBuffer = OutputMgr.GetBufferAddress();
+        OutputMgr.PauseOutputs(true);
+        InputMgr.SetOperationalState(false);
+        OutputMgr.ClearBuffer();
         // DEBUG_V(String("Buffer Size: ") + String(FileList[FileListIndex].buffer.size));
     }
 

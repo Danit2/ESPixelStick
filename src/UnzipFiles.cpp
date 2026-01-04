@@ -150,7 +150,7 @@ void UnzipFiles::ProcessZipFile(String & ArchiveFileName)
                     logcon (String(CN_stars) + F("Cannot unzip '") + FinalFileName + F("'. Not enough room on the SD card") + CN_stars);
                     break;
                 }
-                tmElements_t FileDate = {0};
+                tmElements_t FileDate = {0,0,0,0,0,0,0};
                 DosDateToTmuDate (fi.dosDate, &FileDate);
                 setTime(makeTime(FileDate));
                 FeedWDT();

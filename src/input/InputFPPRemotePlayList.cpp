@@ -88,15 +88,16 @@ void c_InputFPPRemotePlayList::Sync (String & FileName, float ElapsedSeconds)
 //-----------------------------------------------------------------------------
 bool c_InputFPPRemotePlayList::Poll ()
 {
-    // DEBUG_START;
+    //xDEBUG_START;
+
     bool Response = false;
     if(!InputIsPaused())
     {
-        // Show that we have received a poll
+        //xDEBUG_V("Show that we have received a poll");
         Response = pCurrentFsmState->Poll ();
     }
 
-    // xDEBUG_END;
+    //xDEBUG_END;
     return Response;
 
 } // Poll
@@ -111,6 +112,8 @@ void c_InputFPPRemotePlayList::GetStatus (JsonObject & jsonStatus)
     JsonWrite(jsonStatus, CN_count, PlayListRepeatCount);
 
     pCurrentFsmState->GetStatus (jsonStatus);
+
+    // PrettyPrint(jsonStatus, "fsm_PlayList_state_PlayingFile::GetStatus");
 
     // DEBUG_END;
 
@@ -131,6 +134,7 @@ void c_InputFPPRemotePlayList::ClearStatistics ()
 bool c_InputFPPRemotePlayList::ProcessPlayListEntry ()
 {
     // DEBUG_START;
+
     bool response = false;
 
     JsonDocument JsonPlayListDoc;
@@ -157,7 +161,7 @@ bool c_InputFPPRemotePlayList::ProcessPlayListEntry ()
 
         DeserializationError error = deserializeJson ((JsonPlayListDoc), (const String)FileData);
 
-        // DEBUG_V ("Error Check");
+        // DEBUG_V (String("Error Check: ") + error.c_str());
         if (error)
         {
             String CfgFileMessagePrefix = String (F ("SD file: '")) + FileControl[CurrentFile].FileName + "' ";
@@ -180,12 +184,12 @@ bool c_InputFPPRemotePlayList::ProcessPlayListEntry ()
             PlayListEntryId = 0;
         }
 
-        // DEBUG_V (String ("            PlayListEntryId: '") + String(PlayListEntryId) + "'");
+        // DEBUG_V (String ("            PlayListEntryId: ") + String(PlayListEntryId));
         JsonObject JsonPlayListArrayEntry = JsonPlayListArray[PlayListEntryId];
         // PrettyPrint (JsonPlayListArrayEntry, String ("PlayList Array Entry"));
 
-        // DEBUG_V (String ("       JsonPlayListDoc:size: '") + String (JsonPlayListDoc.size ()) + "'");
-        // DEBUG_V (String ("JsonPlayListArrayEntry:size: '") + String (JsonPlayListArrayEntry.size ()) + "'");
+        // DEBUG_V (String ("       JsonPlayListDoc:size: ") + String (JsonPlayListDoc.size ()));
+        // DEBUG_V (String ("JsonPlayListArrayEntry:size: ") + String (JsonPlayListArrayEntry.size ()));
         if ((0 == JsonPlayListArrayEntry.size ()))
         {
             // DEBUG_V ("Entry is empty. Do a Pause");
@@ -199,27 +203,29 @@ bool c_InputFPPRemotePlayList::ProcessPlayListEntry ()
 
         // next time process the next entry
         ++PlayListEntryId;
-        // DEBUG_V (String ("            PlayListEntryId: '") + String (PlayListEntryId) + "'");
 
         String PlayListEntryType;
         setFromJSON (PlayListEntryType, JsonPlayListArrayEntry, CN_type);
 
-        // DEBUG_V (String("PlayListEntryType: '") + PlayListEntryType + "'");
-
         String PlayListEntryName;
         setFromJSON (PlayListEntryName, JsonPlayListArrayEntry, CN_name);
 
-        if (String(CN_file) == PlayListEntryType)
+        // DEBUG_V (String ("            PlayListEntryId: ")  + String (PlayListEntryId));
+        // DEBUG_V (String("           PlayListEntryType: '") + PlayListEntryType + "'");
+        // DEBUG_V (String("           PlayListEntryName: '") + PlayListEntryName + "'");
+
+        if (PlayListEntryType.equals (CN_file))
         {
-            FrameId = 1;
+            FrameId = 0;
             PlayCount = 1;
             setFromJSON (PlayCount, JsonPlayListArrayEntry, CN_playcount);
-            // DEBUG_V (String ("PlayListEntryPlayCount: '") + String (FrameId) + "'");
+            // DEBUG_V (String ("                   PlayCount: ") + String (PlayCount));
+            // DEBUG_V (String ("                     FrameId: ") + String (FrameId));
 
             fsm_PlayList_state_PlayingFile_imp.Init (this);
         }
 
-        else if (String (CN_effect) == PlayListEntryType)
+        else if (PlayListEntryType.equals (CN_effect))
         {
             JsonObject EffectConfig = JsonPlayListArrayEntry[(char*)CN_config].to<JsonObject>();
             serializeJson (EffectConfig, PlayListEntryName);
@@ -230,16 +236,15 @@ bool c_InputFPPRemotePlayList::ProcessPlayListEntry ()
             fsm_PlayList_state_PlayingEffect_imp.Init (this);
         }
 
-        else if (String (F ("pause")) == PlayListEntryType)
+        else if (PlayListEntryType.equals (F ("pause")))
         {
             uint32_t PlayListEntryDuration = 0;
             setFromJSON (PlayListEntryDuration, JsonPlayListArrayEntry, CN_duration);
-            // DEBUG_V (String ("PlayListEntryDuration: '") + String (PlayListEntryDuration) + "'");
+            // DEBUG_V (String ("      PlayListEntryDuration: '") + String (PlayListEntryDuration) + "'");
             PauseDelayTimer.StartTimer(PlayListEntryDuration * 1000, false);
             // DEBUG_V (String ("         PauseEndTime: '") + String (PauseEndTime) + "'");
 
             fsm_PlayList_state_Paused_imp.Init (this);
-            response = true;
         }
 
         else
@@ -251,8 +256,7 @@ bool c_InputFPPRemotePlayList::ProcessPlayListEntry ()
             break;
         }
 
-        // DEBUG_V (String ("PlayListEntryName: '") + String (PlayListEntryName) + "'");
-        pCurrentFsmState->Start (PlayListEntryName, FrameId, PlayCount);
+        pCurrentFsmState->Start (PlayListEntryName, 0, PlayCount);
 
         response = true;
 

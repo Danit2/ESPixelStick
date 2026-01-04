@@ -23,6 +23,12 @@
 ;   https://docs.platformio.org/en/latest/projectconf/section_env.html
 ;
 
+; uncoment the below and add your AP credentials
+;[secrets]
+;build_flags =
+;    -D SECRETS_SSID='"yourssid"'
+;    -D SECRETS_PASS='"yourpassphrase"'
+
 ;[platformio]
 ;default_envs = espsv3
 
