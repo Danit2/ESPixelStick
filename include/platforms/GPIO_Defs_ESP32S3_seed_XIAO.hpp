@@ -23,15 +23,15 @@
 const OM_OutputPortDefinition_t OM_OutputPortDefinitions[] =
 {
     {OM_PortId_t(0), OM_PortType_t::OM_SERIAL, {gpio_num_t::GPIO_NUM_1}},
-    {OM_PortId_t(0), OM_PortType_t::OM_RELAY,  {gpio_num_t::GPIO_NUM_1}},
+    //{OM_PortId_t(0), OM_PortType_t::OM_RELAY,  {gpio_num_t::GPIO_NUM_1}},
     {OM_PortId_t(1), OM_PortType_t::OM_SERIAL, {gpio_num_t::GPIO_NUM_2}},
-    {OM_PortId_t(1), OM_PortType_t::OM_RELAY,  {gpio_num_t::GPIO_NUM_2}},
+    //{OM_PortId_t(1), OM_PortType_t::OM_RELAY,  {gpio_num_t::GPIO_NUM_2}},
     {OM_PortId_t(2), OM_PortType_t::OM_SERIAL, {gpio_num_t::GPIO_NUM_4}},
-    {OM_PortId_t(2), OM_PortType_t::OM_RELAY,  {gpio_num_t::GPIO_NUM_4}},
-    {OM_PortId_t(3), OM_PortType_t::OM_SERIAL, {gpio_num_t::GPIO_NUM_3}},
-    {OM_PortId_t(3), OM_PortType_t::OM_RELAY,  {gpio_num_t::GPIO_NUM_3}},
-    {OM_PortId_t(4), OM_PortType_t::OM_RELAY,  {gpio_num_t::GPIO_NUM_44}},
-    {OM_PortId_t(5), OM_PortType_t::OM_I2C,    {gpio_num_t::GPIO_NUM_5, gpio_num_t::GPIO_NUM_6}},
+    //{OM_PortId_t(2), OM_PortType_t::OM_RELAY,  {gpio_num_t::GPIO_NUM_4}},
+    //{OM_PortId_t(3), OM_PortType_t::OM_SERIAL, {gpio_num_t::GPIO_NUM_3}},
+    //{OM_PortId_t(3), OM_PortType_t::OM_RELAY,  {gpio_num_t::GPIO_NUM_3}},
+    //{OM_PortId_t(4), OM_PortType_t::OM_RELAY,  {gpio_num_t::GPIO_NUM_44}},
+    //{OM_PortId_t(5), OM_PortType_t::OM_I2C,    {gpio_num_t::GPIO_NUM_5, gpio_num_t::GPIO_NUM_6}},
 };
 
 // File Manager
@@ -48,17 +48,17 @@ const OM_OutputPortDefinition_t OM_OutputPortDefinitions[] =
 // Output Types
 // Not Finished - #define SUPPORT_OutputProtocol_TLS3001
 // #define SUPPORT_OutputProtocol_APA102           // OM_SPI
-#define SUPPORT_OutputProtocol_DMX              // OM_SERIAL
-#define SUPPORT_OutputProtocol_GECE             // OM_SERIAL
-#define SUPPORT_OutputProtocol_GS8208           // OM_SERIAL
-#define SUPPORT_OutputProtocol_Renard           // OM_SERIAL
-#define SUPPORT_OutputProtocol_Serial           // OM_SERIAL
-#define SUPPORT_OutputProtocol_TM1814           // OM_SERIAL
-#define SUPPORT_OutputProtocol_UCS1903          // OM_SERIAL
-#define SUPPORT_OutputProtocol_UCS8903          // OM_SERIAL
+//#define SUPPORT_OutputProtocol_DMX              // OM_SERIAL
+//#define SUPPORT_OutputProtocol_GECE             // OM_SERIAL
+//#define SUPPORT_OutputProtocol_GS8208           // OM_SERIAL
+//#define SUPPORT_OutputProtocol_Renard           // OM_SERIAL
+//#define SUPPORT_OutputProtocol_Serial           // OM_SERIAL
+//#define SUPPORT_OutputProtocol_TM1814           // OM_SERIAL
+//#define SUPPORT_OutputProtocol_UCS1903          // OM_SERIAL
+//#define SUPPORT_OutputProtocol_UCS8903          // OM_SERIAL
 // #define SUPPORT_OutputProtocol_WS2801           // OM_SPI
 #define SUPPORT_OutputProtocol_WS2811           // OM_SERIAL
-#define SUPPORT_OutputProtocol_Relay            // OM_RELAY
-#define SUPPORT_OutputProtocol_Servo_PCA9685    // OM_I2C
-#define SUPPORT_OutputProtocol_FireGod          // OM_SERIAL
+//#define SUPPORT_OutputProtocol_Relay            // OM_RELAY
+//#define SUPPORT_OutputProtocol_Servo_PCA9685    // OM_I2C
+//#define SUPPORT_OutputProtocol_FireGod          // OM_SERIAL
 // #define SUPPORT_OutputProtocol_GRINCH           // OM_SPI
