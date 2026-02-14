@@ -41,6 +41,10 @@ const OM_OutputPortDefinition_t OM_OutputPortDefinitions[] =
 #define SD_CARD_CLK_PIN         gpio_num_t::GPIO_NUM_7
 #define SD_CARD_CS_PIN          gpio_num_t::GPIO_NUM_43
 
+// Special settings for the ESP32S3 Processors
+#define DEFAULT_CONSOLE_TX_GPIO GPIO_NUM_NC
+#define DEFAULT_CONSOLE_RX_GPIO GPIO_NUM_NC
+
 // Output Types
 // Not Finished - #define SUPPORT_OutputProtocol_TLS3001
 // #define SUPPORT_OutputProtocol_APA102           // OM_SPI
