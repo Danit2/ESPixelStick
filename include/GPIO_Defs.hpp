@@ -29,7 +29,7 @@
     #elif  CONFIG_IDF_TARGET_ESP32S2
         #define DEFAULT_SPI_DEVICE      HSPI_HOST
     #elif  CONFIG_IDF_TARGET_ESP32S3
-        #define DEFAULT_SPI_DEVICE      HSPI_HOST
+        #define DEFAULT_SPI_DEVICE      VSPI_HOST
     #else
         #define DEFAULT_SPI_DEVICE      spi_host_device_t::SPI3_HOST
     #endif
