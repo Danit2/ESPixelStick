@@ -136,9 +136,8 @@ public:
         #endif // def SUPPORT_OutputProtocol_FireGod
 
         // Add new types here
-        OutputType_End, // must be last
-        OutputType_Start = OutputType_Disabled,
     };
+uint32_t OutputType_End = uint32_t(-1);
 
 #ifdef ARDUINO_ARCH_ESP8266
 #   define OM_MAX_NUM_CHANNELS  (1200 * 3)
