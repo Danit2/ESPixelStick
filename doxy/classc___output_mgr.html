@@ -101,6 +101,7 @@ $(function(){initNavTree('classc___output_mgr.html',''); initResizable(true); })
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classc___output_mgr-members.html">List of all members</a>  </div>
@@ -132,8 +133,6 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a3dec27ef1775dc596e2ce87038b692ce" id="r_a3dec27ef1775dc596e2ce87038b692ce"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3dec27ef1775dc596e2ce87038b692ce">e_OutputProtocolType</a> { <a class="el" href="#a3dec27ef1775dc596e2ce87038b692cea0e3696fb135fb8df5fce3e953c064f98">OutputProtocol_Disabled</a> = 0
-, <a class="el" href="#a3dec27ef1775dc596e2ce87038b692cead973ad34c41f164f1234fb37e1b18f0a">OutputType_End</a>
-, <a class="el" href="#a3dec27ef1775dc596e2ce87038b692ceab1c3d373c033fb536571a85621f09a5f">OutputType_Start</a> = OutputType_Disabled
  }</td></tr>
 <tr class="separator:a3dec27ef1775dc596e2ce87038b692ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a970adc830ccb78bebef75d526c515cc9" id="r_a970adc830ccb78bebef75d526c515cc9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a970adc830ccb78bebef75d526c515cc9">OM_PortType_t</a> { <br />
@@ -210,6 +209,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9ada6e65bb85cf170a0edd014b7046be" id="r_a9ada6e65bb85cf170a0edd014b7046be"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ada6e65bb85cf170a0edd014b7046be">GetDriverSize</a> ()</td></tr>
 <tr class="separator:a9ada6e65bb85cf170a0edd014b7046be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:abbad6df24191cc99877a8885332b0767" id="r_abbad6df24191cc99877a8885332b0767"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbad6df24191cc99877a8885332b0767">OutputType_End</a> = uint32_t(-1)</td></tr>
+<tr class="separator:abbad6df24191cc99877a8885332b0767"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a33b3e6588cc7639555d7e91b59378540" id="r_a33b3e6588cc7639555d7e91b59378540"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33b3e6588cc7639555d7e91b59378540">ProcessJsonConfig</a> (JsonDocument &amp;jsonConfig)</td></tr>
@@ -272,8 +276,6 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3dec27ef1775dc596e2ce87038b692cea0e3696fb135fb8df5fce3e953c064f98" name="a3dec27ef1775dc596e2ce87038b692cea0e3696fb135fb8df5fce3e953c064f98"></a>OutputProtocol_Disabled&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a3dec27ef1775dc596e2ce87038b692cead973ad34c41f164f1234fb37e1b18f0a" name="a3dec27ef1775dc596e2ce87038b692cead973ad34c41f164f1234fb37e1b18f0a"></a>OutputType_End&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a3dec27ef1775dc596e2ce87038b692ceab1c3d373c033fb536571a85621f09a5f" name="a3dec27ef1775dc596e2ce87038b692ceab1c3d373c033fb536571a85621f09a5f"></a>OutputType_Start&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -3323,6 +3325,20 @@ Here is the caller graph for this function:</div>
 <span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abbad6df24191cc99877a8885332b0767" name="abbad6df24191cc99877a8885332b0767"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbad6df24191cc99877a8885332b0767">&#9670;&#160;</a></span>OutputType_End</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t c_OutputMgr::OutputType_End = uint32_t(-1)</td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>

@@ -15,7 +15,5 @@ var searchData=
   ['output_5fuart_5f7n2_12',['OUTPUT_UART_7N2',['../classc___output_uart.html#ac5008115d6de16c6b67ee1c46c3d9205a5de601a066990517aa87894e7445f2f3',1,'c_OutputUart']]],
   ['output_5fuart_5f8n1_13',['OUTPUT_UART_8N1',['../classc___output_uart.html#ac5008115d6de16c6b67ee1c46c3d9205a1890384a51dd3392f08699d6a29de7f1',1,'c_OutputUart']]],
   ['output_5fuart_5f8n2_14',['OUTPUT_UART_8N2',['../classc___output_uart.html#ac5008115d6de16c6b67ee1c46c3d9205ad57bcbb58a74055b40ff18f2bc27cef9',1,'c_OutputUart']]],
-  ['outputprotocol_5fdisabled_15',['OutputProtocol_Disabled',['../classc___output_mgr.html#a3dec27ef1775dc596e2ce87038b692cea0e3696fb135fb8df5fce3e953c064f98',1,'c_OutputMgr']]],
-  ['outputtype_5fend_16',['OutputType_End',['../classc___output_mgr.html#a3dec27ef1775dc596e2ce87038b692cead973ad34c41f164f1234fb37e1b18f0a',1,'c_OutputMgr']]],
-  ['outputtype_5fstart_17',['OutputType_Start',['../classc___output_mgr.html#a3dec27ef1775dc596e2ce87038b692ceab1c3d373c033fb536571a85621f09a5f',1,'c_OutputMgr']]]
+  ['outputprotocol_5fdisabled_15',['OutputProtocol_Disabled',['../classc___output_mgr.html#a3dec27ef1775dc596e2ce87038b692cea0e3696fb135fb8df5fce3e953c064f98',1,'c_OutputMgr']]]
 ];
