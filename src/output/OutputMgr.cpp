@@ -158,19 +158,8 @@ c_OutputMgr::c_OutputMgr ()
     ConfigFileName = String ("/") + String (CN_output_config) + CN_Dotjson;
 
     // clear the input data buffer
-<<<<<<< HEAD
-    pOutputBuffer = (uint8_t*)malloc(GetBufferSize() + 1);
-    memset (pOutputBuffer, 0, GetBufferSize());
-
-    uint32_t SizeOfProtocolEntry = uint32_t(&SupportedOutputProtocolList[1]) - uint32_t(&SupportedOutputProtocolList[0]);
-    OutputType_End = uint32_t(sizeof(SupportedOutputProtocolList)) / SizeOfProtocolEntry;
-
-    // find the highest numbered output
-    for(auto & CurrentOutputPortDefinition : OM_OutputPortDefinitions)
-=======
     memset ((char*)&OutputBuffer[0], 0, sizeof (OutputBuffer));
     for (DriverInfo_t & CurrentOutput : OutputChannelDrivers)
->>>>>>> parent of eb5c9e2b (moved the output buffer out of the BSS section to resolve a bss size issue in some of the platform builds.)
     {
         if(CurrentOutputPortDefinition.PortId > NumOutputPorts)
         {
@@ -289,12 +278,8 @@ void c_OutputMgr::Begin ()
         // CreateNewConfig();
 
         // Preset the output memory
-<<<<<<< HEAD
-        ClearBuffer();
-=======
         memset((void*)&OutputBuffer[0], 0x00, sizeof(OutputBuffer));
 
->>>>>>> parent of eb5c9e2b (moved the output buffer out of the BSS section to resolve a bss size issue in some of the platform builds.)
     } while (false);
 
     // DEBUG_END;
@@ -1487,11 +1472,7 @@ void c_OutputMgr::UpdateDisplayBufferReferences (void)
 
         CurrentOutput.OutputBufferStartingOffset = OutputBufferOffset;
         CurrentOutput.OutputChannelStartingOffset = OutputChannelOffset;
-<<<<<<< HEAD
-        ((c_OutputCommon&)(CurrentOutput.OutputDriver)).SetOutputBufferAddress(pOutputBuffer + OutputBufferOffset);
-=======
         ((c_OutputCommon*)CurrentOutput.OutputDriver)->SetOutputBufferAddress(&OutputBuffer[OutputBufferOffset]);
->>>>>>> parent of eb5c9e2b (moved the output buffer out of the BSS section to resolve a bss size issue in some of the platform builds.)
 
         uint32_t OutputBufferDataBytesNeeded        = ((c_OutputCommon&)(CurrentOutput.OutputDriver)).GetNumOutputBufferBytesNeeded ();
         uint32_t VirtualOutputBufferDataBytesNeeded = ((c_OutputCommon&)(CurrentOutput.OutputDriver)).GetNumOutputBufferChannelsServiced ();
