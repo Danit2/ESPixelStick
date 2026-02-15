@@ -158,6 +158,12 @@ c_OutputMgr::c_OutputMgr ()
     ConfigFileName = String ("/") + String (CN_output_config) + CN_Dotjson;
 
     // clear the input data buffer
+
+    uint32_t SizeOfProtocolEntry = uint32_t(&SupportedOutputProtocolList[1]) - uint32_t(&SupportedOutputProtocolList[0]);
+    OutputType_End = uint32_t(sizeof(SupportedOutputProtocolList)) / SizeOfProtocolEntry;
+
+    // find the highest numbered output
+    for(auto & CurrentOutputPortDefinition : OM_OutputPortDefinitions)
     memset ((char*)&OutputBuffer[0], 0, sizeof (OutputBuffer));
     for (DriverInfo_t & CurrentOutput : OutputChannelDrivers)
     {
@@ -278,6 +284,7 @@ void c_OutputMgr::Begin ()
         // CreateNewConfig();
 
         // Preset the output memory
+        ClearBuffer();
         memset((void*)&OutputBuffer[0], 0x00, sizeof(OutputBuffer));
 
     } while (false);
@@ -1472,7 +1479,7 @@ void c_OutputMgr::UpdateDisplayBufferReferences (void)
 
         CurrentOutput.OutputBufferStartingOffset = OutputBufferOffset;
         CurrentOutput.OutputChannelStartingOffset = OutputChannelOffset;
-        ((c_OutputCommon*)CurrentOutput.OutputDriver)->SetOutputBufferAddress(&OutputBuffer[OutputBufferOffset]);
+        ((c_OutputCommon&)(CurrentOutput.OutputDriver)).SetOutputBufferAddress(pOutputBuffer + OutputBufferOffset);
 
         uint32_t OutputBufferDataBytesNeeded        = ((c_OutputCommon&)(CurrentOutput.OutputDriver)).GetNumOutputBufferBytesNeeded ();
         uint32_t VirtualOutputBufferDataBytesNeeded = ((c_OutputCommon&)(CurrentOutput.OutputDriver)).GetNumOutputBufferChannelsServiced ();
