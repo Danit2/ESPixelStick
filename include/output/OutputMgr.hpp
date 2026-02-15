@@ -154,7 +154,6 @@ public:
         Relay,
         Undefined
     };
-    uint32_t OutputType_End = uint32_t(-1);
 
     // must be 16 byte aligned. Determined by upshifting the max size of all drivers
     #define OutputDriverMemorySize 1200
