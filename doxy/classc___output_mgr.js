@@ -56,7 +56,6 @@ var classc___output_mgr =
     [ "NumOutputPorts", "classc___output_mgr.html#a58a51be534451fb96d35c3281bf68ff0", null ],
     [ "OutputBuffer", "classc___output_mgr.html#a5f00159a5326bf76a2c3be9fc387b340", null ],
     [ "OutputIsPaused", "classc___output_mgr.html#affde0fc6a806f815ee874e5cb3d24a03", null ],
-    [ "OutputType_End", "classc___output_mgr.html#abbad6df24191cc99877a8885332b0767", null ],
     [ "pOutputChannelDrivers", "classc___output_mgr.html#aaacf05b73ebdb85157dd3d691ced89e1", null ],
     [ "SizeOfTable", "classc___output_mgr.html#a0910e3aaedd527a8eef53ffd9f2a81e8", null ],
     [ "UsedBufferSize", "classc___output_mgr.html#a5484318ee435976c6ab5b9b2c32e53da", null ]
