@@ -3,7 +3,7 @@ var classc___output_mgr =
     [ "DriverInfo_t", "structc___output_mgr_1_1_driver_info__t.html", "structc___output_mgr_1_1_driver_info__t" ],
     [ "e_OutputProtocolType", "classc___output_mgr.html#a3dec27ef1775dc596e2ce87038b692ce", [
       [ "OutputProtocol_Disabled", "classc___output_mgr.html#a3dec27ef1775dc596e2ce87038b692cea0e3696fb135fb8df5fce3e953c064f98", null ],
-      [ "HEAD", "classc___output_mgr.html#a3dec27ef1775dc596e2ce87038b692cea2370f9c7ae54373af3eb7d55faf110fa", null ],
+      [ "OutputType_End", "classc___output_mgr.html#a3dec27ef1775dc596e2ce87038b692cead973ad34c41f164f1234fb37e1b18f0a", null ],
       [ "OutputType_Start", "classc___output_mgr.html#a3dec27ef1775dc596e2ce87038b692ceab1c3d373c033fb536571a85621f09a5f", null ]
     ] ],
     [ "OM_PortType_t", "classc___output_mgr.html#a970adc830ccb78bebef75d526c515cc9", [
@@ -11,7 +11,7 @@ var classc___output_mgr =
       [ "Rmt", "classc___output_mgr.html#a970adc830ccb78bebef75d526c515cc9afb1a932142103c9fcad347c899382cbf", null ],
       [ "Spi", "classc___output_mgr.html#a970adc830ccb78bebef75d526c515cc9a67150b88c1fa1742ea618da86b829a7a", null ],
       [ "Relay", "classc___output_mgr.html#a970adc830ccb78bebef75d526c515cc9ac572c651ab04a645468cef2d7510045e", null ],
-      [ "eb5c9e2b", "classc___output_mgr.html#a970adc830ccb78bebef75d526c515cc9a4d17134ae7c11b3ff294897119588cb2", null ]
+      [ "Undefined", "classc___output_mgr.html#a970adc830ccb78bebef75d526c515cc9a17e6bd48a93211095b0f0b6ba780a092", null ]
     ] ],
     [ "c_OutputMgr", "classc___output_mgr.html#a3785b017fd1890570afd8c1054095b41", null ],
     [ "~c_OutputMgr", "classc___output_mgr.html#a53b2aa00d678f200c871af2db1d44b01", null ],
@@ -21,15 +21,16 @@ var classc___output_mgr =
     [ "CreateJsonConfig", "classc___output_mgr.html#a1e460ab7d570adbbb53dd0e4c6651f6d", null ],
     [ "CreateNewConfig", "classc___output_mgr.html#adc248025f3eafeac3261994673ce96d0", null ],
     [ "DeleteConfig", "classc___output_mgr.html#a697acb245b061406959eacd968eb74d7", null ],
-    [ "eb5c9e2b", "classc___output_mgr.html#a5ad0e326166dfc76e9409ca9152b1db5", null ],
-    [ "eb5c9e2b", "classc___output_mgr.html#a8d19f55a9678ecd003c946ef22818a6b", null ],
     [ "FindJsonChannelConfig", "classc___output_mgr.html#a33e2ed6b4463a8ed5cb5658d28f59240", null ],
+    [ "GetBufferAddress", "classc___output_mgr.html#aec62685e8fb4eff73bfefd3ed5321b01", null ],
     [ "GetBufferSize", "classc___output_mgr.html#abc896c708fce43b559a42ba4e67c9976", null ],
+    [ "GetBufferUsedSize", "classc___output_mgr.html#a9aa129dd6077ad48f807aaab43f67c52", null ],
     [ "GetConfig", "classc___output_mgr.html#a520a6f7c6d810b254b71f3712d6f9710", null ],
     [ "GetConfig", "classc___output_mgr.html#a19d05a4eb3324331a50f31797639654f", null ],
     [ "GetDriverName", "classc___output_mgr.html#a17aadd243f3259a99b320652ab624d07", null ],
     [ "GetDriverSize", "classc___output_mgr.html#a9ada6e65bb85cf170a0edd014b7046be", null ],
     [ "GetNumPorts", "classc___output_mgr.html#a861cf67886d1b3eccab0efc061e89963", null ],
+    [ "GetPortCounts", "classc___output_mgr.html#a37df24ad4fc6541891e76e7906255b2d", null ],
     [ "GetStatus", "classc___output_mgr.html#a56f81964a988693f278fd65cf43277c6", null ],
     [ "InstantiateNewOutputChannel", "classc___output_mgr.html#a7f11cdb7957ceba01ff6081016afc794", null ],
     [ "LoadConfig", "classc___output_mgr.html#a18f0345656b0c2795b7c925f6d797761", null ],
@@ -54,8 +55,9 @@ var classc___output_mgr =
     [ "ConsoleTxGpio", "classc___output_mgr.html#ac9701b8ceebd130258b2bc0a4a53d02d", null ],
     [ "HasBeenInitialized", "classc___output_mgr.html#aff2c5504636afdba4780a62c204969fb", null ],
     [ "NumOutputPorts", "classc___output_mgr.html#a58a51be534451fb96d35c3281bf68ff0", null ],
+    [ "OutputBuffer", "classc___output_mgr.html#a5f00159a5326bf76a2c3be9fc387b340", null ],
     [ "OutputIsPaused", "classc___output_mgr.html#affde0fc6a806f815ee874e5cb3d24a03", null ],
-    [ "OutputType_End", "classc___output_mgr.html#abbad6df24191cc99877a8885332b0767", null ],
     [ "pOutputChannelDrivers", "classc___output_mgr.html#aaacf05b73ebdb85157dd3d691ced89e1", null ],
-    [ "SizeOfTable", "classc___output_mgr.html#a0910e3aaedd527a8eef53ffd9f2a81e8", null ]
+    [ "SizeOfTable", "classc___output_mgr.html#a0910e3aaedd527a8eef53ffd9f2a81e8", null ],
+    [ "UsedBufferSize", "classc___output_mgr.html#a5484318ee435976c6ab5b9b2c32e53da", null ]
 ];
