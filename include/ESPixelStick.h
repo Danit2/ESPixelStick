@@ -103,11 +103,25 @@ extern void PrettyPrint (JsonObject& jsonStuff, String Name);
 extern void PrettyPrint (JsonArray& jsonStuff, String Name);
 extern void PrettyPrint(JsonDocument &jsonStuff, String Name);
 
-void inline SafeStrncpy(char* dest, const char* src, uint destSize)
+void inline SafeStrncpy(char* dest, const char* src, size_t destSize)
 {
-    memset(dest, 0x00, destSize);
-    size_t cpyLen = min(destSize-1, strlen(src));
-    memcpy(dest, src, cpyLen);
+    if (!dest) {
+        Serial.println("SafeStrncpy: dest NULL!");
+        return;
+    }
+
+    if (!src) {
+        Serial.println("SafeStrncpy: src NULL!");
+        return;
+    }
+
+    if (destSize == 0) {
+        Serial.println("SafeStrncpy: size 0!");
+        return;
+    }
+
+    strncpy(dest, src, destSize - 1);
+    dest[destSize - 1] = '\0';
 } // SafeStrncpy
 
 template <typename T, typename N>
