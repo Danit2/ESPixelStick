@@ -105,7 +105,7 @@ $(function(){initNavTree('classc___output_mgr.html',''); initResizable(true); })
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classc___output_mgr-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">c_OutputMgr Class Reference</div></div>
+  <div class="headertitle"><div class="title">c_OutputMgr Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -133,8 +133,20 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a3dec27ef1775dc596e2ce87038b692ce" id="r_a3dec27ef1775dc596e2ce87038b692ce"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3dec27ef1775dc596e2ce87038b692ce">e_OutputProtocolType</a> { <a class="el" href="#a3dec27ef1775dc596e2ce87038b692cea0e3696fb135fb8df5fce3e953c064f98">OutputProtocol_Disabled</a> = 0
+, <a class="el" href="#a3dec27ef1775dc596e2ce87038b692cea2370f9c7ae54373af3eb7d55faf110fa">HEAD</a>
+, <a class="el" href="#a3dec27ef1775dc596e2ce87038b692ceab1c3d373c033fb536571a85621f09a5f">OutputType_Start</a> = OutputType_Disabled
  }</td></tr>
 <tr class="separator:a3dec27ef1775dc596e2ce87038b692ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a970adc830ccb78bebef75d526c515cc9" id="r_a970adc830ccb78bebef75d526c515cc9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a970adc830ccb78bebef75d526c515cc9">OM_PortType_t</a> { <br />
+&#160;&#160;<a class="el" href="#a970adc830ccb78bebef75d526c515cc9a0d7d932dc2c4279872b476c6ada24d3f">Uart</a> = 0
+, <a class="el" href="#a970adc830ccb78bebef75d526c515cc9afb1a932142103c9fcad347c899382cbf">Rmt</a>
+, <a class="el" href="#a970adc830ccb78bebef75d526c515cc9a67150b88c1fa1742ea618da86b829a7a">Spi</a>
+, <a class="el" href="#a970adc830ccb78bebef75d526c515cc9ac572c651ab04a645468cef2d7510045e">Relay</a>
+, <br />
+&#160;&#160;<a class="el" href="#a970adc830ccb78bebef75d526c515cc9a4d17134ae7c11b3ff294897119588cb2">eb5c9e2b</a> =(moved the output buffer out of the BSS section to resolve a bss size issue in some of the platform builds.)
+<br />
+ }</td></tr>
+<tr class="separator:a970adc830ccb78bebef75d526c515cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -167,12 +179,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aee5d29f91c6457ce753d855ba471f315"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56f81964a988693f278fd65cf43277c6" id="r_a56f81964a988693f278fd65cf43277c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56f81964a988693f278fd65cf43277c6">GetStatus</a> (JsonObject &amp;jsonStatus)</td></tr>
 <tr class="separator:a56f81964a988693f278fd65cf43277c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec62685e8fb4eff73bfefd3ed5321b01" id="r_aec62685e8fb4eff73bfefd3ed5321b01"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec62685e8fb4eff73bfefd3ed5321b01">GetBufferAddress</a> ()</td></tr>
-<tr class="memdesc:aec62685e8fb4eff73bfefd3ed5321b01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the address of the buffer into which the E1.31 handler will stuff data.  <br /></td></tr>
-<tr class="separator:aec62685e8fb4eff73bfefd3ed5321b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9aa129dd6077ad48f807aaab43f67c52" id="r_a9aa129dd6077ad48f807aaab43f67c52"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9aa129dd6077ad48f807aaab43f67c52">GetBufferUsedSize</a> ()</td></tr>
-<tr class="memdesc:a9aa129dd6077ad48f807aaab43f67c52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data.  <br /></td></tr>
-<tr class="separator:a9aa129dd6077ad48f807aaab43f67c52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ad0e326166dfc76e9409ca9152b1db5" id="r_a5ad0e326166dfc76e9409ca9152b1db5"><td class="memItemLeft" align="right" valign="top">&lt;&lt;&lt;&lt;&lt;&lt;&lt; <a class="el" href="#a3dec27ef1775dc596e2ce87038b692cea2370f9c7ae54373af3eb7d55faf110fa">HEAD</a> uint8_t *GetBufferAddress() { return pOutputBuffer;}=======void GetPortCounts(uint16_t &amp;PixelCount, uint16_t &amp;SerialCount) {PixelCount=uint16_t(OutputChannelId_End);SerialCount=uint16_t(<a class="el" href="_output_mgr_8hpp.html#a8309e50d2ad7393eda0b9b3dccb273b0">NUM_UARTS</a>);} uint8_t *GetBufferAddress() { return OutputBuffer;} &gt; &gt; &gt; &gt; &gt; &gt; parent of&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ad0e326166dfc76e9409ca9152b1db5">eb5c9e2b</a> (moved the output buffer out of the BSS section to resolve a bss <a class="el" href="_e_f_update_8h.html#ab2c6b258f02add8fdf4cfc7c371dd772">size</a> issue in some of the platform builds.) uint32_t GetBufferUsedSize()</td></tr>
+<tr class="memdesc:a5ad0e326166dfc76e9409ca9152b1db5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data.  <br /></td></tr>
+<tr class="separator:a5ad0e326166dfc76e9409ca9152b1db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc896c708fce43b559a42ba4e67c9976" id="r_abc896c708fce43b559a42ba4e67c9976"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc896c708fce43b559a42ba4e67c9976">GetBufferSize</a> ()</td></tr>
 <tr class="memdesc:abc896c708fce43b559a42ba4e67c9976"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data.  <br /></td></tr>
 <tr class="separator:abc896c708fce43b559a42ba4e67c9976"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -222,6 +231,8 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a33e2ed6b4463a8ed5cb5658d28f59240"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f037f089c20467b3f86841b46e1f60b" id="r_a5f037f089c20467b3f86841b46e1f60b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f037f089c20467b3f86841b46e1f60b">SetPortDefnitionDefaults</a> (<a class="el" href="structc___output_mgr_1_1_driver_info__t.html">DriverInfo_t</a> &amp;CurrentOutput, <a class="el" href="#a3dec27ef1775dc596e2ce87038b692ce">e_OutputProtocolType</a> TargetProtocolType)</td></tr>
 <tr class="separator:a5f037f089c20467b3f86841b46e1f60b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d19f55a9678ecd003c946ef22818a6b" id="r_a8d19f55a9678ecd003c946ef22818a6b"><td class="memItemLeft" align="right" valign="top">&lt;&lt;&lt;&lt;&lt;&lt;&lt; <a class="el" href="#a3dec27ef1775dc596e2ce87038b692cea2370f9c7ae54373af3eb7d55faf110fa">HEAD</a> uint8_t *pOutputBuffer=nullptr;=======uint8_t OutputBuffer[<a class="el" href="_output_mgr_8hpp.html#a2950110c970b04d476d45273635a5d85">OM_MAX_NUM_CHANNELS</a>];&gt; &gt; &gt; &gt; &gt; &gt; parent of&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d19f55a9678ecd003c946ef22818a6b">eb5c9e2b</a> (moved the output buffer out of the BSS section to resolve a bss <a class="el" href="_e_f_update_8h.html#ab2c6b258f02add8fdf4cfc7c371dd772">size</a> issue in some of the platform builds.) uint32_t UsedBufferSize=0</td></tr>
+<tr class="separator:a8d19f55a9678ecd003c946ef22818a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -243,10 +254,6 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a7b94e1a3bb3211dea24dbaf74caf6bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4c32186cb120fd92fc9075cfc9bfa13" id="r_ae4c32186cb120fd92fc9075cfc9bfa13"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4c32186cb120fd92fc9075cfc9bfa13">ConfigFileName</a></td></tr>
 <tr class="separator:ae4c32186cb120fd92fc9075cfc9bfa13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a068bba05c9c35db7db26d5516c904f9e" id="r_a068bba05c9c35db7db26d5516c904f9e"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a068bba05c9c35db7db26d5516c904f9e">pOutputBuffer</a> = nullptr</td></tr>
-<tr class="separator:a068bba05c9c35db7db26d5516c904f9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5484318ee435976c6ab5b9b2c32e53da" id="r_a5484318ee435976c6ab5b9b2c32e53da"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5484318ee435976c6ab5b9b2c32e53da">UsedBufferSize</a> = 0</td></tr>
-<tr class="separator:a5484318ee435976c6ab5b9b2c32e53da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9701b8ceebd130258b2bc0a4a53d02d" id="r_ac9701b8ceebd130258b2bc0a4a53d02d"><td class="memItemLeft" align="right" valign="top">gpio_num_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9701b8ceebd130258b2bc0a4a53d02d">ConsoleTxGpio</a> = <a class="el" href="_output_mgr_8hpp.html#a6dc4c220baec42d8411386cda27ceae4">DEFAULT_CONSOLE_TX_GPIO</a></td></tr>
 <tr class="separator:ac9701b8ceebd130258b2bc0a4a53d02d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1eba5f048cc784124d29208565a71511" id="r_a1eba5f048cc784124d29208565a71511"><td class="memItemLeft" align="right" valign="top">gpio_num_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1eba5f048cc784124d29208565a71511">ConsoleRxGpio</a> = <a class="el" href="_output_mgr_8hpp.html#a412688b6020bceb2940c433f7924f79e">DEFAULT_CONSOLE_RX_GPIO</a></td></tr>
@@ -266,6 +273,29 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3dec27ef1775dc596e2ce87038b692cea0e3696fb135fb8df5fce3e953c064f98" name="a3dec27ef1775dc596e2ce87038b692cea0e3696fb135fb8df5fce3e953c064f98"></a>OutputProtocol_Disabled&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3dec27ef1775dc596e2ce87038b692cea2370f9c7ae54373af3eb7d55faf110fa" name="a3dec27ef1775dc596e2ce87038b692cea2370f9c7ae54373af3eb7d55faf110fa"></a>HEAD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3dec27ef1775dc596e2ce87038b692ceab1c3d373c033fb536571a85621f09a5f" name="a3dec27ef1775dc596e2ce87038b692ceab1c3d373c033fb536571a85621f09a5f"></a>OutputType_Start&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a970adc830ccb78bebef75d526c515cc9" name="a970adc830ccb78bebef75d526c515cc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a970adc830ccb78bebef75d526c515cc9">&#9670;&#160;</a></span>OM_PortType_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a970adc830ccb78bebef75d526c515cc9">c_OutputMgr::OM_PortType_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a970adc830ccb78bebef75d526c515cc9a0d7d932dc2c4279872b476c6ada24d3f" name="a970adc830ccb78bebef75d526c515cc9a0d7d932dc2c4279872b476c6ada24d3f"></a>Uart&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a970adc830ccb78bebef75d526c515cc9afb1a932142103c9fcad347c899382cbf" name="a970adc830ccb78bebef75d526c515cc9afb1a932142103c9fcad347c899382cbf"></a>Rmt&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a970adc830ccb78bebef75d526c515cc9a67150b88c1fa1742ea618da86b829a7a" name="a970adc830ccb78bebef75d526c515cc9a67150b88c1fa1742ea618da86b829a7a"></a>Spi&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a970adc830ccb78bebef75d526c515cc9ac572c651ab04a645468cef2d7510045e" name="a970adc830ccb78bebef75d526c515cc9ac572c651ab04a645468cef2d7510045e"></a>Relay&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a970adc830ccb78bebef75d526c515cc9a4d17134ae7c11b3ff294897119588cb2" name="a970adc830ccb78bebef75d526c515cc9a4d17134ae7c11b3ff294897119588cb2"></a>eb5c9e2b&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -350,51 +380,48 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classc___output_mgr_a90fb3f0faa9e11adcade9b0aee1525f3_cgraph.png" border="0" usemap="#aclassc___output_mgr_a90fb3f0faa9e11adcade9b0aee1525f3_cgraph" alt=""/></div>
 <map name="aclassc___output_mgr_a90fb3f0faa9e11adcade9b0aee1525f3_cgraph" id="aclassc___output_mgr_a90fb3f0faa9e11adcade9b0aee1525f3_cgraph">
-<area shape="rect" title="set up the operating environment based on the current config (or defaults)" alt="" coords="5,151,141,176"/>
-<area shape="rect" href="classc___output_mgr.html#a7471954d6a26b6894c4066a424d8aec8" title=" " alt="" coords="189,56,356,82"/>
-<area shape="poly" title=" " alt="" coords="95,148,188,98,218,85,220,90,190,103,98,152"/>
-<area shape="rect" href="classc___output_mgr.html#a7f11cdb7957ceba01ff6081016afc794" title=" " alt="" coords="678,111,841,152"/>
-<area shape="poly" title=" " alt="" coords="141,163,394,155,662,140,662,145,395,160,141,169"/>
-<area shape="rect" href="classc___output_mgr.html#a18f0345656b0c2795b7c925f6d797761" title="Read the current configuration data from nvram." alt="" coords="189,181,356,207"/>
-<area shape="poly" title=" " alt="" coords="141,171,174,176,173,182,141,177"/>
-<area shape="rect" href="main_8cpp.html#a23252221d60de2259fe00859f716c72e" title=" " alt="" coords="452,280,562,306"/>
-<area shape="poly" title=" " alt="" coords="99,175,141,196,190,217,320,255,437,279,436,284,318,260,188,222,138,201,97,179"/>
-<area shape="rect" href="_e_s_pixel_stick_8h.html#a97937ae3377e427d21b29966a14e964a" title=" " alt="" coords="231,283,314,308"/>
-<area shape="poly" title=" " alt="" coords="88,175,131,217,190,261,218,275,215,280,187,266,128,221,85,179"/>
-<area shape="rect" href="classc___output_mgr.html#aec62685e8fb4eff73bfefd3ed5321b01" title="Get the address of the buffer into which the E1.31 handler will stuff data." alt="" coords="404,5,609,31"/>
-<area shape="poly" title=" " alt="" coords="335,53,429,32,430,37,336,58"/>
-<area shape="rect" href="classc___output_mgr.html#abc896c708fce43b559a42ba4e67c9976" title="Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data." alt="" coords="668,59,851,84"/>
-<area shape="poly" title=" " alt="" coords="356,67,653,68,653,74,356,72"/>
-<area shape="poly" title=" " alt="" coords="678,132,417,141,156,156,156,151,417,136,677,127"/>
-<area shape="rect" href="classc___output_mgr.html#a17aadd243f3259a99b320652ab624d07" title=" " alt="" coords="912,125,1104,151"/>
-<area shape="poly" title=" " alt="" coords="842,131,897,133,897,138,842,136"/>
-<area shape="rect" href="classc___output_mgr.html#a5f037f089c20467b3f86841b46e1f60b" title=" " alt="" coords="910,60,1107,101"/>
-<area shape="poly" title=" " alt="" coords="841,112,894,101,895,107,842,117"/>
-<area shape="rect" href="classc___output_mgr.html#adc248025f3eafeac3261994673ce96d0" title=" " alt="" coords="405,181,608,207"/>
-<area shape="poly" title=" " alt="" coords="357,192,390,192,390,197,357,197"/>
-<area shape="rect" href="classc___file_mgr.html#a56a3ece591539d6b844ac99ecb2162bc" title=" " alt="" coords="424,231,590,256"/>
-<area shape="poly" title=" " alt="" coords="338,205,428,224,427,229,336,210"/>
-<area shape="poly" title=" " alt="" coords="318,205,357,224,372,235,382,246,391,257,405,266,437,279,435,284,403,271,387,261,378,250,368,239,355,228,315,210"/>
-<area shape="poly" title=" " alt="" coords="524,179,581,139,656,97,683,87,685,92,658,102,584,143,527,183"/>
-<area shape="poly" title=" " alt="" coords="561,178,662,153,664,158,562,183"/>
-<area shape="rect" href="classc___output_mgr.html#a1e460ab7d570adbbb53dd0e4c6651f6d" title=" " alt="" coords="657,176,862,202"/>
-<area shape="poly" title=" " alt="" coords="609,189,642,189,642,194,609,195"/>
-<area shape="rect" href="classc___output_mgr.html#a63b3162a5ec5fe39859401b4b817b892" title="Save the current configuration data to nvram." alt="" coords="680,231,839,256"/>
-<area shape="poly" title=" " alt="" coords="577,205,676,224,675,230,576,210"/>
-<area shape="poly" title=" " alt="" coords="826,173,927,152,928,157,827,178"/>
-<area shape="rect" href="classc___output_mgr.html#a520a6f7c6d810b254b71f3712d6f9710" title=" " alt="" coords="929,175,1088,200"/>
-<area shape="poly" title=" " alt="" coords="862,186,913,185,913,191,862,191"/>
-<area shape="rect" href="classc___file_mgr.html#aab11aa92f9253ec95ec5b2dc7be1c55e" title=" " alt="" coords="1155,175,1322,200"/>
-<area shape="poly" title=" " alt="" coords="1089,185,1139,185,1139,190,1089,190"/>
-<area shape="rect" href="classc___file_mgr.html#a91d8ba978954c06f5448afb5c75f34b4" title=" " alt="" coords="925,313,1092,339"/>
-<area shape="poly" title=" " alt="" coords="824,254,863,265,964,304,962,309,861,270,823,259"/>
-<area shape="rect" href="classc___output_mgr.html#ac9742371ff3eae19bc7f0ece84ea6c79" title=" " alt="" coords="916,224,1101,265"/>
-<area shape="poly" title=" " alt="" coords="839,241,900,242,900,247,839,247"/>
-<area shape="poly" title=" " alt="" coords="970,315,963,305,967,295,983,289,1008,287,1036,289,1051,296,1048,301,1035,294,1008,292,984,294,971,299,968,304,974,311"/>
-<area shape="rect" href="classc___output_mgr.html#aa5fa47aab179e25649aa61acd159586d" title=" " alt="" coords="667,280,852,306"/>
-<area shape="poly" title=" " alt="" coords="562,290,652,290,652,296,562,296"/>
-<area shape="rect" href="classc___input_mgr.html#a8a195063dcc63c1fd8de7c14ab3bf0a2" title=" " alt="" coords="670,330,849,370"/>
-<area shape="poly" title=" " alt="" coords="563,303,656,324,655,329,562,308"/>
+<area shape="rect" title="set up the operating environment based on the current config (or defaults)" alt="" coords="5,100,141,126"/>
+<area shape="rect" href="classc___output_mgr.html#a7471954d6a26b6894c4066a424d8aec8" title=" " alt="" coords="189,5,356,31"/>
+<area shape="poly" title=" " alt="" coords="95,97,188,48,218,35,220,40,190,53,98,102"/>
+<area shape="rect" href="classc___output_mgr.html#a7f11cdb7957ceba01ff6081016afc794" title=" " alt="" coords="676,60,839,101"/>
+<area shape="poly" title=" " alt="" coords="141,113,394,104,660,89,661,94,394,109,141,118"/>
+<area shape="rect" href="classc___output_mgr.html#a18f0345656b0c2795b7c925f6d797761" title="Read the current configuration data from nvram." alt="" coords="189,131,356,156"/>
+<area shape="poly" title=" " alt="" coords="141,121,174,126,173,131,141,126"/>
+<area shape="rect" href="main_8cpp.html#a23252221d60de2259fe00859f716c72e" title=" " alt="" coords="450,229,561,255"/>
+<area shape="poly" title=" " alt="" coords="99,124,141,145,190,166,319,204,436,228,435,233,318,209,188,171,138,150,97,129"/>
+<area shape="rect" href="_e_s_pixel_stick_8h.html#a97937ae3377e427d21b29966a14e964a" title=" " alt="" coords="231,232,314,258"/>
+<area shape="poly" title=" " alt="" coords="88,124,131,166,190,211,218,224,215,229,187,215,128,170,85,128"/>
+<area shape="rect" href="classc___output_mgr.html#abc896c708fce43b559a42ba4e67c9976" title="Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data." alt="" coords="414,5,597,31"/>
+<area shape="poly" title=" " alt="" coords="356,16,399,16,399,21,356,21"/>
+<area shape="poly" title=" " alt="" coords="676,81,416,90,156,106,156,100,416,85,676,76"/>
+<area shape="rect" href="classc___output_mgr.html#a17aadd243f3259a99b320652ab624d07" title=" " alt="" coords="910,72,1102,98"/>
+<area shape="poly" title=" " alt="" coords="840,79,895,80,895,86,840,85"/>
+<area shape="rect" href="classc___output_mgr.html#a5f037f089c20467b3f86841b46e1f60b" title=" " alt="" coords="908,7,1105,48"/>
+<area shape="poly" title=" " alt="" coords="839,61,893,49,894,54,840,66"/>
+<area shape="rect" href="classc___output_mgr.html#adc248025f3eafeac3261994673ce96d0" title=" " alt="" coords="404,131,607,156"/>
+<area shape="poly" title=" " alt="" coords="356,141,388,141,388,146,356,146"/>
+<area shape="rect" href="classc___file_mgr.html#a56a3ece591539d6b844ac99ecb2162bc" title=" " alt="" coords="422,180,589,206"/>
+<area shape="poly" title=" " alt="" coords="337,154,427,174,426,179,336,160"/>
+<area shape="poly" title=" " alt="" coords="318,154,357,173,372,185,382,196,391,206,405,216,436,228,434,233,403,221,387,210,378,199,368,189,355,178,315,159"/>
+<area shape="poly" title=" " alt="" coords="560,127,660,102,661,107,561,133"/>
+<area shape="rect" href="classc___output_mgr.html#a1e460ab7d570adbbb53dd0e4c6651f6d" title=" " alt="" coords="655,125,860,151"/>
+<area shape="poly" title=" " alt="" coords="608,139,640,138,640,143,608,144"/>
+<area shape="rect" href="classc___output_mgr.html#a63b3162a5ec5fe39859401b4b817b892" title="Save the current configuration data to nvram." alt="" coords="678,180,837,206"/>
+<area shape="poly" title=" " alt="" coords="576,154,674,174,673,179,575,160"/>
+<area shape="poly" title=" " alt="" coords="820,122,927,99,929,104,822,127"/>
+<area shape="rect" href="classc___output_mgr.html#a520a6f7c6d810b254b71f3712d6f9710" title=" " alt="" coords="927,121,1086,147"/>
+<area shape="poly" title=" " alt="" coords="860,134,911,133,911,138,860,139"/>
+<area shape="rect" href="classc___file_mgr.html#aab11aa92f9253ec95ec5b2dc7be1c55e" title=" " alt="" coords="1153,121,1320,147"/>
+<area shape="poly" title=" " alt="" coords="1087,132,1137,132,1137,137,1087,137"/>
+<area shape="rect" href="classc___file_mgr.html#a91d8ba978954c06f5448afb5c75f34b4" title=" " alt="" coords="923,195,1090,220"/>
+<area shape="poly" title=" " alt="" coords="837,195,907,199,907,204,837,200"/>
+<area shape="rect" href="classc___output_mgr.html#ac9742371ff3eae19bc7f0ece84ea6c79" title=" " alt="" coords="914,244,1099,285"/>
+<area shape="poly" title=" " alt="" coords="820,204,860,214,909,230,928,237,926,242,907,235,859,219,819,209"/>
+<area shape="poly" title=" " alt="" coords="968,196,961,186,965,176,981,170,1006,168,1034,171,1049,178,1046,182,1033,176,1006,173,982,175,969,180,966,185,972,193"/>
+<area shape="rect" href="classc___output_mgr.html#aa5fa47aab179e25649aa61acd159586d" title=" " alt="" coords="665,229,850,255"/>
+<area shape="poly" title=" " alt="" coords="561,240,649,240,649,245,561,245"/>
+<area shape="rect" href="classc___input_mgr.html#a8a195063dcc63c1fd8de7c14ab3bf0a2" title=" " alt="" coords="668,279,847,320"/>
+<area shape="poly" title=" " alt="" coords="562,252,654,273,652,278,560,257"/>
 </map>
 </div>
 <div class="dynheader">
@@ -445,11 +472,9 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classc___output_mgr_a7471954d6a26b6894c4066a424d8aec8_cgraph.png" border="0" usemap="#aclassc___output_mgr_a7471954d6a26b6894c4066a424d8aec8_cgraph" alt=""/></div>
 <map name="aclassc___output_mgr_a7471954d6a26b6894c4066a424d8aec8_cgraph" id="aclassc___output_mgr_a7471954d6a26b6894c4066a424d8aec8_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,172,56"/>
-<area shape="rect" href="classc___output_mgr.html#aec62685e8fb4eff73bfefd3ed5321b01" title="Get the address of the buffer into which the E1.31 handler will stuff data." alt="" coords="220,5,425,31"/>
-<area shape="poly" title=" " alt="" coords="172,32,204,28,205,34,172,37"/>
-<area shape="rect" href="classc___output_mgr.html#abc896c708fce43b559a42ba4e67c9976" title="Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data." alt="" coords="231,55,414,80"/>
-<area shape="poly" title=" " alt="" coords="172,49,216,54,215,59,172,55"/>
+<area shape="rect" title=" " alt="" coords="5,5,172,31"/>
+<area shape="rect" href="classc___output_mgr.html#abc896c708fce43b559a42ba4e67c9976" title="Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data." alt="" coords="220,5,402,31"/>
+<area shape="poly" title=" " alt="" coords="172,16,204,16,204,21,172,21"/>
 </map>
 </div>
 <div class="dynheader">
@@ -786,51 +811,48 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classc___output_mgr_adc248025f3eafeac3261994673ce96d0_cgraph.png" border="0" usemap="#aclassc___output_mgr_adc248025f3eafeac3261994673ce96d0_cgraph" alt=""/></div>
 <map name="aclassc___output_mgr_adc248025f3eafeac3261994673ce96d0_cgraph" id="aclassc___output_mgr_adc248025f3eafeac3261994673ce96d0_cgraph">
-<area shape="rect" title=" " alt="" coords="5,142,209,168"/>
-<area shape="rect" href="classc___output_mgr.html#a1e460ab7d570adbbb53dd0e4c6651f6d" title=" " alt="" coords="257,85,461,111"/>
-<area shape="poly" title=" " alt="" coords="166,139,284,112,285,117,167,144"/>
-<area shape="rect" href="classc___output_mgr.html#abc896c708fce43b559a42ba4e67c9976" title="Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data." alt="" coords="981,18,1164,44"/>
-<area shape="poly" title=" " alt="" coords="126,140,182,105,218,86,256,70,350,43,447,24,545,11,642,5,822,6,966,16,965,21,822,11,643,10,546,17,448,29,351,48,258,75,220,91,185,109,128,144"/>
-<area shape="rect" href="classc___output_mgr.html#a7f11cdb7957ceba01ff6081016afc794" title=" " alt="" coords="277,135,440,176"/>
-<area shape="poly" title=" " alt="" coords="209,153,262,153,262,158,209,158"/>
-<area shape="rect" href="classc___output_mgr.html#a63b3162a5ec5fe39859401b4b817b892" title="Save the current configuration data to nvram." alt="" coords="280,281,438,307"/>
-<area shape="poly" title=" " alt="" coords="134,166,322,271,319,276,131,171"/>
-<area shape="rect" href="classc___output_mgr.html#a520a6f7c6d810b254b71f3712d6f9710" title=" " alt="" coords="528,44,687,69"/>
-<area shape="poly" title=" " alt="" coords="440,82,512,70,513,75,441,87"/>
-<area shape="rect" href="classc___output_mgr.html#a17aadd243f3259a99b320652ab624d07" title=" " alt="" coords="512,93,704,119"/>
-<area shape="poly" title=" " alt="" coords="461,99,496,100,496,105,461,104"/>
-<area shape="rect" href="classc___file_mgr.html#aab11aa92f9253ec95ec5b2dc7be1c55e" title=" " alt="" coords="754,44,922,69"/>
-<area shape="poly" title=" " alt="" coords="688,54,739,54,739,59,688,59"/>
-<area shape="poly" title=" " alt="" coords="441,136,524,120,525,125,442,142"/>
-<area shape="rect" href="classc___output_mgr.html#a90fb3f0faa9e11adcade9b0aee1525f3" title="set up the operating environment based on the current config (or defaults)" alt="" coords="540,142,675,168"/>
-<area shape="poly" title=" " alt="" coords="441,161,525,161,525,166,441,166"/>
-<area shape="rect" href="classc___output_mgr.html#a5f037f089c20467b3f86841b46e1f60b" title=" " alt="" coords="509,192,706,233"/>
-<area shape="poly" title=" " alt="" coords="442,171,502,186,501,191,441,177"/>
-<area shape="poly" title=" " alt="" coords="540,150,456,149,456,144,540,144"/>
-<area shape="rect" href="classc___output_mgr.html#a7471954d6a26b6894c4066a424d8aec8" title=" " alt="" coords="755,93,921,119"/>
-<area shape="poly" title=" " alt="" coords="671,139,759,120,760,125,672,144"/>
-<area shape="rect" href="classc___output_mgr.html#a18f0345656b0c2795b7c925f6d797761" title="Read the current configuration data from nvram." alt="" coords="754,244,922,269"/>
-<area shape="poly" title=" " alt="" coords="677,165,708,178,723,191,733,205,741,218,756,230,764,235,761,240,753,235,737,222,728,208,719,195,705,183,675,170"/>
-<area shape="rect" href="main_8cpp.html#a23252221d60de2259fe00859f716c72e" title=" " alt="" coords="1017,169,1128,195"/>
-<area shape="poly" title=" " alt="" coords="676,156,1002,175,1001,181,676,162"/>
-<area shape="rect" href="_e_s_pixel_stick_8h.html#a97937ae3377e427d21b29966a14e964a" title=" " alt="" coords="797,194,879,220"/>
-<area shape="poly" title=" " alt="" coords="668,166,782,192,781,197,667,171"/>
-<area shape="poly" title=" " alt="" coords="886,90,921,79,1018,47,1020,52,922,84,888,95"/>
-<area shape="rect" href="classc___output_mgr.html#aec62685e8fb4eff73bfefd3ed5321b01" title="Get the address of the buffer into which the E1.31 handler will stuff data." alt="" coords="970,93,1175,119"/>
-<area shape="poly" title=" " alt="" coords="922,103,954,103,954,109,922,109"/>
-<area shape="poly" title=" " alt="" coords="830,271,812,298,784,330,749,362,707,386,654,401,610,402,509,386,376,371,321,355,255,322,213,290,176,252,122,183,127,180,180,249,216,286,258,317,323,350,377,366,509,381,610,397,653,396,705,381,746,357,780,326,808,294,826,268"/>
-<area shape="rect" href="classc___file_mgr.html#a56a3ece591539d6b844ac99ecb2162bc" title=" " alt="" coords="989,244,1156,269"/>
-<area shape="poly" title=" " alt="" coords="922,254,974,254,974,259,922,259"/>
-<area shape="poly" title=" " alt="" coords="886,241,921,230,1018,198,1020,203,922,235,888,246"/>
-<area shape="rect" href="classc___output_mgr.html#aa5fa47aab179e25649aa61acd159586d" title=" " alt="" coords="1223,141,1408,167"/>
-<area shape="poly" title=" " alt="" coords="1127,173,1207,164,1208,169,1128,178"/>
-<area shape="rect" href="classc___input_mgr.html#a8a195063dcc63c1fd8de7c14ab3bf0a2" title=" " alt="" coords="1226,191,1405,232"/>
-<area shape="poly" title=" " alt="" coords="1128,186,1211,196,1211,201,1127,191"/>
-<area shape="rect" href="classc___file_mgr.html#a91d8ba978954c06f5448afb5c75f34b4" title=" " alt="" coords="524,281,691,307"/>
-<area shape="poly" title=" " alt="" coords="438,291,509,291,509,297,438,297"/>
-<area shape="rect" href="classc___output_mgr.html#ac9742371ff3eae19bc7f0ece84ea6c79" title=" " alt="" coords="515,331,700,372"/>
-<area shape="poly" title=" " alt="" coords="418,305,502,324,501,329,417,310"/>
-<area shape="poly" title=" " alt="" coords="570,282,562,272,566,263,582,257,608,254,636,257,650,264,648,269,634,262,608,260,583,262,570,267,567,272,574,279"/>
+<area shape="rect" title=" " alt="" coords="5,199,209,224"/>
+<area shape="rect" href="classc___output_mgr.html#a1e460ab7d570adbbb53dd0e4c6651f6d" title=" " alt="" coords="257,55,461,80"/>
+<area shape="poly" title=" " alt="" coords="130,196,320,86,323,91,133,201"/>
+<area shape="rect" href="classc___output_mgr.html#a7f11cdb7957ceba01ff6081016afc794" title=" " alt="" coords="277,162,440,203"/>
+<area shape="poly" title=" " alt="" coords="209,197,261,191,262,196,210,202"/>
+<area shape="rect" href="classc___output_mgr.html#a63b3162a5ec5fe39859401b4b817b892" title="Save the current configuration data to nvram." alt="" coords="280,227,438,252"/>
+<area shape="poly" title=" " alt="" coords="210,220,265,226,264,232,209,225"/>
+<area shape="rect" href="classc___output_mgr.html#a520a6f7c6d810b254b71f3712d6f9710" title=" " alt="" coords="528,5,687,31"/>
+<area shape="poly" title=" " alt="" coords="427,51,524,32,525,37,428,57"/>
+<area shape="rect" href="classc___output_mgr.html#a17aadd243f3259a99b320652ab624d07" title=" " alt="" coords="512,55,704,80"/>
+<area shape="poly" title=" " alt="" coords="461,65,496,65,496,70,461,70"/>
+<area shape="rect" href="classc___file_mgr.html#aab11aa92f9253ec95ec5b2dc7be1c55e" title=" " alt="" coords="754,5,922,31"/>
+<area shape="poly" title=" " alt="" coords="688,16,739,16,739,21,688,21"/>
+<area shape="poly" title=" " alt="" coords="388,159,442,124,508,90,528,83,530,88,510,95,445,129,390,164"/>
+<area shape="rect" href="classc___output_mgr.html#a90fb3f0faa9e11adcade9b0aee1525f3" title="set up the operating environment based on the current config (or defaults)" alt="" coords="540,169,675,195"/>
+<area shape="poly" title=" " alt="" coords="441,188,525,188,525,193,441,193"/>
+<area shape="rect" href="classc___output_mgr.html#a5f037f089c20467b3f86841b46e1f60b" title=" " alt="" coords="509,105,706,145"/>
+<area shape="poly" title=" " alt="" coords="441,161,501,147,502,152,442,166"/>
+<area shape="poly" title=" " alt="" coords="540,177,456,176,456,171,540,171"/>
+<area shape="rect" href="classc___output_mgr.html#a7471954d6a26b6894c4066a424d8aec8" title=" " alt="" coords="755,120,921,146"/>
+<area shape="poly" title=" " alt="" coords="671,166,759,147,760,152,672,171"/>
+<area shape="rect" href="classc___output_mgr.html#a18f0345656b0c2795b7c925f6d797761" title="Read the current configuration data from nvram." alt="" coords="754,271,922,296"/>
+<area shape="poly" title=" " alt="" coords="677,192,708,205,723,216,733,227,742,238,756,249,781,262,778,267,753,254,738,242,729,231,719,220,705,210,675,197"/>
+<area shape="rect" href="main_8cpp.html#a23252221d60de2259fe00859f716c72e" title=" " alt="" coords="1006,220,1116,246"/>
+<area shape="poly" title=" " alt="" coords="676,192,755,205,880,218,990,226,990,232,879,223,754,210,675,198"/>
+<area shape="rect" href="_e_s_pixel_stick_8h.html#a97937ae3377e427d21b29966a14e964a" title=" " alt="" coords="797,169,879,195"/>
+<area shape="poly" title=" " alt="" coords="675,180,781,180,781,185,675,185"/>
+<area shape="rect" href="classc___output_mgr.html#abc896c708fce43b559a42ba4e67c9976" title="Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data." alt="" coords="970,120,1152,146"/>
+<area shape="poly" title=" " alt="" coords="921,130,954,130,954,136,921,136"/>
+<area shape="poly" title=" " alt="" coords="818,299,769,326,739,339,707,349,652,359,608,361,564,357,509,349,405,326,305,295,217,262,150,234,152,229,219,257,307,290,407,321,509,344,565,352,608,356,651,354,706,344,737,334,767,321,815,294"/>
+<area shape="rect" href="classc___file_mgr.html#a56a3ece591539d6b844ac99ecb2162bc" title=" " alt="" coords="978,271,1144,296"/>
+<area shape="poly" title=" " alt="" coords="922,281,962,281,962,286,922,286"/>
+<area shape="poly" title=" " alt="" coords="897,267,990,246,991,251,898,273"/>
+<area shape="rect" href="classc___output_mgr.html#aa5fa47aab179e25649aa61acd159586d" title=" " alt="" coords="1200,192,1385,218"/>
+<area shape="poly" title=" " alt="" coords="1116,224,1184,215,1185,221,1117,229"/>
+<area shape="rect" href="classc___input_mgr.html#a8a195063dcc63c1fd8de7c14ab3bf0a2" title=" " alt="" coords="1204,242,1382,282"/>
+<area shape="poly" title=" " alt="" coords="1117,237,1188,246,1187,252,1116,242"/>
+<area shape="rect" href="classc___file_mgr.html#a91d8ba978954c06f5448afb5c75f34b4" title=" " alt="" coords="524,308,691,334"/>
+<area shape="poly" title=" " alt="" coords="402,250,552,300,551,305,400,255"/>
+<area shape="rect" href="classc___output_mgr.html#ac9742371ff3eae19bc7f0ece84ea6c79" title=" " alt="" coords="515,219,700,260"/>
+<area shape="poly" title=" " alt="" coords="438,237,500,237,500,242,438,242"/>
+<area shape="poly" title=" " alt="" coords="570,309,562,299,566,290,582,283,608,281,636,284,650,291,648,296,634,289,608,287,583,289,570,293,567,299,574,306"/>
 </map>
 </div>
 <div class="dynheader">
@@ -1001,6 +1023,58 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a5ad0e326166dfc76e9409ca9152b1db5" name="a5ad0e326166dfc76e9409ca9152b1db5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ad0e326166dfc76e9409ca9152b1db5">&#9670;&#160;</a></span>eb5c9e2b() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">&lt;&lt;&lt;&lt;&lt;&lt;&lt; <a class="el" href="#a3dec27ef1775dc596e2ce87038b692cea2370f9c7ae54373af3eb7d55faf110fa">HEAD</a> uint8_t *GetBufferAddress() { return pOutputBuffer;}=======void GetPortCounts(uint16_t &amp;PixelCount, uint16_t &amp;SerialCount) {PixelCount=uint16_t(OutputChannelId_End);SerialCount=uint16_t(<a class="el" href="_output_mgr_8hpp.html#a8309e50d2ad7393eda0b9b3dccb273b0">NUM_UARTS</a>);} uint8_t *GetBufferAddress() { return OutputBuffer;} &gt; &gt; &gt; &gt; &gt; &gt; parent of c_OutputMgr::eb5c9e2b </td>
+          <td>(</td>
+          <td class="paramtype">moved the output buffer out of the BSS section to resolve a bss <a class="el" href="_e_f_update_8h.html#ab2c6b258f02add8fdf4cfc7c371dd772">size</a> issue in some of the platform</td>          <td class="paramname"><span class="paramname"><em>builds.</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data. </p>
+
+</div>
+</div>
+<a id="a8d19f55a9678ecd003c946ef22818a6b" name="a8d19f55a9678ecd003c946ef22818a6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d19f55a9678ecd003c946ef22818a6b">&#9670;&#160;</a></span>eb5c9e2b() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">&lt;&lt;&lt;&lt;&lt;&lt;&lt; <a class="el" href="#a3dec27ef1775dc596e2ce87038b692cea2370f9c7ae54373af3eb7d55faf110fa">HEAD</a> uint8_t *pOutputBuffer=nullptr;=======uint8_t OutputBuffer[<a class="el" href="_output_mgr_8hpp.html#a2950110c970b04d476d45273635a5d85">OM_MAX_NUM_CHANNELS</a>];&gt; &gt; &gt; &gt; &gt; &gt; parent of c_OutputMgr::eb5c9e2b </td>
+          <td>(</td>
+          <td class="paramtype">moved the output buffer out of the BSS section to resolve a bss <a class="el" href="_e_f_update_8h.html#ab2c6b258f02add8fdf4cfc7c371dd772">size</a> issue in some of the platform</td>          <td class="paramname"><span class="paramname"><em>builds.</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a33e2ed6b4463a8ed5cb5658d28f59240" name="a33e2ed6b4463a8ed5cb5658d28f59240"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a33e2ed6b4463a8ed5cb5658d28f59240">&#9670;&#160;</a></span>FindJsonChannelConfig()</h2>
 
@@ -1062,170 +1136,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="aec62685e8fb4eff73bfefd3ed5321b01" name="aec62685e8fb4eff73bfefd3ed5321b01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec62685e8fb4eff73bfefd3ed5321b01">&#9670;&#160;</a></span>GetBufferAddress()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t * c_OutputMgr::GetBufferAddress </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the address of the buffer into which the E1.31 handler will stuff data. </p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classc___output_mgr_aec62685e8fb4eff73bfefd3ed5321b01_icgraph.png" border="0" usemap="#aclassc___output_mgr_aec62685e8fb4eff73bfefd3ed5321b01_icgraph" alt=""/></div>
-<map name="aclassc___output_mgr_aec62685e8fb4eff73bfefd3ed5321b01_icgraph" id="aclassc___output_mgr_aec62685e8fb4eff73bfefd3ed5321b01_icgraph">
-<area shape="rect" title="Get the address of the buffer into which the E1.31 handler will stuff data." alt="" coords="2833,591,3038,616"/>
-<area shape="rect" href="classc___output_common.html#a142cc93ea03c961e09437ea4bc271b91" title="&lt; Start up the driver and put it into a safe mode" alt="" coords="2586,323,2772,364"/>
-<area shape="poly" title=" " alt="" coords="2921,578,2900,536,2870,484,2831,431,2783,384,2754,367,2756,362,2787,380,2835,427,2874,481,2905,533,2925,576"/>
-<area shape="rect" href="classc___output_mgr.html#a7471954d6a26b6894c4066a424d8aec8" title=" " alt="" coords="2345,273,2511,299"/>
-<area shape="poly" title=" " alt="" coords="2916,579,2863,507,2826,468,2784,435,2755,420,2729,410,2681,402,2632,396,2603,390,2572,378,2500,339,2445,302,2448,297,2503,335,2574,373,2605,384,2632,391,2682,397,2730,405,2757,415,2786,431,2830,464,2867,503,2921,576"/>
-<area shape="rect" href="classc___web_mgr.html#a2c6189891b0496dae7d89ea7cdb24aee" title=" " alt="" coords="1077,537,1183,563"/>
-<area shape="poly" title=" " alt="" coords="2928,632,2909,689,2877,768,2833,860,2778,955,2745,1001,2710,1045,2671,1085,2629,1120,2584,1150,2536,1172,2484,1186,2429,1191,1655,1191,1593,1185,1536,1168,1483,1141,1434,1106,1389,1064,1347,1017,1310,966,1276,912,1219,803,1177,701,1148,618,1132,564,1137,563,1153,616,1182,699,1224,801,1281,909,1314,963,1351,1013,1392,1060,1437,1102,1486,1137,1538,1163,1594,1180,1655,1186,2429,1186,2483,1181,2534,1167,2581,1145,2626,1116,2667,1081,2706,1041,2741,998,2773,952,2829,857,2872,766,2904,688,2923,630"/>
-<area shape="rect" href="classc___file_mgr.html#aad3d5c934b264ab5e66c5616c43fa060" title=" " alt="" coords="2079,475,2263,516"/>
-<area shape="poly" title=" " alt="" coords="2884,588,2725,537,2626,511,2524,493,2471,488,2428,488,2331,493,2264,495,2264,489,2331,488,2428,483,2471,482,2525,488,2627,506,2727,532,2885,582"/>
-<area shape="rect" href="classc___file_mgr.html#a98e34d829e7d324400091213a4416bf9" title=" " alt="" coords="2602,768,2756,794"/>
-<area shape="poly" title=" " alt="" coords="2904,628,2701,770,2698,765,2901,623"/>
-<area shape="rect" href="classc___output_pixel.html#a3d3b5e86a0a0ffeb89c2509922d870ed" title=" " alt="" coords="2573,1227,2785,1252"/>
-<area shape="poly" title=" " alt="" coords="2934,632,2917,755,2886,928,2866,1016,2843,1097,2817,1164,2802,1189,2787,1209,2759,1228,2756,1224,2783,1206,2798,1187,2812,1161,2838,1095,2861,1015,2881,927,2912,754,2928,631"/>
-<area shape="rect" href="classc___output_mgr.html#a90fb3f0faa9e11adcade9b0aee1525f3" title="set up the operating environment based on the current config (or defaults)" alt="" coords="2104,220,2239,246"/>
-<area shape="poly" title=" " alt="" coords="2347,272,2236,249,2237,244,2348,267"/>
-<area shape="rect" href="classc___web_mgr.html#a529c105b3389d78208078fd9c6847367" title=" " alt="" coords="1301,423,1485,448"/>
-<area shape="poly" title=" " alt="" coords="2330,303,1486,425,1485,420,2329,298"/>
-<area shape="rect" href="classc___file_mgr.html#a7fc07abded89ba2dc2fb88aa6e230da8" title=" " alt="" coords="1816,511,2000,536"/>
-<area shape="poly" title=" " alt="" coords="2406,312,2354,361,2320,387,2285,409,2224,433,2174,443,2123,450,2060,466,1941,513,1939,508,2058,461,2122,445,2173,438,2223,428,2282,404,2317,382,2350,357,2403,309"/>
-<area shape="rect" href="classc___f_p_p_discovery.html#a23c80db87a22d64ac4d4ea91c9ffccde" title=" " alt="" coords="1559,511,1753,536"/>
-<area shape="poly" title=" " alt="" coords="2390,309,2341,334,2284,358,2222,379,2173,392,2060,418,1708,513,1707,507,2058,413,2172,386,2221,374,2282,353,2338,329,2388,304"/>
-<area shape="poly" title=" " alt="" coords="2413,314,2362,385,2326,425,2285,459,2251,477,2248,472,2282,455,2322,421,2358,382,2409,311"/>
-<area shape="rect" href="classc___input_alexa.html#adf1dcecdbc97eb955ad2ca3954678c80" title=" " alt="" coords="2086,121,2256,147"/>
-<area shape="poly" title=" " alt="" coords="2404,263,2352,210,2319,183,2282,161,2255,150,2257,145,2285,156,2322,179,2356,206,2408,259"/>
-<area shape="rect" href="classc___input_mgr.html#a1823b8316d8574f82bdb06ed1412f161" title="&lt; Called from loop(), renders Input data" alt="" coords="2101,72,2241,98"/>
-<area shape="poly" title=" " alt="" coords="2411,261,2390,226,2361,185,2325,145,2282,111,2241,95,2242,90,2285,107,2328,141,2365,182,2394,223,2415,258"/>
-<area shape="rect" href="classc___f_p_p_discovery.html#a427a0facd1716a38fe6bf5afa87fd49c" title=" " alt="" coords="1806,270,2011,310"/>
-<area shape="poly" title=" " alt="" coords="2329,290,2011,292,2011,287,2329,284"/>
-<area shape="rect" href="classc___input_f_p_p_remote.html#a1ee15e1c30584550418fd15599f8de61" title="Set a new config in the driver." alt="" coords="2072,23,2270,48"/>
-<area shape="poly" title=" " alt="" coords="2415,260,2397,215,2368,161,2330,107,2307,83,2282,62,2263,51,2265,47,2285,57,2311,79,2334,103,2373,158,2401,213,2420,257"/>
-<area shape="rect" href="classc___input_common.html#aa12aa6b031d2b37ed2009b56f8bf6bc4" title=" " alt="" coords="2059,171,2283,196"/>
-<area shape="poly" title=" " alt="" coords="2393,267,2342,237,2282,210,2248,199,2249,194,2284,205,2344,233,2395,262"/>
-<area shape="rect" href="classc___output_mgr.html#a7f11cdb7957ceba01ff6081016afc794" title=" " alt="" coords="1827,104,1990,145"/>
-<area shape="poly" title=" " alt="" coords="2088,235,2058,223,2042,212,2033,201,2023,189,2010,178,1978,161,1946,148,1948,143,1980,157,2012,173,2027,185,2037,197,2046,208,2060,218,2090,230"/>
-<area shape="rect" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Arduino Setup." alt="" coords="588,247,641,272"/>
-<area shape="poly" title=" " alt="" coords="2088,236,1657,236,1129,235,984,238,843,245,641,260,641,255,842,240,984,233,1128,230,1657,230,2088,230"/>
-<area shape="poly" title=" " alt="" coords="2005,145,2013,149,2027,161,2037,173,2046,184,2060,194,2096,208,2133,217,2132,222,2095,213,2058,199,2042,188,2033,177,2023,165,2009,154,2002,149"/>
-<area shape="rect" href="classc___output_mgr.html#adc248025f3eafeac3261994673ce96d0" title=" " alt="" coords="1554,119,1758,144"/>
-<area shape="poly" title=" " alt="" coords="1811,130,1758,131,1758,126,1811,125"/>
-<area shape="rect" href="classc___output_mgr.html#a33b3e6588cc7639555d7e91b59378540" title=" " alt="" coords="1304,84,1482,125"/>
-<area shape="poly" title=" " alt="" coords="1811,114,1757,109,1613,104,1483,105,1483,100,1613,99,1758,104,1812,108"/>
-<area shape="rect" href="classc___output_mgr.html#a18f0345656b0c2795b7c925f6d797761" title="Read the current configuration data from nvram." alt="" coords="1310,160,1477,186"/>
-<area shape="poly" title=" " alt="" coords="1555,150,1478,162,1477,157,1555,145"/>
-<area shape="poly" title=" " alt="" coords="1538,122,1482,117,1483,111,1539,117"/>
-<area shape="poly" title=" " alt="" coords="1493,175,1729,190,2011,212,2103,222,2103,227,2011,217,1729,195,1492,181"/>
-<area shape="poly" title=" " alt="" coords="1349,457,1163,539,1161,534,1346,453"/>
-<area shape="rect" href="classc___web_mgr.html#a078d26bad50a9051344ff07ad8e746d8" title="set up the operating environment based on the current config (or defaults)" alt="" coords="808,336,931,362"/>
-<area shape="poly" title=" " alt="" coords="1098,530,886,364,889,360,1101,525"/>
-<area shape="rect" href="classc___web_mgr.html#aa3c98d4d503811ca4071b3e3ba84fa0f" title=" " alt="" coords="759,519,980,544"/>
-<area shape="poly" title=" " alt="" coords="1061,548,980,542,980,537,1061,543"/>
-<area shape="poly" title=" " alt="" coords="813,333,758,314,641,272,642,267,760,309,815,328"/>
-<area shape="rect" href="classc___network_mgr.html#af2b9dc93956b88607802667e89c76f75" title=" " alt="" coords="517,458,711,498"/>
-<area shape="poly" title=" " alt="" coords="789,518,711,501,712,496,790,512"/>
-<area shape="rect" href="classc___network_mgr.html#aa9d587432312a58a8d98b5b0a75796fb" title=" " alt="" coords="263,428,444,469"/>
-<area shape="poly" title=" " alt="" coords="501,468,443,462,444,456,501,463"/>
-<area shape="rect" href="classc___network_mgr.html#a21de268df9b77ee26f74ae4712537c21" title=" " alt="" coords="238,493,469,519"/>
-<area shape="poly" title=" " alt="" coords="502,493,470,496,469,491,501,488"/>
-<area shape="rect" href="classfsm___wi_fi__state___connected_to_a_p.html#ab31da7c2aca52cf01dfe971d663073d5" title=" " alt="" coords="7,420,188,461"/>
-<area shape="poly" title=" " alt="" coords="273,492,237,483,168,464,169,459,238,478,274,487"/>
-<area shape="rect" href="classfsm___wi_fi__state___connected_to_sta.html#a97b6baf24ad1c608f6ff7cac18b56034" title=" " alt="" coords="7,486,188,526"/>
-<area shape="poly" title=" " alt="" coords="222,509,189,509,189,504,222,504"/>
-<area shape="rect" href="classfsm___wi_fi__state___connection_failed.html#a721084d33603f03e8be94782e050c08a" title=" " alt="" coords="5,551,190,592"/>
-<area shape="poly" title=" " alt="" coords="286,526,181,553,179,548,285,521"/>
-<area shape="poly" title=" " alt="" coords="1801,526,1753,526,1753,521,1801,521"/>
-<area shape="poly" title=" " alt="" coords="1544,526,1417,528,1280,534,1184,545,1183,540,1280,529,1417,522,1544,520"/>
-<area shape="rect" href="classc___f_p_p_discovery.html#a13f8ae4f868abed68dbd07ec7b27930e" title=" " alt="" coords="1292,544,1494,570"/>
-<area shape="poly" title=" " alt="" coords="1544,540,1495,547,1494,541,1544,535"/>
-<area shape="poly" title=" " alt="" coords="1277,557,1183,554,1183,549,1277,551"/>
-<area shape="poly" title=" " alt="" coords="2064,510,2001,516,2001,511,2063,504"/>
-<area shape="rect" href="classc___input_alexa.html#a8e260d42f46f4fa70cbca61ea001dda6" title="set up the operating environment based on the current config (or defaults)" alt="" coords="1841,55,1976,80"/>
-<area shape="poly" title=" " alt="" coords="2086,120,2058,113,2010,95,1967,84,1969,78,2012,90,2060,108,2087,115"/>
-<area shape="rect" href="_input_mgr_8cpp.html#acaee0a3ecdf748027dec320e1f7bb64e" title=" " alt="" coords="1848,5,1969,31"/>
-<area shape="poly" title=" " alt="" coords="2086,71,2058,63,2010,45,1969,33,1970,28,2012,40,2060,58,2087,66"/>
-<area shape="rect" href="classc___input_mgr.html#a06a5f6adfd1e87d4d30a7fa0f78ecc33" title="&lt; Start the module" alt="" coords="1067,92,1192,118"/>
-<area shape="poly" title=" " alt="" coords="1832,24,1586,41,1433,56,1280,75,1186,94,1185,89,1280,70,1433,50,1586,36,1832,19"/>
-<area shape="poly" title=" " alt="" coords="1069,125,760,217,642,254,641,249,759,212,1067,120"/>
-<area shape="rect" href="classc___f_p_p_discovery.html#a8e394e07d5b2a650e5255dbfa4ab1880" title=" " alt="" coords="1280,295,1506,336"/>
-<area shape="poly" title=" " alt="" coords="1790,299,1507,313,1507,307,1790,293"/>
-<area shape="rect" href="classc___f_p_p_discovery.html#a3065915ef4f69f24c24d99c79315f63c" title=" " alt="" coords="1555,320,1757,361"/>
-<area shape="poly" title=" " alt="" coords="1791,316,1758,323,1757,318,1790,311"/>
-<area shape="rect" href="classc___f_p_p_discovery.html#aae669a13978a85a6a3381ce13ec2ba29" title=" " alt="" coords="1028,295,1232,336"/>
-<area shape="poly" title=" " alt="" coords="1264,318,1233,318,1233,313,1264,313"/>
-<area shape="poly" title=" " alt="" coords="1066,345,981,377,831,423,698,460,697,455,830,418,979,372,1064,340"/>
-<area shape="rect" href="classc___f_p_p_discovery.html#a09dd955e78cdd72066e022c493a59d96" title=" " alt="" coords="792,273,947,299"/>
-<area shape="poly" title=" " alt="" coords="1012,305,947,298,948,292,1012,300"/>
-<area shape="poly" title=" " alt="" coords="776,279,641,265,642,260,777,274"/>
-<area shape="poly" title=" " alt="" coords="1540,332,1506,329,1507,324,1540,327"/>
-<area shape="poly" title=" " alt="" coords="2664,755,2643,714,2613,666,2572,618,2549,598,2524,581,2495,572,2446,564,2306,549,2001,530,2001,525,2306,544,2447,558,2497,567,2526,576,2552,593,2576,614,2617,663,2648,712,2669,753"/>
-<area shape="poly" title=" " alt="" coords="2667,754,2649,705,2619,645,2578,585,2552,558,2523,536,2493,520,2461,508,2393,492,2325,486,2264,487,2264,482,2326,481,2394,487,2462,503,2495,515,2526,532,2556,554,2582,581,2624,642,2654,703,2672,752"/>
-<area shape="rect" href="classc___file_mgr.html#ad2545a2e9a8e22194d4bf3e712528645" title=" " alt="" coords="2331,591,2525,616"/>
-<area shape="poly" title=" " alt="" coords="2655,758,2599,698,2563,666,2523,638,2482,619,2484,614,2526,633,2566,662,2603,694,2659,754"/>
-<area shape="rect" href="classc___file_mgr.html#aad0ef23c104e33e3ebad71fbc3533458" title=" " alt="" coords="2088,868,2255,894"/>
-<area shape="poly" title=" " alt="" coords="2630,802,2525,834,2383,860,2256,876,2255,871,2383,855,2524,829,2628,797"/>
-<area shape="rect" href="classc___input_f_p_p_remote_play_file.html#a588e1c419a88dc3536d9867f25f074cd" title=" " alt="" coords="1818,911,1999,952"/>
-<area shape="poly" title=" " alt="" coords="2662,808,2607,875,2569,911,2526,941,2474,962,2431,969,2386,972,2332,986,2309,999,2284,1010,2221,1023,2171,1027,2121,1023,2058,1010,2025,1000,1993,985,1939,955,1941,950,1995,981,2027,995,2060,1005,2122,1018,2171,1022,2221,1018,2283,1005,2306,994,2330,981,2385,967,2430,963,2473,957,2523,936,2565,906,2603,871,2658,805"/>
-<area shape="rect" href="classc___f_p_p_discovery.html#a2e06d4a3b80cd325dddc55621b47115e" title=" " alt="" coords="1809,743,2008,768"/>
-<area shape="poly" title=" " alt="" coords="2607,767,2524,751,2394,734,2292,725,2190,724,2059,733,1975,745,1974,739,2059,728,2190,719,2292,719,2395,728,2525,746,2608,762"/>
-<area shape="rect" href="classc___file_mgr.html#a220cf9ec9bdd0c1d47bf8dadd12b8cf7" title=" " alt="" coords="2352,793,2504,819"/>
-<area shape="poly" title=" " alt="" coords="2586,793,2505,801,2504,796,2586,788"/>
-<area shape="rect" href="classc___f_p_p_discovery.html#a1f59ce0b751f091c5546ce96e1b41028" title=" " alt="" coords="2067,641,2275,667"/>
-<area shape="poly" title=" " alt="" coords="2648,760,2593,722,2559,703,2524,689,2461,672,2397,662,2276,654,2276,649,2397,656,2462,667,2526,684,2561,699,2596,717,2651,756"/>
-<area shape="rect" href="classc___file_mgr.html#a8691c90e2a239cde2087bf72e84f4436" title=" " alt="" coords="2096,969,2247,995"/>
-<area shape="poly" title=" " alt="" coords="2647,805,2591,839,2526,873,2382,922,2220,971,2218,966,2381,917,2524,868,2589,834,2644,800"/>
-<area shape="rect" href="classc___file_mgr.html#a99bd795457bb43cc30780a1fc9d43c90" title=" " alt="" coords="2096,743,2247,768"/>
-<area shape="poly" title=" " alt="" coords="2586,779,2247,762,2247,757,2586,774"/>
-<area shape="rect" href="classc___file_mgr.html#a160e62534872330fd8dcbd056226149a" title=" " alt="" coords="2096,1099,2247,1124"/>
-<area shape="poly" title=" " alt="" coords="2677,810,2665,876,2639,961,2620,1005,2595,1047,2564,1085,2526,1115,2487,1134,2446,1146,2402,1152,2359,1152,2277,1143,2213,1127,2214,1122,2278,1138,2359,1147,2402,1147,2444,1141,2485,1129,2523,1111,2560,1081,2590,1044,2615,1003,2634,959,2660,875,2672,809"/>
-<area shape="rect" href="classfsm___play_file__state___error.html#ad02774153496bdd3710fe8b46a03f387" title=" " alt="" coords="2362,995,2494,1036"/>
-<area shape="poly" title=" " alt="" coords="2665,809,2611,891,2572,938,2526,979,2496,997,2493,992,2523,975,2568,934,2607,888,2661,806"/>
-<area shape="rect" href="classfsm___play_file__state___stopping.html#a8da7990c94c79959b3893fdeac5c8233" title=" " alt="" coords="2362,1060,2494,1101"/>
-<area shape="poly" title=" " alt="" coords="2671,810,2652,860,2622,925,2580,991,2555,1022,2526,1050,2496,1067,2493,1063,2523,1045,2551,1019,2576,988,2618,922,2648,858,2666,808"/>
-<area shape="poly" title=" " alt="" coords="2316,599,2081,581,1805,551,1729,540,1730,534,1806,546,2081,576,2316,594"/>
-<area shape="poly" title=" " alt="" coords="2139,860,2098,826,2057,783,2008,714,1966,643,1913,538,1918,536,1971,641,2012,711,2061,779,2102,822,2142,856"/>
-<area shape="poly" title=" " alt="" coords="2217,856,2202,849,2171,847,2144,849,2129,854,2126,859,2133,866,2129,869,2121,859,2126,849,2143,843,2171,841,2203,844,2219,851"/>
-<area shape="poly" title=" " alt="" coords="2086,900,2000,917,1999,911,2085,895"/>
-<area shape="poly" title=" " alt="" coords="2127,863,1936,771,1938,766,2129,858"/>
-<area shape="rect" href="classfsm___play_file__state___starting.html#a3de92f0e9c7aa31adaba1a7f7ff6f7a6" title=" " alt="" coords="1590,911,1722,952"/>
-<area shape="poly" title=" " alt="" coords="1802,934,1722,934,1722,929,1802,929"/>
-<area shape="poly" title=" " alt="" coords="1794,762,1682,758,1551,746,1482,735,1412,720,1344,700,1279,675,1235,651,1195,620,1140,565,1144,561,1199,616,1238,646,1281,670,1346,695,1414,715,1483,730,1552,741,1683,753,1794,756"/>
-<area shape="poly" title=" " alt="" coords="2405,783,2281,631,2188,518,2192,515,2285,627,2409,779"/>
-<area shape="poly" title=" " alt="" coords="2367,826,2219,870,2218,865,2366,821"/>
-<area shape="poly" title=" " alt="" coords="2404,832,2352,873,2319,893,2284,909,2211,928,2136,938,2064,942,2000,941,2000,936,2063,937,2135,933,2210,923,2282,904,2317,888,2349,869,2400,828"/>
-<area shape="poly" title=" " alt="" coords="2336,805,2205,797,2059,783,1980,772,1981,766,2059,778,2205,792,2337,800"/>
-<area shape="poly" title=" " alt="" coords="2390,787,2194,670,2196,665,2392,783"/>
-<area shape="poly" title=" " alt="" coords="2399,831,2333,891,2320,908,2311,923,2302,938,2285,952,2245,971,2242,966,2282,948,2298,934,2307,920,2316,905,2329,887,2396,827"/>
-<area shape="poly" title=" " alt="" coords="2344,792,2239,772,2240,766,2345,787"/>
-<area shape="poly" title=" " alt="" coords="2413,834,2359,914,2285,1009,2235,1061,2190,1100,2187,1096,2231,1057,2281,1006,2355,911,2408,831"/>
-<area shape="poly" title=" " alt="" coords="2051,652,1704,631,1492,611,1280,585,1183,566,1184,561,1280,580,1493,606,1705,625,2052,647"/>
-<area shape="rect" href="classc___file_mgr.html#aedef870863fac59632019d4f79520b87" title=" " alt="" coords="1833,1099,1984,1124"/>
-<area shape="poly" title=" " alt="" coords="2080,1114,1984,1114,1984,1109,2080,1109"/>
-</map>
-</div>
-
-</div>
-</div>
 <a id="abc896c708fce43b559a42ba4e67c9976" name="abc896c708fce43b559a42ba4e67c9976"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abc896c708fce43b559a42ba4e67c9976">&#9670;&#160;</a></span>GetBufferSize()</h2>
 
@@ -1255,241 +1165,122 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classc___output_mgr_abc896c708fce43b559a42ba4e67c9976_icgraph.png" border="0" usemap="#aclassc___output_mgr_abc896c708fce43b559a42ba4e67c9976_icgraph" alt=""/></div>
 <map name="aclassc___output_mgr_abc896c708fce43b559a42ba4e67c9976_icgraph" id="aclassc___output_mgr_abc896c708fce43b559a42ba4e67c9976_icgraph">
-<area shape="rect" title="Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data." alt="" coords="3053,413,3236,438"/>
-<area shape="rect" href="classc___output_mgr.html#a3785b017fd1890570afd8c1054095b41" title="&lt; Start up the driver and put it into a safe mode" alt="" coords="2810,197,2988,222"/>
-<area shape="poly" title=" " alt="" coords="3128,400,3108,365,3080,322,3045,280,3004,244,2966,226,2968,221,3007,239,3049,276,3084,319,3112,362,3132,397"/>
-<area shape="rect" href="classc___output_mgr.html#a7471954d6a26b6894c4066a424d8aec8" title=" " alt="" coords="2816,298,2982,324"/>
-<area shape="poly" title=" " alt="" coords="3100,408,2928,327,2930,322,3102,403"/>
-<area shape="rect" href="classc___output_mgr.html#adc248025f3eafeac3261994673ce96d0" title=" " alt="" coords="2016,496,2219,521"/>
-<area shape="poly" title=" " alt="" coords="3071,445,2808,497,2642,524,2473,543,2370,550,2267,543,2168,524,2169,519,2268,538,2370,544,2472,538,2641,518,2807,492,3070,440"/>
-<area shape="rect" href="classc___file_mgr.html#aad3d5c934b264ab5e66c5616c43fa060" title=" " alt="" coords="2541,5,2725,46"/>
-<area shape="poly" title=" " alt="" coords="3123,402,3074,344,3041,313,3004,288,2974,275,2946,270,2894,270,2869,271,2843,267,2817,257,2791,237,2775,216,2767,195,2765,153,2764,111,2757,91,2743,70,2714,49,2717,44,2747,66,2762,88,2769,110,2770,153,2772,194,2779,214,2795,233,2820,252,2845,262,2869,265,2894,265,2947,264,2976,270,3007,283,3044,309,3078,340,3127,399"/>
-<area shape="rect" href="classc___output_mgr.html#a2af1d94181e97f732be0b66be3b944dd" title=" " alt="" coords="2806,552,2992,593"/>
-<area shape="poly" title=" " alt="" coords="3120,451,3070,494,3007,536,2968,554,2966,549,3004,531,3066,489,3116,447"/>
-<area shape="rect" href="classc___output_pixel.html#a3d3b5e86a0a0ffeb89c2509922d870ed" title=" " alt="" coords="2793,617,3005,642"/>
-<area shape="poly" title=" " alt="" coords="3133,454,3113,489,3085,530,3049,572,3007,607,2982,619,2980,614,3004,602,3045,568,3080,527,3108,486,3128,451"/>
-<area shape="rect" href="classc___output_mgr.html#a90fb3f0faa9e11adcade9b0aee1525f3" title="set up the operating environment based on the current config (or defaults)" alt="" coords="2565,438,2700,464"/>
-<area shape="poly" title=" " alt="" coords="2870,336,2814,375,2746,415,2682,440,2680,435,2744,410,2811,370,2867,331"/>
-<area shape="rect" href="classc___web_mgr.html#a529c105b3389d78208078fd9c6847367" title=" " alt="" coords="2026,222,2210,248"/>
-<area shape="poly" title=" " alt="" coords="2800,297,2792,293,2777,286,2768,277,2758,269,2744,263,2674,244,2601,231,2528,223,2455,219,2320,219,2210,227,2210,221,2320,214,2456,214,2528,218,2602,226,2675,239,2746,258,2761,265,2771,273,2780,281,2794,289,2802,292"/>
-<area shape="rect" href="classc___file_mgr.html#a7fc07abded89ba2dc2fb88aa6e230da8" title=" " alt="" coords="2278,70,2462,96"/>
-<area shape="poly" title=" " alt="" coords="2806,293,2791,281,2776,260,2769,238,2768,195,2769,174,2767,154,2759,135,2743,117,2708,94,2669,77,2627,67,2584,62,2501,63,2430,72,2430,67,2500,57,2584,57,2628,62,2670,72,2710,89,2747,113,2764,132,2772,153,2775,174,2774,195,2774,237,2780,257,2795,277,2810,289"/>
-<area shape="rect" href="classc___f_p_p_discovery.html#a23c80db87a22d64ac4d4ea91c9ffccde" title=" " alt="" coords="2021,121,2214,146"/>
-<area shape="poly" title=" " alt="" coords="2800,300,2791,293,2777,277,2770,259,2767,224,2765,190,2757,175,2743,161,2704,142,2649,129,2582,121,2507,118,2351,120,2215,128,2215,122,2351,114,2507,112,2582,116,2650,124,2706,137,2747,157,2762,172,2770,189,2773,223,2775,258,2782,274,2795,289,2803,295"/>
-<area shape="poly" title=" " alt="" coords="2805,293,2791,281,2772,253,2764,226,2763,199,2766,172,2769,145,2768,119,2761,93,2743,66,2721,49,2724,45,2747,63,2765,90,2773,118,2774,146,2771,172,2768,199,2769,225,2777,251,2795,277,2809,288"/>
-<area shape="rect" href="classc___input_alexa.html#adf1dcecdbc97eb955ad2ca3954678c80" title=" " alt="" coords="2548,374,2718,400"/>
-<area shape="poly" title=" " alt="" coords="2838,331,2681,376,2680,371,2836,326"/>
-<area shape="rect" href="classc___input_mgr.html#a1823b8316d8574f82bdb06ed1412f161" title="&lt; Called from loop(), renders Input data" alt="" coords="2563,553,2703,578"/>
-<area shape="poly" title=" " alt="" coords="2879,338,2821,403,2747,478,2697,521,2654,554,2651,550,2694,517,2743,474,2817,399,2875,334"/>
-<area shape="rect" href="classc___f_p_p_discovery.html#a427a0facd1716a38fe6bf5afa87fd49c" title=" " alt="" coords="2267,272,2473,313"/>
-<area shape="poly" title=" " alt="" coords="2800,317,2667,318,2521,314,2473,309,2473,304,2521,308,2667,313,2800,312"/>
-<area shape="rect" href="classc___input_f_p_p_remote.html#a1ee15e1c30584550418fd15599f8de61" title="Set a new config in the driver." alt="" coords="2534,172,2732,197"/>
-<area shape="poly" title=" " alt="" coords="2817,295,2791,281,2775,265,2767,249,2759,233,2743,219,2705,200,2707,195,2747,214,2763,230,2771,246,2780,262,2795,277,2819,290"/>
-<area shape="rect" href="classc___input_common.html#aa12aa6b031d2b37ed2009b56f8bf6bc4" title=" " alt="" coords="2521,273,2745,298"/>
-<area shape="poly" title=" " alt="" coords="2800,304,2745,299,2746,294,2801,299"/>
-<area shape="rect" href="classc___output_mgr.html#a7f11cdb7957ceba01ff6081016afc794" title=" " alt="" coords="2288,488,2452,529"/>
-<area shape="poly" title=" " alt="" coords="2585,471,2453,502,2451,496,2584,466"/>
-<area shape="rect" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Arduino Setup." alt="" coords="1049,352,1102,377"/>
-<area shape="poly" title=" " alt="" coords="2549,441,2353,416,2236,407,2119,403,1590,403,1445,399,1304,390,1102,370,1103,365,1304,384,1446,394,1590,398,2119,398,2237,401,2354,411,2550,435"/>
-<area shape="poly" title=" " alt="" coords="2445,481,2564,455,2565,460,2446,486"/>
-<area shape="poly" title=" " alt="" coords="2273,511,2220,511,2220,506,2273,506"/>
-<area shape="rect" href="classc___output_mgr.html#a33b3e6588cc7639555d7e91b59378540" title=" " alt="" coords="1766,539,1944,579"/>
-<area shape="poly" title=" " alt="" coords="2273,529,2220,536,2075,550,1945,558,1944,553,2074,545,2219,531,2273,523"/>
-<area shape="rect" href="classc___output_mgr.html#a18f0345656b0c2795b7c925f6d797761" title="Read the current configuration data from nvram." alt="" coords="1771,476,1938,501"/>
-<area shape="poly" title=" " alt="" coords="2000,502,1939,497,1939,492,2001,497"/>
-<area shape="poly" title=" " alt="" coords="2033,527,1945,544,1944,539,2032,522"/>
-<area shape="poly" title=" " alt="" coords="1953,481,2565,452,2565,457,1954,486"/>
-<area shape="rect" href="classc___output_mgr.html#afb3a7a9024cae09c4f6c8613a47e4925" title="Call from loop(), renders output data." alt="" coords="1529,476,1654,501"/>
-<area shape="poly" title=" " alt="" coords="1756,491,1654,491,1654,486,1756,486"/>
-<area shape="poly" title=" " alt="" coords="1638,464,1622,457,1591,454,1564,456,1549,461,1545,466,1553,473,1549,477,1540,467,1545,457,1563,451,1592,449,1624,452,1640,459"/>
-<area shape="rect" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="Main Loop." alt="" coords="1308,476,1354,501"/>
-<area shape="poly" title=" " alt="" coords="1514,491,1354,491,1354,486,1514,486"/>
-<area shape="rect" href="classc___web_mgr.html#a2c6189891b0496dae7d89ea7cdb24aee" title=" " alt="" coords="1538,186,1645,212"/>
-<area shape="poly" title=" " alt="" coords="2010,231,1741,212,1645,205,1645,200,1742,207,2010,225"/>
-<area shape="rect" href="classc___web_mgr.html#a078d26bad50a9051344ff07ad8e746d8" title="set up the operating environment based on the current config (or defaults)" alt="" coords="1270,236,1392,261"/>
-<area shape="poly" title=" " alt="" coords="1524,214,1393,239,1392,234,1523,209"/>
-<area shape="rect" href="classc___web_mgr.html#aa3c98d4d503811ca4071b3e3ba84fa0f" title=" " alt="" coords="1221,186,1441,212"/>
-<area shape="poly" title=" " alt="" coords="1523,202,1441,202,1441,196,1523,196"/>
-<area shape="poly" title=" " alt="" coords="1288,270,1104,355,1102,350,1286,266"/>
-<area shape="rect" href="classc___network_mgr.html#af2b9dc93956b88607802667e89c76f75" title=" " alt="" coords="979,265,1173,306"/>
-<area shape="poly" title=" " alt="" coords="1246,219,1222,226,1168,246,1120,267,1118,262,1166,241,1220,220,1244,213"/>
-<area shape="rect" href="classc___network_mgr.html#aa9d587432312a58a8d98b5b0a75796fb" title=" " alt="" coords="725,237,905,278"/>
-<area shape="poly" title=" " alt="" coords="962,276,905,270,906,265,963,271"/>
-<area shape="rect" href="classc___network_mgr.html#a21de268df9b77ee26f74ae4712537c21" title=" " alt="" coords="699,302,931,328"/>
-<area shape="poly" title=" " alt="" coords="963,301,931,305,931,299,963,296"/>
-<area shape="rect" href="classfsm___wi_fi__state___connected_to_a_p.html#ab31da7c2aca52cf01dfe971d663073d5" title=" " alt="" coords="468,73,650,114"/>
-<area shape="poly" title=" " alt="" coords="705,297,698,292,677,269,669,246,663,221,649,194,615,151,581,116,585,113,619,148,654,191,668,219,674,244,682,266,701,288,708,292"/>
-<area shape="rect" href="classfsm___wi_fi__state___connected_to_sta.html#a97b6baf24ad1c608f6ff7cac18b56034" title=" " alt="" coords="468,204,650,245"/>
-<area shape="poly" title=" " alt="" coords="726,300,698,292,645,271,598,248,600,243,647,266,700,287,728,295"/>
-<area shape="rect" href="classfsm___wi_fi__state___connection_failed.html#a721084d33603f03e8be94782e050c08a" title=" " alt="" coords="467,295,651,335"/>
-<area shape="poly" title=" " alt="" coords="684,318,652,318,652,312,684,312"/>
-<area shape="rect" href="classfsm___wi_fi__state___disabled.html#af598b29015fcdfe6f03d50aac9d1d9ea" title=" " alt="" coords="474,360,644,401"/>
-<area shape="poly" title=" " alt="" coords="748,335,642,362,641,357,746,330"/>
-<area shape="rect" href="classc___wi_fi_driver.html#a73ac32c8db2b76fe03893dde2a2ad134" title=" " alt="" coords="494,425,624,450"/>
-<area shape="poly" title=" " alt="" coords="784,339,725,377,652,415,618,427,617,422,650,410,722,373,781,335"/>
-<area shape="rect" href="classfsm___wi_fi__state___connecting_using_config.html#ad687833f55433c760ef15c7c99b1f513" title=" " alt="" coords="235,73,419,114"/>
-<area shape="poly" title=" " alt="" coords="453,96,420,96,420,91,453,91"/>
-<area shape="rect" href="classfsm___wi_fi__state___connecting_using_defaults.html#a0d02d6629a626b32ef1ab1f91b82badf" title=" " alt="" coords="235,8,419,49"/>
-<area shape="poly" title=" " alt="" coords="469,71,401,52,403,47,471,66"/>
-<area shape="rect" href="classfsm___wi_fi__state___connecting_as_a_p.html#a7ef8d7da8114f886dcad4e1b4c95af3b" title=" " alt="" coords="235,139,419,179"/>
-<area shape="poly" title=" " alt="" coords="469,202,401,183,403,177,471,197"/>
-<area shape="rect" href="classfsm___wi_fi__state___connecting_as_a_p.html#abfa70db6d7a2dedf0c0fe1f87f679f63" title=" " alt="" coords="235,204,419,245"/>
-<area shape="poly" title=" " alt="" coords="453,227,420,227,420,222,453,222"/>
-<area shape="poly" title=" " alt="" coords="490,291,380,248,382,243,492,286"/>
-<area shape="rect" href="classc___wi_fi_driver.html#a282b20cd06da439d8fcf1890b2e75361" title=" " alt="" coords="257,498,397,524"/>
-<area shape="poly" title=" " alt="" coords="473,347,469,350,456,367,450,384,446,418,443,453,435,470,421,488,399,502,396,497,417,484,430,468,437,451,441,417,444,382,452,364,465,347,469,343"/>
-<area shape="rect" href="classfsm___wi_fi__state___connecting_as_a_p.html#a48bc936460962e4d9e163a67d7f4a49c" title=" " alt="" coords="235,319,419,359"/>
-<area shape="poly" title=" " alt="" coords="452,329,420,332,419,327,451,323"/>
-<area shape="rect" href="classfsm___wi_fi__state___connected_to_sta.html#aa53957a3d45167be9dc596cfffc3f4be" title=" " alt="" coords="5,275,187,315"/>
-<area shape="poly" title=" " alt="" coords="451,311,419,310,187,301,187,295,419,304,451,306"/>
-<area shape="rect" href="classfsm___wi_fi__state___connected_to_sta.html#a5d7d67f31b4bb74acea5d8018efdd77a" title=" " alt="" coords="5,352,187,393"/>
-<area shape="poly" title=" " alt="" coords="486,344,468,351,445,364,420,374,360,383,299,388,187,385,187,380,299,382,359,378,418,368,442,359,466,346,484,339"/>
-<area shape="rect" href="classfsm___wi_fi__state___connected_to_a_p.html#a991ed1f90951f5540f7accbb89bb048b" title=" " alt="" coords="236,433,418,474"/>
-<area shape="poly" title=" " alt="" coords="476,345,469,350,453,366,445,383,437,400,421,417,391,435,388,431,417,413,432,397,440,380,449,363,465,346,473,341"/>
-<area shape="poly" title=" " alt="" coords="218,321,186,315,187,310,219,316"/>
-<area shape="poly" title=" " alt="" coords="219,357,187,362,187,357,219,352"/>
-<area shape="poly" title=" " alt="" coords="2288,102,2186,123,2185,118,2287,97"/>
-<area shape="poly" title=" " alt="" coords="2006,138,1879,145,1742,162,1686,174,1635,188,1633,183,1684,169,1741,156,1878,140,2005,133"/>
-<area shape="rect" href="classc___f_p_p_discovery.html#a13f8ae4f868abed68dbd07ec7b27930e" title=" " alt="" coords="1754,172,1956,197"/>
-<area shape="poly" title=" " alt="" coords="2033,153,1926,174,1925,168,2032,147"/>
-<area shape="poly" title=" " alt="" coords="1739,193,1645,199,1645,193,1739,188"/>
-<area shape="poly" title=" " alt="" coords="2526,52,2433,72,2432,67,2525,46"/>
-<area shape="rect" href="classc___input_alexa.html#a8e260d42f46f4fa70cbca61ea001dda6" title="set up the operating environment based on the current config (or defaults)" alt="" coords="2302,337,2438,362"/>
-<area shape="poly" title=" " alt="" coords="2533,375,2438,362,2438,357,2533,370"/>
-<area shape="rect" href="_input_mgr_8cpp.html#acaee0a3ecdf748027dec320e1f7bb64e" title=" " alt="" coords="2309,654,2431,680"/>
-<area shape="poly" title=" " alt="" coords="2584,587,2407,656,2405,651,2582,582"/>
-<area shape="rect" href="classc___input_mgr.html#a06a5f6adfd1e87d4d30a7fa0f78ecc33" title="&lt; Start the module" alt="" coords="1529,612,1654,637"/>
-<area shape="poly" title=" " alt="" coords="2294,666,1655,630,1655,625,2294,660"/>
-<area shape="poly" title=" " alt="" coords="1513,616,1447,602,1372,582,1293,553,1220,516,1175,483,1136,444,1084,379,1088,376,1140,441,1179,479,1222,511,1296,548,1373,577,1448,597,1514,610"/>
-<area shape="rect" href="classc___f_p_p_discovery.html#a8e394e07d5b2a650e5255dbfa4ab1880" title=" " alt="" coords="1742,301,1968,342"/>
-<area shape="poly" title=" " alt="" coords="2252,301,2016,314,1969,317,1968,311,2016,308,2251,295"/>
-<area shape="rect" href="classc___f_p_p_discovery.html#a3065915ef4f69f24c24d99c79315f63c" title=" " alt="" coords="2017,323,2218,363"/>
-<area shape="poly" title=" " alt="" coords="2252,319,2219,325,2218,320,2251,313"/>
-<area shape="rect" href="classc___f_p_p_discovery.html#aae669a13978a85a6a3381ce13ec2ba29" title=" " alt="" coords="1489,301,1694,342"/>
-<area shape="poly" title=" " alt="" coords="1726,324,1694,324,1694,319,1726,319"/>
-<area shape="poly" title=" " alt="" coords="1474,316,1173,295,1174,290,1474,311"/>
-<area shape="rect" href="classc___f_p_p_discovery.html#a09dd955e78cdd72066e022c493a59d96" title=" " alt="" coords="1254,337,1409,362"/>
-<area shape="poly" title=" " alt="" coords="1474,337,1409,344,1409,339,1473,332"/>
-<area shape="poly" title=" " alt="" coords="1238,358,1103,365,1103,360,1238,352"/>
-<area shape="poly" title=" " alt="" coords="2001,336,1968,334,1969,328,2002,331"/>
-<area shape="poly" title=" " alt="" coords="2791,590,2745,594,2519,600,2295,594,2096,583,1944,570,1945,565,2096,578,2295,589,2519,594,2745,588,2790,584"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a9aa129dd6077ad48f807aaab43f67c52" name="a9aa129dd6077ad48f807aaab43f67c52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9aa129dd6077ad48f807aaab43f67c52">&#9670;&#160;</a></span>GetBufferUsedSize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t c_OutputMgr::GetBufferUsedSize </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data. </p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classc___output_mgr_a9aa129dd6077ad48f807aaab43f67c52_icgraph.png" border="0" usemap="#aclassc___output_mgr_a9aa129dd6077ad48f807aaab43f67c52_icgraph" alt=""/></div>
-<map name="aclassc___output_mgr_a9aa129dd6077ad48f807aaab43f67c52_icgraph" id="aclassc___output_mgr_a9aa129dd6077ad48f807aaab43f67c52_icgraph">
-<area shape="rect" title="Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data." alt="" coords="2562,258,2776,284"/>
-<area shape="rect" href="classc___web_mgr.html#a2c6189891b0496dae7d89ea7cdb24aee" title=" " alt="" coords="2389,200,2495,226"/>
-<area shape="poly" title=" " alt="" coords="2600,256,2495,229,2496,224,2601,251"/>
-<area shape="rect" href="classfsm___play_effect__state___playing_effect.html#a0bd06217392513ebcc5d436896e73550" title=" " alt="" coords="2370,250,2514,291"/>
-<area shape="poly" title=" " alt="" coords="2547,273,2515,273,2515,268,2547,268"/>
-<area shape="rect" href="classfsm___play_file__state___playing_file.html#a78f01a0f55770883e74f07e65769f8a2" title=" " alt="" coords="2376,316,2508,356"/>
-<area shape="poly" title=" " alt="" coords="2608,291,2510,320,2508,314,2607,286"/>
-<area shape="rect" href="classc___web_mgr.html#a078d26bad50a9051344ff07ad8e746d8" title="set up the operating environment based on the current config (or defaults)" alt="" coords="1895,83,2018,109"/>
-<area shape="poly" title=" " alt="" coords="2373,200,2012,112,2014,107,2375,194"/>
-<area shape="rect" href="classc___web_mgr.html#aa3c98d4d503811ca4071b3e3ba84fa0f" title=" " alt="" coords="2102,227,2322,253"/>
-<area shape="poly" title=" " alt="" coords="2374,224,2323,230,2322,225,2373,219"/>
-<area shape="rect" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Arduino Setup." alt="" coords="5,122,59,148"/>
-<area shape="poly" title=" " alt="" coords="1895,81,1807,59,1695,35,1569,16,1441,8,317,8,276,12,235,21,195,36,158,53,95,91,51,123,48,119,92,87,156,49,193,31,233,16,275,6,317,3,1441,3,1569,10,1696,29,1808,53,1896,76"/>
-<area shape="rect" href="classc___network_mgr.html#af2b9dc93956b88607802667e89c76f75" title=" " alt="" coords="1859,222,2054,263"/>
-<area shape="poly" title=" " alt="" coords="2086,244,2054,244,2054,239,2086,239"/>
-<area shape="rect" href="classc___network_mgr.html#aa9d587432312a58a8d98b5b0a75796fb" title=" " alt="" coords="640,337,820,378"/>
-<area shape="poly" title=" " alt="" coords="1940,278,1874,387,1825,456,1765,526,1696,591,1659,620,1619,645,1577,666,1534,682,1488,692,1441,696,1206,696,1134,690,1037,671,988,657,941,640,900,620,868,597,854,581,845,565,838,535,834,503,820,467,785,419,750,380,754,376,789,415,824,464,839,501,843,534,850,563,859,578,872,593,903,615,943,635,989,652,1038,666,1134,684,1206,691,1441,691,1487,687,1532,677,1575,661,1616,641,1656,616,1693,587,1761,522,1821,453,1870,384,1936,275"/>
-<area shape="rect" href="classc___network_mgr.html#a21de268df9b77ee26f74ae4712537c21" title=" " alt="" coords="1580,230,1811,256"/>
-<area shape="poly" title=" " alt="" coords="1843,245,1812,245,1812,240,1843,240"/>
-<area shape="rect" href="classfsm___wi_fi__state___connected_to_a_p.html#ab31da7c2aca52cf01dfe971d663073d5" title=" " alt="" coords="1349,108,1530,148"/>
-<area shape="poly" title=" " alt="" coords="1652,225,1531,169,1490,151,1492,147,1533,164,1654,220"/>
-<area shape="rect" href="classfsm___wi_fi__state___connected_to_sta.html#a97b6baf24ad1c608f6ff7cac18b56034" title=" " alt="" coords="1349,550,1530,591"/>
-<area shape="poly" title=" " alt="" coords="1677,269,1459,552,1455,548,1673,266"/>
-<area shape="rect" href="classfsm___wi_fi__state___connection_failed.html#a721084d33603f03e8be94782e050c08a" title=" " alt="" coords="1348,378,1532,419"/>
-<area shape="poly" title=" " alt="" coords="1662,266,1476,380,1474,376,1659,261"/>
-<area shape="rect" href="classfsm___wi_fi__state___disabled.html#af598b29015fcdfe6f03d50aac9d1d9ea" title=" " alt="" coords="1355,222,1524,263"/>
-<area shape="poly" title=" " alt="" coords="1564,245,1525,245,1525,240,1564,240"/>
-<area shape="rect" href="classc___wi_fi_driver.html#a73ac32c8db2b76fe03893dde2a2ad134" title=" " alt="" coords="1142,172,1273,198"/>
-<area shape="poly" title=" " alt="" coords="1620,229,1532,213,1393,199,1273,191,1273,185,1394,193,1532,208,1620,224"/>
-<area shape="rect" href="classfsm___wi_fi__state___connecting_using_config.html#ad687833f55433c760ef15c7c99b1f513" title=" " alt="" coords="1115,108,1300,148"/>
-<area shape="poly" title=" " alt="" coords="1334,131,1300,131,1300,125,1334,125"/>
-<area shape="rect" href="classfsm___wi_fi__state___connecting_using_defaults.html#a0d02d6629a626b32ef1ab1f91b82badf" title=" " alt="" coords="1115,42,1300,83"/>
-<area shape="poly" title=" " alt="" coords="1350,106,1282,86,1283,81,1351,100"/>
-<area shape="rect" href="classfsm___wi_fi__state___connecting_as_a_p.html#a7ef8d7da8114f886dcad4e1b4c95af3b" title=" " alt="" coords="1115,616,1300,656"/>
-<area shape="poly" title=" " alt="" coords="1351,598,1283,618,1282,612,1350,593"/>
-<area shape="rect" href="classfsm___wi_fi__state___connecting_as_a_p.html#abfa70db6d7a2dedf0c0fe1f87f679f63" title=" " alt="" coords="1115,550,1300,591"/>
-<area shape="poly" title=" " alt="" coords="1334,573,1300,573,1300,568,1334,568"/>
-<area shape="poly" title=" " alt="" coords="1413,433,1364,484,1301,534,1268,552,1265,547,1298,530,1360,480,1409,429"/>
-<area shape="rect" href="classc___wi_fi_driver.html#a282b20cd06da439d8fcf1890b2e75361" title=" " alt="" coords="1137,271,1278,297"/>
-<area shape="poly" title=" " alt="" coords="1398,371,1351,340,1299,312,1266,300,1268,295,1301,307,1354,336,1401,367"/>
-<area shape="rect" href="classfsm___wi_fi__state___connecting_as_a_p.html#a48bc936460962e4d9e163a67d7f4a49c" title=" " alt="" coords="1115,436,1300,476"/>
-<area shape="poly" title=" " alt="" coords="1341,426,1293,438,1292,432,1340,421"/>
-<area shape="rect" href="classfsm___wi_fi__state___connected_to_sta.html#aa53957a3d45167be9dc596cfffc3f4be" title=" " alt="" coords="878,542,1059,583"/>
-<area shape="poly" title=" " alt="" coords="1402,431,1355,462,1301,490,1257,505,1195,520,1060,549,1059,543,1194,515,1255,500,1299,486,1352,458,1399,426"/>
-<area shape="rect" href="classfsm___wi_fi__state___connected_to_sta.html#a5d7d67f31b4bb74acea5d8018efdd77a" title=" " alt="" coords="878,346,1059,387"/>
-<area shape="poly" title=" " alt="" coords="1332,394,1059,375,1060,370,1332,389"/>
-<area shape="rect" href="classfsm___wi_fi__state___connected_to_a_p.html#a991ed1f90951f5540f7accbb89bb048b" title=" " alt="" coords="1117,321,1298,362"/>
-<area shape="poly" title=" " alt="" coords="1340,377,1292,365,1293,360,1341,372"/>
-<area shape="rect" href="classc___network_mgr.html#a734bce5d4408855944972ff28b13569a" title=" " alt="" coords="870,259,1067,285"/>
-<area shape="poly" title=" " alt="" coords="1122,282,1068,280,1068,274,1122,277"/>
-<area shape="poly" title=" " alt="" coords="917,293,790,339,788,334,915,288"/>
-<area shape="rect" href="classc___network_mgr.html#a50d97dec317ecb4cc9a308b5e0aadf2d" title=" " alt="" coords="646,146,814,172"/>
-<area shape="poly" title=" " alt="" coords="914,256,869,237,805,204,752,174,755,170,807,200,871,232,916,251"/>
-<area shape="rect" href="main_8cpp.html#a067b67c856af5452506085e83cdb2b01" title=" " alt="" coords="462,146,571,172"/>
-<area shape="poly" title=" " alt="" coords="630,161,571,161,571,156,630,156"/>
-<area shape="rect" href="main_8cpp.html#a23e7afe154bda4f1d2e44818ed09843e" title=" " alt="" coords="241,146,395,172"/>
-<area shape="poly" title=" " alt="" coords="446,161,396,161,396,156,446,156"/>
-<area shape="rect" href="main_8cpp.html#a3e32a397e7564d7bbd024686c107ccf1" title="Load configuration file." alt="" coords="107,146,193,172"/>
-<area shape="poly" title=" " alt="" coords="225,161,193,161,193,156,225,156"/>
-<area shape="poly" title=" " alt="" coords="91,149,59,143,60,137,92,144"/>
-<area shape="rect" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="Main Loop." alt="" coords="9,171,55,197"/>
-<area shape="poly" title=" " alt="" coords="92,174,55,182,54,177,91,169"/>
-<area shape="rect" href="classfsm___wi_fi__state___connecting_using_defaults.html#a312d128379e2c56f6f4d6619d64c1988" title=" " alt="" coords="876,477,1061,518"/>
-<area shape="poly" title=" " alt="" coords="1100,477,1062,484,1061,479,1099,472"/>
-<area shape="poly" title=" " alt="" coords="1139,486,1117,497,1093,514,1069,532,1040,544,1038,539,1066,527,1090,510,1114,492,1136,481"/>
-<area shape="poly" title=" " alt="" coords="1141,432,1066,402,1032,390,1033,385,1068,398,1143,427"/>
-<area shape="rect" href="classfsm___wi_fi__state___connecting_using_defaults.html#a1add8feff5b4e42832629d6993c09a96" title=" " alt="" coords="876,412,1061,452"/>
-<area shape="poly" title=" " alt="" coords="1100,448,1061,444,1062,439,1100,443"/>
-<area shape="rect" href="classfsm___wi_fi__state___connecting_using_config.html#ad48a3649d60e18e369a0a2c499fa3613" title=" " alt="" coords="638,477,822,518"/>
-<area shape="poly" title=" " alt="" coords="861,500,823,500,823,495,861,495"/>
-<area shape="rect" href="classfsm___wi_fi__state___boot.html#a8063e8f2dff740f938a920e287b68709" title=" " alt="" coords="443,477,590,518"/>
-<area shape="poly" title=" " alt="" coords="622,500,590,500,590,495,622,495"/>
-<area shape="rect" href="classc___wi_fi_driver.html#a2ba738a27bef8bb98603e808f233eb33" title=" " alt="" coords="1135,222,1280,248"/>
-<area shape="poly" title=" " alt="" coords="1340,242,1280,240,1280,234,1340,237"/>
-<area shape="poly" title=" " alt="" coords="1120,251,1056,261,1055,256,1119,246"/>
-<area shape="rect" href="classc___wi_fi_driver.html#a45f9635bbd7c4978e9ed82995c1b96d1" title=" " alt="" coords="907,196,1030,222"/>
-<area shape="poly" title=" " alt="" coords="1127,196,1031,206,1030,201,1127,191"/>
-<area shape="rect" href="classc___wi_fi_driver.html#ad3d3065d874d5ff8e97a60f08d9eebb5" title=" " alt="" coords="878,146,1059,172"/>
-<area shape="poly" title=" " alt="" coords="1127,179,1059,171,1060,166,1128,174"/>
-<area shape="rect" href="classc___network_mgr.html#a1a7aa80b325ff6d1610ba4ea775724bf" title="&lt; Called from loop()" alt="" coords="251,196,385,222"/>
-<area shape="poly" title=" " alt="" coords="891,212,386,212,386,207,891,207"/>
-<area shape="poly" title=" " alt="" coords="235,205,55,189,55,183,235,199"/>
-<area shape="poly" title=" " alt="" coords="862,161,815,161,815,156,862,156"/>
+<area shape="rect" title="Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data." alt="" coords="3053,457,3236,482"/>
+<area shape="rect" href="classc___output_mgr.html#a3785b017fd1890570afd8c1054095b41" title="&lt; Start up the driver and put it into a safe mode" alt="" coords="2810,382,2988,408"/>
+<area shape="poly" title=" " alt="" coords="3095,453,3005,422,2964,411,2966,406,3006,416,3097,448"/>
+<area shape="rect" href="classc___output_mgr.html#a7471954d6a26b6894c4066a424d8aec8" title=" " alt="" coords="2816,432,2982,457"/>
+<area shape="poly" title=" " alt="" coords="3037,461,2983,456,2983,450,3038,456"/>
+<area shape="rect" href="classc___file_mgr.html#aad3d5c934b264ab5e66c5616c43fa060" title=" " alt="" coords="2541,633,2725,674"/>
+<area shape="poly" title=" " alt="" coords="3038,477,2897,491,2836,505,2794,523,2783,534,2776,545,2771,571,2765,597,2759,611,2747,624,2727,637,2724,632,2743,620,2754,608,2760,595,2766,569,2771,543,2779,530,2792,518,2834,500,2896,486,3037,471"/>
+<area shape="rect" href="classc___output_pixel.html#a3d3b5e86a0a0ffeb89c2509922d870ed" title=" " alt="" coords="2793,533,3005,558"/>
+<area shape="poly" title=" " alt="" coords="3088,490,3006,516,2946,535,2944,530,3005,511,3086,485"/>
+<area shape="rect" href="classc___output_mgr.html#a90fb3f0faa9e11adcade9b0aee1525f3" title="set up the operating environment based on the current config (or defaults)" alt="" coords="2565,317,2700,342"/>
+<area shape="poly" title=" " alt="" coords="2803,428,2792,423,2776,412,2766,400,2757,389,2744,377,2710,359,2676,345,2678,341,2712,354,2746,373,2761,385,2771,397,2780,408,2794,418,2805,423"/>
+<area shape="rect" href="classc___web_mgr.html#a529c105b3389d78208078fd9c6847367" title=" " alt="" coords="2026,425,2210,450"/>
+<area shape="poly" title=" " alt="" coords="2816,431,2745,422,2599,415,2452,417,2319,423,2211,431,2210,426,2319,418,2452,411,2599,410,2745,416,2817,426"/>
+<area shape="rect" href="classc___file_mgr.html#a7fc07abded89ba2dc2fb88aa6e230da8" title=" " alt="" coords="2278,533,2462,558"/>
+<area shape="poly" title=" " alt="" coords="2827,465,2794,479,2781,488,2771,498,2761,508,2746,516,2674,538,2599,550,2527,555,2463,555,2463,549,2527,549,2598,544,2673,532,2744,511,2758,503,2768,494,2777,484,2792,474,2825,460"/>
+<area shape="rect" href="classc___f_p_p_discovery.html#a23c80db87a22d64ac4d4ea91c9ffccde" title=" " alt="" coords="2021,490,2214,516"/>
+<area shape="poly" title=" " alt="" coords="2812,463,2745,472,2601,485,2456,495,2215,504,2215,499,2456,489,2600,480,2745,467,2812,458"/>
+<area shape="poly" title=" " alt="" coords="2811,466,2795,478,2781,496,2774,513,2772,549,2769,586,2761,605,2747,624,2727,638,2724,633,2743,620,2757,602,2764,585,2766,549,2769,512,2777,493,2791,474,2808,462"/>
+<area shape="rect" href="classc___input_alexa.html#adf1dcecdbc97eb955ad2ca3954678c80" title=" " alt="" coords="2548,41,2718,66"/>
+<area shape="poly" title=" " alt="" coords="2801,430,2791,422,2767,388,2756,355,2754,322,2758,288,2763,255,2764,220,2759,184,2743,146,2725,121,2703,100,2658,69,2661,65,2706,96,2729,118,2747,143,2764,183,2770,220,2768,255,2763,289,2759,322,2761,354,2771,386,2795,419,2804,426"/>
+<area shape="rect" href="classc___input_mgr.html#a1823b8316d8574f82bdb06ed1412f161" title="&lt; Called from loop(), renders Input data" alt="" coords="2563,157,2703,182"/>
+<area shape="poly" title=" " alt="" coords="2800,430,2791,422,2773,399,2764,377,2762,354,2763,331,2763,285,2757,261,2743,237,2727,220,2709,206,2671,185,2673,181,2712,202,2731,216,2747,233,2762,259,2768,284,2768,331,2767,353,2770,375,2778,397,2795,418,2804,426"/>
+<area shape="rect" href="classc___f_p_p_discovery.html#a427a0facd1716a38fe6bf5afa87fd49c" title=" " alt="" coords="2267,208,2473,249"/>
+<area shape="poly" title=" " alt="" coords="2801,429,2791,422,2778,408,2771,393,2767,363,2762,333,2755,320,2743,306,2713,285,2681,268,2611,244,2539,231,2473,227,2473,222,2540,226,2612,239,2683,263,2716,281,2747,302,2760,317,2767,332,2772,362,2776,391,2783,405,2795,418,2804,425"/>
+<area shape="rect" href="classc___input_f_p_p_remote.html#a1ee15e1c30584550418fd15599f8de61" title="Set a new config in the driver." alt="" coords="2534,584,2732,609"/>
+<area shape="poly" title=" " alt="" coords="2814,466,2795,478,2778,499,2772,521,2765,544,2747,566,2712,585,2710,581,2743,562,2760,542,2767,520,2773,497,2791,474,2811,461"/>
+<area shape="rect" href="classc___input_common.html#aa12aa6b031d2b37ed2009b56f8bf6bc4" title=" " alt="" coords="2521,432,2745,457"/>
+<area shape="poly" title=" " alt="" coords="2801,447,2745,447,2745,442,2801,442"/>
+<area shape="rect" href="classc___output_mgr.html#a7f11cdb7957ceba01ff6081016afc794" title=" " alt="" coords="2288,309,2452,350"/>
+<area shape="poly" title=" " alt="" coords="2549,341,2452,341,2452,335,2549,335"/>
+<area shape="rect" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Arduino Setup." alt="" coords="1049,161,1102,186"/>
+<area shape="poly" title=" " alt="" coords="2608,307,2550,251,2512,223,2471,199,2378,157,2301,134,2222,125,2119,123,1590,123,1445,129,1304,143,1103,172,1102,166,1304,137,1445,123,1590,118,2119,118,2222,120,2303,129,2380,152,2474,194,2515,218,2553,247,2611,303"/>
+<area shape="poly" title=" " alt="" coords="2467,318,2565,319,2564,324,2467,324"/>
+<area shape="rect" href="classc___output_mgr.html#adc248025f3eafeac3261994673ce96d0" title=" " alt="" coords="2016,324,2219,349"/>
+<area shape="poly" title=" " alt="" coords="2273,335,2220,336,2219,331,2273,330"/>
+<area shape="rect" href="classc___output_mgr.html#a33b3e6588cc7639555d7e91b59378540" title=" " alt="" coords="1766,265,1944,306"/>
+<area shape="poly" title=" " alt="" coords="2273,320,2219,314,1944,293,1945,288,2220,308,2273,314"/>
+<area shape="rect" href="classc___output_mgr.html#a18f0345656b0c2795b7c925f6d797761" title="Read the current configuration data from nvram." alt="" coords="1771,330,1938,356"/>
+<area shape="poly" title=" " alt="" coords="2000,342,1939,344,1939,338,2000,337"/>
+<area shape="poly" title=" " alt="" coords="2032,323,1944,305,1945,300,2033,317"/>
+<area shape="poly" title=" " alt="" coords="1954,354,2016,359,2245,371,2344,369,2472,359,2578,341,2579,346,2473,364,2345,374,2245,376,2016,364,1953,359"/>
+<area shape="rect" href="classc___output_mgr.html#afb3a7a9024cae09c4f6c8613a47e4925" title="Call from loop(), renders output data." alt="" coords="1529,322,1654,348"/>
+<area shape="poly" title=" " alt="" coords="1756,343,1654,340,1654,334,1756,337"/>
+<area shape="poly" title=" " alt="" coords="1638,310,1622,303,1591,301,1564,303,1549,308,1545,313,1553,320,1549,324,1540,314,1545,304,1563,298,1592,296,1624,298,1640,305"/>
+<area shape="rect" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="Main Loop." alt="" coords="1308,314,1354,340"/>
+<area shape="poly" title=" " alt="" coords="1514,335,1354,330,1354,325,1514,330"/>
+<area shape="rect" href="classc___web_mgr.html#a2c6189891b0496dae7d89ea7cdb24aee" title=" " alt="" coords="1538,413,1645,438"/>
+<area shape="poly" title=" " alt="" coords="2010,438,1645,430,1645,424,2010,433"/>
+<area shape="rect" href="classc___web_mgr.html#a078d26bad50a9051344ff07ad8e746d8" title="set up the operating environment based on the current config (or defaults)" alt="" coords="1270,364,1392,389"/>
+<area shape="poly" title=" " alt="" coords="1523,415,1392,390,1393,385,1524,410"/>
+<area shape="rect" href="classc___web_mgr.html#aa3c98d4d503811ca4071b3e3ba84fa0f" title=" " alt="" coords="1221,413,1441,438"/>
+<area shape="poly" title=" " alt="" coords="1523,428,1441,428,1441,423,1523,423"/>
+<area shape="poly" title=" " alt="" coords="1254,371,1219,355,1200,335,1191,315,1184,294,1171,271,1129,225,1091,189,1094,185,1133,221,1175,268,1189,292,1196,313,1205,332,1223,350,1256,366"/>
+<area shape="rect" href="classc___network_mgr.html#af2b9dc93956b88607802667e89c76f75" title=" " alt="" coords="979,281,1173,322"/>
+<area shape="poly" title=" " alt="" coords="1236,410,1220,404,1185,386,1152,365,1099,325,1102,320,1155,361,1188,382,1222,399,1238,405"/>
+<area shape="rect" href="classc___network_mgr.html#aa9d587432312a58a8d98b5b0a75796fb" title=" " alt="" coords="725,252,905,293"/>
+<area shape="poly" title=" " alt="" coords="962,292,905,285,906,280,963,286"/>
+<area shape="rect" href="classc___network_mgr.html#a21de268df9b77ee26f74ae4712537c21" title=" " alt="" coords="699,317,931,342"/>
+<area shape="poly" title=" " alt="" coords="963,316,931,320,931,315,963,311"/>
+<area shape="rect" href="classfsm___wi_fi__state___connected_to_a_p.html#ab31da7c2aca52cf01dfe971d663073d5" title=" " alt="" coords="468,71,650,111"/>
+<area shape="poly" title=" " alt="" coords="704,311,698,306,684,293,676,279,668,252,663,223,649,191,616,148,582,114,586,110,620,145,654,188,668,221,673,251,681,277,688,289,701,302,707,307"/>
+<area shape="rect" href="classfsm___wi_fi__state___connected_to_sta.html#a97b6baf24ad1c608f6ff7cac18b56034" title=" " alt="" coords="468,201,650,242"/>
+<area shape="poly" title=" " alt="" coords="722,315,698,307,638,277,588,245,591,240,641,272,700,302,723,310"/>
+<area shape="rect" href="classfsm___wi_fi__state___connection_failed.html#a721084d33603f03e8be94782e050c08a" title=" " alt="" coords="467,309,651,350"/>
+<area shape="poly" title=" " alt="" coords="684,332,652,332,652,327,684,327"/>
+<area shape="rect" href="classfsm___wi_fi__state___disabled.html#af598b29015fcdfe6f03d50aac9d1d9ea" title=" " alt="" coords="474,375,644,415"/>
+<area shape="poly" title=" " alt="" coords="748,349,642,377,641,371,746,344"/>
+<area shape="rect" href="classc___wi_fi_driver.html#a73ac32c8db2b76fe03893dde2a2ad134" title=" " alt="" coords="494,440,624,465"/>
+<area shape="poly" title=" " alt="" coords="784,354,725,392,652,429,618,441,617,436,650,425,722,387,781,349"/>
+<area shape="rect" href="classfsm___wi_fi__state___connecting_using_config.html#ad687833f55433c760ef15c7c99b1f513" title=" " alt="" coords="235,5,419,46"/>
+<area shape="poly" title=" " alt="" coords="469,69,401,49,403,44,471,63"/>
+<area shape="rect" href="classfsm___wi_fi__state___connecting_using_defaults.html#a0d02d6629a626b32ef1ab1f91b82badf" title=" " alt="" coords="235,71,419,111"/>
+<area shape="poly" title=" " alt="" coords="453,94,420,94,420,88,453,88"/>
+<area shape="rect" href="classfsm___wi_fi__state___connecting_as_a_p.html#a7ef8d7da8114f886dcad4e1b4c95af3b" title=" " alt="" coords="235,136,419,177"/>
+<area shape="poly" title=" " alt="" coords="469,199,401,180,403,175,471,194"/>
+<area shape="rect" href="classfsm___wi_fi__state___connecting_as_a_p.html#abfa70db6d7a2dedf0c0fe1f87f679f63" title=" " alt="" coords="235,201,419,242"/>
+<area shape="poly" title=" " alt="" coords="453,224,420,224,420,219,453,219"/>
+<area shape="poly" title=" " alt="" coords="509,303,418,256,391,245,393,240,420,251,511,299"/>
+<area shape="rect" href="classc___wi_fi_driver.html#a282b20cd06da439d8fcf1890b2e75361" title=" " alt="" coords="257,266,397,292"/>
+<area shape="poly" title=" " alt="" coords="451,309,389,295,390,290,452,304"/>
+<area shape="rect" href="classfsm___wi_fi__state___connecting_as_a_p.html#a48bc936460962e4d9e163a67d7f4a49c" title=" " alt="" coords="235,367,419,407"/>
+<area shape="poly" title=" " alt="" coords="460,357,413,369,411,363,459,352"/>
+<area shape="rect" href="classfsm___wi_fi__state___connected_to_sta.html#aa53957a3d45167be9dc596cfffc3f4be" title=" " alt="" coords="5,323,187,363"/>
+<area shape="poly" title=" " alt="" coords="452,335,187,343,187,338,452,330"/>
+<area shape="rect" href="classfsm___wi_fi__state___connected_to_sta.html#a5d7d67f31b4bb74acea5d8018efdd77a" title=" " alt="" coords="5,400,187,441"/>
+<area shape="poly" title=" " alt="" coords="477,360,469,365,454,379,446,394,437,409,420,421,362,440,301,448,241,448,187,442,188,437,242,442,301,443,361,435,418,417,433,405,442,392,450,376,465,361,474,355"/>
+<area shape="rect" href="classfsm___wi_fi__state___connected_to_a_p.html#a991ed1f90951f5540f7accbb89bb048b" title=" " alt="" coords="236,481,418,522"/>
+<area shape="poly" title=" " alt="" coords="474,361,469,365,452,389,445,413,439,439,421,465,395,483,392,479,417,461,434,437,440,412,447,387,465,361,470,357"/>
+<area shape="poly" title=" " alt="" coords="218,369,186,363,187,358,219,364"/>
+<area shape="poly" title=" " alt="" coords="219,405,187,410,187,405,219,400"/>
+<area shape="rect" href="classc___wi_fi_driver.html#a2ba738a27bef8bb98603e808f233eb33" title=" " alt="" coords="255,546,399,572"/>
+<area shape="poly" title=" " alt="" coords="471,427,469,429,458,442,451,455,446,481,440,509,433,522,421,536,401,548,398,544,417,532,429,519,435,507,441,480,446,453,453,439,465,425,468,423"/>
+<area shape="poly" title=" " alt="" coords="2274,532,2197,519,2198,514,2275,527"/>
+<area shape="poly" title=" " alt="" coords="2014,490,1968,483,1645,436,1645,431,1968,478,2015,485"/>
+<area shape="rect" href="classc___f_p_p_discovery.html#a13f8ae4f868abed68dbd07ec7b27930e" title=" " alt="" coords="1754,493,1956,518"/>
+<area shape="poly" title=" " alt="" coords="2006,507,1956,507,1956,502,2006,501"/>
+<area shape="poly" title=" " alt="" coords="1790,491,1741,476,1632,442,1634,437,1742,471,1792,486"/>
+<area shape="poly" title=" " alt="" coords="2537,630,2520,624,2449,592,2393,561,2395,557,2452,587,2522,619,2539,625"/>
+<area shape="rect" href="classc___input_alexa.html#a8e260d42f46f4fa70cbca61ea001dda6" title="set up the operating environment based on the current config (or defaults)" alt="" coords="2302,8,2438,33"/>
+<area shape="poly" title=" " alt="" coords="2533,44,2438,32,2438,26,2533,38"/>
+<area shape="rect" href="_input_mgr_8cpp.html#acaee0a3ecdf748027dec320e1f7bb64e" title=" " alt="" coords="2309,57,2431,82"/>
+<area shape="poly" title=" " alt="" coords="2588,153,2472,104,2416,86,2418,81,2474,99,2590,148"/>
+<area shape="rect" href="classc___input_mgr.html#a06a5f6adfd1e87d4d30a7fa0f78ecc33" title="&lt; Start the module" alt="" coords="1529,57,1654,82"/>
+<area shape="poly" title=" " alt="" coords="2294,72,1655,72,1655,67,2294,67"/>
+<area shape="poly" title=" " alt="" coords="1514,71,1376,77,1298,87,1222,104,1153,132,1099,163,1096,158,1151,127,1220,99,1297,82,1376,72,1514,65"/>
+<area shape="rect" href="classc___f_p_p_discovery.html#a8e394e07d5b2a650e5255dbfa4ab1880" title=" " alt="" coords="1742,195,1968,235"/>
+<area shape="poly" title=" " alt="" coords="2271,207,2219,199,2155,195,2090,195,1969,203,1968,198,2089,190,2155,190,2220,194,2271,202"/>
+<area shape="rect" href="classc___f_p_p_discovery.html#a3065915ef4f69f24c24d99c79315f63c" title=" " alt="" coords="2017,208,2218,249"/>
+<area shape="poly" title=" " alt="" coords="2251,231,2219,231,2219,226,2251,226"/>
+<area shape="rect" href="classc___f_p_p_discovery.html#aae669a13978a85a6a3381ce13ec2ba29" title=" " alt="" coords="1489,195,1694,235"/>
+<area shape="poly" title=" " alt="" coords="1726,218,1694,218,1694,212,1726,212"/>
+<area shape="poly" title=" " alt="" coords="1474,237,1174,288,1173,283,1474,232"/>
+<area shape="rect" href="classc___f_p_p_discovery.html#a09dd955e78cdd72066e022c493a59d96" title=" " alt="" coords="1254,197,1409,222"/>
+<area shape="poly" title=" " alt="" coords="1474,215,1409,214,1409,209,1474,210"/>
+<area shape="poly" title=" " alt="" coords="1238,199,1103,180,1103,175,1239,194"/>
+<area shape="poly" title=" " alt="" coords="2001,225,1968,223,1968,218,2001,220"/>
 </map>
 </div>
 
@@ -1928,51 +1719,48 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classc___output_mgr_a7f11cdb7957ceba01ff6081016afc794_cgraph.png" border="0" usemap="#aclassc___output_mgr_a7f11cdb7957ceba01ff6081016afc794_cgraph" alt=""/></div>
 <map name="aclassc___output_mgr_a7f11cdb7957ceba01ff6081016afc794_cgraph" id="aclassc___output_mgr_a7f11cdb7957ceba01ff6081016afc794_cgraph">
-<area shape="rect" title=" " alt="" coords="5,246,169,286"/>
-<area shape="rect" href="classc___output_mgr.html#a90fb3f0faa9e11adcade9b0aee1525f3" title="set up the operating environment based on the current config (or defaults)" alt="" coords="248,253,383,279"/>
-<area shape="poly" title=" " alt="" coords="169,272,232,272,232,278,169,278"/>
-<area shape="rect" href="classc___output_mgr.html#a17aadd243f3259a99b320652ab624d07" title=" " alt="" coords="1183,271,1375,296"/>
-<area shape="poly" title=" " alt="" coords="147,285,224,309,323,335,433,355,489,361,544,364,781,364,960,364,1037,357,1134,338,1189,321,1237,301,1239,306,1191,326,1136,343,1037,362,960,369,781,369,544,369,489,367,432,361,322,340,223,314,145,290"/>
-<area shape="rect" href="classc___output_mgr.html#a5f037f089c20467b3f86841b46e1f60b" title=" " alt="" coords="217,403,414,444"/>
-<area shape="poly" title=" " alt="" coords="108,285,156,333,186,359,218,383,239,394,237,399,215,387,182,364,152,337,105,289"/>
-<area shape="poly" title=" " alt="" coords="247,261,184,260,184,255,247,255"/>
-<area shape="rect" href="classc___output_mgr.html#a7471954d6a26b6894c4066a424d8aec8" title=" " alt="" coords="462,303,629,328"/>
-<area shape="poly" title=" " alt="" coords="379,277,468,296,467,301,378,282"/>
-<area shape="rect" href="classc___output_mgr.html#a18f0345656b0c2795b7c925f6d797761" title="Read the current configuration data from nvram." alt="" coords="462,152,629,178"/>
-<area shape="poly" title=" " alt="" coords="342,250,461,194,493,181,495,186,463,199,344,255"/>
-<area shape="rect" href="main_8cpp.html#a23252221d60de2259fe00859f716c72e" title=" " alt="" coords="725,201,835,227"/>
-<area shape="poly" title=" " alt="" coords="383,251,462,238,593,224,709,216,710,221,594,230,462,243,384,256"/>
-<area shape="rect" href="_e_s_pixel_stick_8h.html#a97937ae3377e427d21b29966a14e964a" title=" " alt="" coords="504,253,587,279"/>
-<area shape="poly" title=" " alt="" coords="383,264,489,264,489,269,383,269"/>
-<area shape="rect" href="classc___output_mgr.html#aec62685e8fb4eff73bfefd3ed5321b01" title="Get the address of the buffer into which the E1.31 handler will stuff data." alt="" coords="677,303,883,328"/>
-<area shape="poly" title=" " alt="" coords="629,313,661,313,661,318,629,318"/>
-<area shape="rect" href="classc___output_mgr.html#abc896c708fce43b559a42ba4e67c9976" title="Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data." alt="" coords="942,239,1124,264"/>
-<area shape="poly" title=" " alt="" coords="610,299,677,288,806,271,926,258,926,263,807,276,678,293,611,305"/>
-<area shape="rect" href="classc___output_mgr.html#adc248025f3eafeac3261994673ce96d0" title=" " alt="" coords="678,103,882,128"/>
-<area shape="poly" title=" " alt="" coords="610,149,700,130,701,135,611,154"/>
-<area shape="rect" href="classc___file_mgr.html#a56a3ece591539d6b844ac99ecb2162bc" title=" " alt="" coords="697,152,863,178"/>
-<area shape="poly" title=" " alt="" coords="630,162,681,162,681,168,630,168"/>
-<area shape="poly" title=" " alt="" coords="611,176,710,197,709,202,610,181"/>
-<area shape="poly" title=" " alt="" coords="678,119,573,126,463,142,377,163,292,189,152,242,150,237,291,184,375,158,461,137,573,121,678,114"/>
-<area shape="poly" title=" " alt="" coords="866,126,884,137,902,160,909,183,916,205,932,226,937,229,934,233,929,229,911,207,904,184,898,162,881,142,863,131"/>
-<area shape="rect" href="classc___output_mgr.html#a1e460ab7d570adbbb53dd0e4c6651f6d" title=" " alt="" coords="931,140,1135,166"/>
-<area shape="poly" title=" " alt="" coords="872,126,927,134,926,140,871,132"/>
-<area shape="rect" href="classc___output_mgr.html#a63b3162a5ec5fe39859401b4b817b892" title="Save the current configuration data to nvram." alt="" coords="954,87,1112,112"/>
-<area shape="poly" title=" " alt="" coords="882,106,938,103,938,108,882,112"/>
-<area shape="rect" href="classc___output_mgr.html#a520a6f7c6d810b254b71f3712d6f9710" title=" " alt="" coords="1200,144,1359,170"/>
-<area shape="poly" title=" " alt="" coords="1135,152,1184,153,1184,158,1135,157"/>
-<area shape="poly" title=" " alt="" coords="1107,164,1136,174,1170,193,1203,215,1255,258,1251,262,1199,219,1168,198,1134,179,1106,169"/>
-<area shape="rect" href="classc___file_mgr.html#aab11aa92f9253ec95ec5b2dc7be1c55e" title=" " alt="" coords="1423,144,1591,170"/>
-<area shape="poly" title=" " alt="" coords="1359,154,1407,154,1407,160,1359,160"/>
-<area shape="rect" href="classc___file_mgr.html#a91d8ba978954c06f5448afb5c75f34b4" title=" " alt="" coords="1196,29,1363,55"/>
-<area shape="poly" title=" " alt="" coords="1091,83,1205,56,1207,62,1092,89"/>
-<area shape="rect" href="classc___output_mgr.html#ac9742371ff3eae19bc7f0ece84ea6c79" title=" " alt="" coords="1186,79,1372,120"/>
-<area shape="poly" title=" " alt="" coords="1113,97,1171,97,1171,102,1113,102"/>
-<area shape="poly" title=" " alt="" coords="1241,31,1234,21,1238,11,1254,5,1279,3,1307,5,1321,12,1319,17,1306,10,1279,8,1255,10,1242,15,1239,20,1246,27"/>
-<area shape="rect" href="classc___output_mgr.html#aa5fa47aab179e25649aa61acd159586d" title=" " alt="" coords="940,189,1126,215"/>
-<area shape="poly" title=" " alt="" coords="835,209,925,205,925,210,836,214"/>
-<area shape="rect" href="classc___input_mgr.html#a8a195063dcc63c1fd8de7c14ab3bf0a2" title=" " alt="" coords="944,288,1122,329"/>
-<area shape="poly" title=" " alt="" coords="812,225,932,274,950,281,948,286,930,279,810,230"/>
+<area shape="rect" title=" " alt="" coords="5,199,169,240"/>
+<area shape="rect" href="classc___output_mgr.html#a90fb3f0faa9e11adcade9b0aee1525f3" title="set up the operating environment based on the current config (or defaults)" alt="" coords="248,131,383,156"/>
+<area shape="poly" title=" " alt="" coords="168,198,276,160,278,165,170,203"/>
+<area shape="rect" href="classc___output_mgr.html#a17aadd243f3259a99b320652ab624d07" title=" " alt="" coords="1181,317,1373,343"/>
+<area shape="poly" title=" " alt="" coords="112,238,158,275,187,293,218,306,306,331,377,337,544,332,780,332,1165,329,1165,334,780,337,544,337,377,343,305,336,216,311,185,297,155,279,109,243"/>
+<area shape="rect" href="classc___output_mgr.html#a5f037f089c20467b3f86841b46e1f60b" title=" " alt="" coords="217,256,414,297"/>
+<area shape="poly" title=" " alt="" coords="170,237,218,250,216,255,169,243"/>
+<area shape="poly" title=" " alt="" coords="250,160,144,196,142,191,249,154"/>
+<area shape="rect" href="classc___output_mgr.html#a7471954d6a26b6894c4066a424d8aec8" title=" " alt="" coords="462,5,629,31"/>
+<area shape="poly" title=" " alt="" coords="331,128,386,85,422,61,461,40,474,34,476,39,463,45,425,66,389,89,334,132"/>
+<area shape="rect" href="classc___output_mgr.html#a18f0345656b0c2795b7c925f6d797761" title="Read the current configuration data from nvram." alt="" coords="462,156,629,182"/>
+<area shape="poly" title=" " alt="" coords="383,148,447,155,447,161,383,154"/>
+<area shape="rect" href="main_8cpp.html#a23252221d60de2259fe00859f716c72e" title=" " alt="" coords="724,105,834,131"/>
+<area shape="poly" title=" " alt="" coords="383,137,708,119,708,125,383,143"/>
+<area shape="rect" href="_e_s_pixel_stick_8h.html#a97937ae3377e427d21b29966a14e964a" title=" " alt="" coords="504,55,587,80"/>
+<area shape="poly" title=" " alt="" coords="356,128,489,83,491,88,358,133"/>
+<area shape="rect" href="classc___output_mgr.html#abc896c708fce43b559a42ba4e67c9976" title="Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data." alt="" coords="688,5,870,31"/>
+<area shape="poly" title=" " alt="" coords="629,16,672,16,672,21,629,21"/>
+<area shape="rect" href="classc___output_mgr.html#adc248025f3eafeac3261994673ce96d0" title=" " alt="" coords="677,207,881,232"/>
+<area shape="poly" title=" " alt="" coords="609,180,702,200,701,205,608,185"/>
+<area shape="rect" href="classc___file_mgr.html#a56a3ece591539d6b844ac99ecb2162bc" title=" " alt="" coords="696,156,862,182"/>
+<area shape="poly" title=" " alt="" coords="630,166,680,166,680,172,630,172"/>
+<area shape="poly" title=" " alt="" coords="608,153,708,131,709,136,609,158"/>
+<area shape="poly" title=" " alt="" coords="677,222,184,222,184,217,677,217"/>
+<area shape="rect" href="classc___output_mgr.html#a1e460ab7d570adbbb53dd0e4c6651f6d" title=" " alt="" coords="929,268,1133,294"/>
+<area shape="poly" title=" " alt="" coords="836,230,961,261,960,266,834,236"/>
+<area shape="rect" href="classc___output_mgr.html#a63b3162a5ec5fe39859401b4b817b892" title="Save the current configuration data to nvram." alt="" coords="952,207,1110,232"/>
+<area shape="poly" title=" " alt="" coords="881,217,936,217,936,222,881,222"/>
+<area shape="rect" href="classc___output_mgr.html#a520a6f7c6d810b254b71f3712d6f9710" title=" " alt="" coords="1198,268,1357,294"/>
+<area shape="poly" title=" " alt="" coords="1133,278,1182,278,1182,284,1133,284"/>
+<area shape="poly" title=" " alt="" coords="1099,292,1195,311,1194,316,1098,297"/>
+<area shape="rect" href="classc___file_mgr.html#aab11aa92f9253ec95ec5b2dc7be1c55e" title=" " alt="" coords="1421,268,1589,294"/>
+<area shape="poly" title=" " alt="" coords="1357,278,1405,278,1405,284,1357,284"/>
+<area shape="rect" href="classc___file_mgr.html#a91d8ba978954c06f5448afb5c75f34b4" title=" " alt="" coords="1194,151,1361,176"/>
+<area shape="poly" title=" " alt="" coords="1090,203,1202,178,1203,183,1091,209"/>
+<area shape="rect" href="classc___output_mgr.html#ac9742371ff3eae19bc7f0ece84ea6c79" title=" " alt="" coords="1184,200,1370,241"/>
+<area shape="poly" title=" " alt="" coords="1111,217,1169,218,1169,223,1111,223"/>
+<area shape="poly" title=" " alt="" coords="1239,152,1232,142,1236,132,1252,126,1277,124,1305,127,1319,134,1317,138,1304,132,1277,129,1253,131,1240,136,1237,141,1244,149"/>
+<area shape="rect" href="classc___output_mgr.html#aa5fa47aab179e25649aa61acd159586d" title=" " alt="" coords="938,131,1124,156"/>
+<area shape="poly" title=" " alt="" coords="835,121,923,130,922,135,834,126"/>
+<area shape="rect" href="classc___input_mgr.html#a8a195063dcc63c1fd8de7c14ab3bf0a2" title=" " alt="" coords="942,66,1120,106"/>
+<area shape="poly" title=" " alt="" coords="834,109,926,97,927,102,835,114"/>
 </map>
 </div>
 <div class="dynheader">
@@ -2025,51 +1813,48 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classc___output_mgr_a18f0345656b0c2795b7c925f6d797761_cgraph.png" border="0" usemap="#aclassc___output_mgr_a18f0345656b0c2795b7c925f6d797761_cgraph" alt=""/></div>
 <map name="aclassc___output_mgr_a18f0345656b0c2795b7c925f6d797761_cgraph" id="aclassc___output_mgr_a18f0345656b0c2795b7c925f6d797761_cgraph">
-<area shape="rect" title="Read the current configuration data from nvram." alt="" coords="5,315,173,341"/>
-<area shape="rect" href="classc___output_mgr.html#adc248025f3eafeac3261994673ce96d0" title=" " alt="" coords="221,163,424,189"/>
-<area shape="poly" title=" " alt="" coords="101,313,150,266,184,239,219,214,263,193,265,198,222,219,187,243,154,270,105,317"/>
-<area shape="rect" href="main_8cpp.html#a23252221d60de2259fe00859f716c72e" title=" " alt="" coords="998,355,1108,381"/>
-<area shape="poly" title=" " alt="" coords="157,339,296,363,486,387,592,395,702,400,813,399,921,392,983,382,984,388,922,398,813,405,702,405,592,401,485,392,295,368,156,344"/>
-<area shape="rect" href="classc___file_mgr.html#a56a3ece591539d6b844ac99ecb2162bc" title=" " alt="" coords="239,458,406,484"/>
-<area shape="poly" title=" " alt="" coords="104,340,153,387,186,413,222,437,252,450,250,455,219,441,183,418,149,391,101,343"/>
-<area shape="rect" href="classc___output_mgr.html#a1e460ab7d570adbbb53dd0e4c6651f6d" title=" " alt="" coords="472,103,676,129"/>
-<area shape="poly" title=" " alt="" coords="379,160,502,131,503,136,380,165"/>
-<area shape="rect" href="classc___output_mgr.html#abc896c708fce43b559a42ba4e67c9976" title="Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data." alt="" coords="1196,86,1379,112"/>
-<area shape="poly" title=" " alt="" coords="341,161,397,124,471,89,568,54,651,29,727,13,799,4,872,4,950,9,1138,39,1196,55,1247,77,1245,81,1194,60,1136,44,949,15,872,9,800,10,728,18,653,35,569,59,473,93,400,129,344,165"/>
-<area shape="rect" href="classc___output_mgr.html#a7f11cdb7957ceba01ff6081016afc794" title=" " alt="" coords="492,156,656,197"/>
-<area shape="poly" title=" " alt="" coords="425,174,477,174,477,179,425,179"/>
-<area shape="rect" href="classc___output_mgr.html#a63b3162a5ec5fe39859401b4b817b892" title="Save the current configuration data to nvram." alt="" coords="495,275,653,301"/>
-<area shape="poly" title=" " alt="" coords="354,187,530,266,528,271,352,192"/>
-<area shape="rect" href="classc___output_mgr.html#a520a6f7c6d810b254b71f3712d6f9710" title=" " alt="" coords="743,54,903,80"/>
-<area shape="poly" title=" " alt="" coords="642,100,739,81,740,86,643,105"/>
-<area shape="rect" href="classc___output_mgr.html#a17aadd243f3259a99b320652ab624d07" title=" " alt="" coords="727,103,919,129"/>
-<area shape="poly" title=" " alt="" coords="677,114,711,114,711,119,677,119"/>
-<area shape="rect" href="classc___file_mgr.html#aab11aa92f9253ec95ec5b2dc7be1c55e" title=" " alt="" coords="970,54,1137,80"/>
-<area shape="poly" title=" " alt="" coords="903,64,954,64,954,70,903,70"/>
-<area shape="poly" title=" " alt="" coords="656,154,751,131,752,136,657,159"/>
-<area shape="rect" href="classc___output_mgr.html#a90fb3f0faa9e11adcade9b0aee1525f3" title="set up the operating environment based on the current config (or defaults)" alt="" coords="755,218,891,244"/>
-<area shape="poly" title=" " alt="" coords="635,195,741,219,739,224,634,200"/>
-<area shape="rect" href="classc___output_mgr.html#a5f037f089c20467b3f86841b46e1f60b" title=" " alt="" coords="724,153,922,194"/>
-<area shape="poly" title=" " alt="" coords="656,173,709,172,709,178,656,178"/>
-<area shape="poly" title=" " alt="" coords="755,238,624,249,472,266,314,290,175,315,174,309,313,284,472,260,624,244,755,233"/>
-<area shape="poly" title=" " alt="" coords="789,220,670,191,672,186,790,215"/>
-<area shape="rect" href="classc___output_mgr.html#a7471954d6a26b6894c4066a424d8aec8" title=" " alt="" coords="970,218,1136,244"/>
-<area shape="poly" title=" " alt="" coords="891,228,955,228,955,234,891,234"/>
-<area shape="poly" title=" " alt="" coords="892,242,923,254,955,274,985,297,1032,342,1029,346,982,301,952,278,920,259,890,247"/>
-<area shape="rect" href="_e_s_pixel_stick_8h.html#a97937ae3377e427d21b29966a14e964a" title=" " alt="" coords="1012,169,1094,194"/>
-<area shape="poly" title=" " alt="" coords="886,215,997,191,998,196,887,220"/>
-<area shape="poly" title=" " alt="" coords="1110,215,1136,205,1204,163,1259,120,1262,124,1207,167,1138,209,1112,220"/>
-<area shape="rect" href="classc___output_mgr.html#aec62685e8fb4eff73bfefd3ed5321b01" title="Get the address of the buffer into which the E1.31 handler will stuff data." alt="" coords="1185,218,1390,244"/>
-<area shape="poly" title=" " alt="" coords="1137,228,1169,228,1169,234,1137,234"/>
-<area shape="rect" href="classc___output_mgr.html#aa5fa47aab179e25649aa61acd159586d" title=" " alt="" coords="1195,383,1380,409"/>
-<area shape="poly" title=" " alt="" coords="1109,372,1180,381,1179,386,1109,378"/>
-<area shape="rect" href="classc___input_mgr.html#a8a195063dcc63c1fd8de7c14ab3bf0a2" title=" " alt="" coords="1198,319,1377,359"/>
-<area shape="poly" title=" " alt="" coords="1109,359,1183,349,1183,355,1109,364"/>
-<area shape="rect" href="classc___file_mgr.html#a91d8ba978954c06f5448afb5c75f34b4" title=" " alt="" coords="739,357,907,382"/>
-<area shape="poly" title=" " alt="" coords="617,299,768,349,766,354,615,304"/>
-<area shape="rect" href="classc___output_mgr.html#ac9742371ff3eae19bc7f0ece84ea6c79" title=" " alt="" coords="730,268,916,309"/>
-<area shape="poly" title=" " alt="" coords="654,286,715,286,715,291,654,291"/>
-<area shape="poly" title=" " alt="" coords="785,358,777,348,782,338,797,332,823,330,851,333,865,340,863,344,850,338,823,335,799,337,785,342,783,348,789,355"/>
+<area shape="rect" title="Read the current configuration data from nvram." alt="" coords="5,288,173,314"/>
+<area shape="rect" href="classc___output_mgr.html#adc248025f3eafeac3261994673ce96d0" title=" " alt="" coords="221,221,424,247"/>
+<area shape="poly" title=" " alt="" coords="136,285,259,249,260,254,138,290"/>
+<area shape="rect" href="main_8cpp.html#a23252221d60de2259fe00859f716c72e" title=" " alt="" coords="998,140,1108,166"/>
+<area shape="poly" title=" " alt="" coords="144,312,317,351,430,372,548,390,665,402,772,404,818,401,859,394,894,383,920,368,939,348,947,326,949,304,947,280,944,255,944,229,951,204,968,179,983,167,986,171,972,183,956,206,950,230,949,255,952,279,954,304,952,328,943,351,923,372,896,388,861,399,819,406,772,410,665,407,548,395,429,377,316,356,143,317"/>
+<area shape="rect" href="classc___file_mgr.html#a56a3ece591539d6b844ac99ecb2162bc" title=" " alt="" coords="239,433,406,459"/>
+<area shape="poly" title=" " alt="" coords="104,312,152,360,186,388,222,412,252,425,250,430,219,417,183,392,149,364,100,316"/>
+<area shape="rect" href="classc___output_mgr.html#a1e460ab7d570adbbb53dd0e4c6651f6d" title=" " alt="" coords="472,193,676,219"/>
+<area shape="poly" title=" " alt="" coords="424,220,456,217,457,222,425,225"/>
+<area shape="rect" href="classc___output_mgr.html#a7f11cdb7957ceba01ff6081016afc794" title=" " alt="" coords="492,79,656,120"/>
+<area shape="poly" title=" " alt="" coords="347,218,520,125,522,130,350,223"/>
+<area shape="rect" href="classc___output_mgr.html#a63b3162a5ec5fe39859401b4b817b892" title="Save the current configuration data to nvram." alt="" coords="495,251,653,276"/>
+<area shape="poly" title=" " alt="" coords="425,243,480,250,479,255,424,249"/>
+<area shape="rect" href="classc___output_mgr.html#a520a6f7c6d810b254b71f3712d6f9710" title=" " alt="" coords="743,193,903,219"/>
+<area shape="poly" title=" " alt="" coords="677,204,728,204,728,209,677,209"/>
+<area shape="rect" href="classc___output_mgr.html#a17aadd243f3259a99b320652ab624d07" title=" " alt="" coords="727,144,919,170"/>
+<area shape="poly" title=" " alt="" coords="642,190,739,171,740,176,643,195"/>
+<area shape="rect" href="classc___file_mgr.html#aab11aa92f9253ec95ec5b2dc7be1c55e" title=" " alt="" coords="970,193,1137,219"/>
+<area shape="poly" title=" " alt="" coords="903,204,954,204,954,209,903,209"/>
+<area shape="poly" title=" " alt="" coords="657,116,750,137,749,143,656,121"/>
+<area shape="rect" href="classc___output_mgr.html#a90fb3f0faa9e11adcade9b0aee1525f3" title="set up the operating environment based on the current config (or defaults)" alt="" coords="755,29,891,55"/>
+<area shape="poly" title=" " alt="" coords="656,87,776,57,777,62,657,92"/>
+<area shape="rect" href="classc___output_mgr.html#a5f037f089c20467b3f86841b46e1f60b" title=" " alt="" coords="724,79,922,120"/>
+<area shape="poly" title=" " alt="" coords="656,97,709,97,709,102,656,102"/>
+<area shape="poly" title=" " alt="" coords="755,41,694,41,623,44,547,53,473,70,418,90,364,115,262,173,178,232,118,280,115,276,175,228,260,169,361,110,416,85,471,65,546,48,622,39,694,35,755,36"/>
+<area shape="poly" title=" " alt="" coords="756,52,647,77,646,72,754,47"/>
+<area shape="rect" href="classc___output_mgr.html#a7471954d6a26b6894c4066a424d8aec8" title=" " alt="" coords="970,55,1136,80"/>
+<area shape="poly" title=" " alt="" coords="891,47,955,54,955,59,891,52"/>
+<area shape="poly" title=" " alt="" coords="889,53,923,65,979,96,1025,128,1022,133,976,100,921,70,887,58"/>
+<area shape="rect" href="_e_s_pixel_stick_8h.html#a97937ae3377e427d21b29966a14e964a" title=" " alt="" coords="1012,5,1094,31"/>
+<area shape="poly" title=" " alt="" coords="891,33,996,21,997,27,891,38"/>
+<area shape="rect" href="classc___output_mgr.html#abc896c708fce43b559a42ba4e67c9976" title="Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data." alt="" coords="1186,55,1369,80"/>
+<area shape="poly" title=" " alt="" coords="1137,65,1171,65,1171,70,1137,70"/>
+<area shape="rect" href="classc___output_mgr.html#aa5fa47aab179e25649aa61acd159586d" title=" " alt="" coords="1185,184,1370,210"/>
+<area shape="poly" title=" " alt="" coords="1109,161,1194,178,1193,183,1108,166"/>
+<area shape="rect" href="classc___input_mgr.html#a8a195063dcc63c1fd8de7c14ab3bf0a2" title=" " alt="" coords="1188,119,1367,160"/>
+<area shape="poly" title=" " alt="" coords="1109,147,1173,143,1173,148,1109,152"/>
+<area shape="rect" href="classc___file_mgr.html#a91d8ba978954c06f5448afb5c75f34b4" title=" " alt="" coords="739,332,907,358"/>
+<area shape="poly" title=" " alt="" coords="617,274,768,324,766,329,615,279"/>
+<area shape="rect" href="classc___output_mgr.html#ac9742371ff3eae19bc7f0ece84ea6c79" title=" " alt="" coords="730,243,916,284"/>
+<area shape="poly" title=" " alt="" coords="654,261,715,261,715,266,654,266"/>
+<area shape="poly" title=" " alt="" coords="785,333,777,323,782,314,797,307,823,305,851,308,865,315,863,320,850,313,823,311,799,313,785,317,783,323,789,330"/>
 </map>
 </div>
 <div class="dynheader">
@@ -2268,57 +2053,54 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classc___output_mgr_afb3a7a9024cae09c4f6c8613a47e4925_cgraph.png" border="0" usemap="#aclassc___output_mgr_afb3a7a9024cae09c4f6c8613a47e4925_cgraph" alt=""/></div>
 <map name="aclassc___output_mgr_afb3a7a9024cae09c4f6c8613a47e4925_cgraph" id="aclassc___output_mgr_afb3a7a9024cae09c4f6c8613a47e4925_cgraph">
-<area shape="rect" title="Call from loop(), renders output data." alt="" coords="5,429,130,455"/>
-<area shape="poly" title=" " alt="" coords="35,430,29,420,32,411,46,404,68,402,91,405,104,412,101,416,90,410,67,408,47,410,36,414,34,420,39,427"/>
-<area shape="rect" href="classc___output_mgr.html#a18f0345656b0c2795b7c925f6d797761" title="Read the current configuration data from nvram." alt="" coords="178,328,345,353"/>
-<area shape="poly" title=" " alt="" coords="93,426,220,358,223,363,95,431"/>
-<area shape="rect" href="_e_s_pixel_stick_8h.html#a97937ae3377e427d21b29966a14e964a" title=" " alt="" coords="1184,428,1267,453"/>
-<area shape="poly" title=" " alt="" coords="130,439,493,439,748,439,1169,438,1169,443,748,444,493,444,130,444"/>
-<area shape="rect" href="main_8cpp.html#aee3a92a77acd81bd67090432b16e23a1" title=" " alt="" coords="199,480,324,505"/>
-<area shape="poly" title=" " alt="" coords="120,453,196,473,195,478,119,458"/>
-<area shape="rect" href="classc___output_mgr.html#adc248025f3eafeac3261994673ce96d0" title=" " alt="" coords="393,242,596,268"/>
-<area shape="poly" title=" " alt="" coords="298,325,442,271,444,276,300,330"/>
-<area shape="rect" href="main_8cpp.html#a23252221d60de2259fe00859f716c72e" title=" " alt="" coords="1170,378,1281,404"/>
-<area shape="poly" title=" " alt="" coords="346,342,1156,385,1155,390,345,347"/>
-<area shape="rect" href="classc___file_mgr.html#a56a3ece591539d6b844ac99ecb2162bc" title=" " alt="" coords="412,193,578,219"/>
-<area shape="poly" title=" " alt="" coords="272,325,321,277,355,250,392,227,404,222,406,227,394,232,358,255,324,281,276,329"/>
-<area shape="rect" href="classc___output_mgr.html#a1e460ab7d570adbbb53dd0e4c6651f6d" title=" " alt="" coords="644,213,849,239"/>
-<area shape="poly" title=" " alt="" coords="597,241,629,237,629,242,597,246"/>
-<area shape="rect" href="classc___output_mgr.html#abc896c708fce43b559a42ba4e67c9976" title="Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data." alt="" coords="1369,100,1551,125"/>
-<area shape="poly" title=" " alt="" coords="579,239,595,229,608,214,614,199,618,167,622,134,629,117,642,100,673,73,702,53,730,40,758,31,819,22,896,11,970,4,1045,5,1119,12,1191,25,1319,58,1413,91,1411,96,1317,63,1190,30,1118,18,1044,10,970,9,897,16,820,27,759,37,732,45,704,58,676,77,646,104,634,119,627,135,624,168,620,200,612,217,598,233,582,244"/>
-<area shape="rect" href="classc___output_mgr.html#a7f11cdb7957ceba01ff6081016afc794" title=" " alt="" coords="665,263,828,303"/>
-<area shape="poly" title=" " alt="" coords="597,264,650,270,649,275,597,269"/>
-<area shape="rect" href="classc___output_mgr.html#a63b3162a5ec5fe39859401b4b817b892" title="Save the current configuration data to nvram." alt="" coords="667,114,826,140"/>
-<area shape="poly" title=" " alt="" coords="566,239,595,229,713,147,716,152,598,233,568,244"/>
-<area shape="rect" href="classc___output_mgr.html#a520a6f7c6d810b254b71f3712d6f9710" title=" " alt="" coords="916,164,1075,189"/>
-<area shape="poly" title=" " alt="" coords="815,210,912,190,913,195,816,215"/>
-<area shape="rect" href="classc___output_mgr.html#a17aadd243f3259a99b320652ab624d07" title=" " alt="" coords="899,213,1092,239"/>
-<area shape="poly" title=" " alt="" coords="849,223,884,223,884,228,849,228"/>
-<area shape="rect" href="classc___file_mgr.html#aab11aa92f9253ec95ec5b2dc7be1c55e" title=" " alt="" coords="1142,164,1309,189"/>
-<area shape="poly" title=" " alt="" coords="1076,174,1126,174,1126,179,1076,179"/>
-<area shape="poly" title=" " alt="" coords="828,262,921,240,922,245,829,267"/>
-<area shape="rect" href="classc___output_mgr.html#a90fb3f0faa9e11adcade9b0aee1525f3" title="set up the operating environment based on the current config (or defaults)" alt="" coords="928,328,1063,353"/>
-<area shape="poly" title=" " alt="" coords="805,301,913,327,912,333,804,307"/>
-<area shape="rect" href="classc___output_mgr.html#a5f037f089c20467b3f86841b46e1f60b" title=" " alt="" coords="897,263,1094,303"/>
-<area shape="poly" title=" " alt="" coords="829,280,881,280,881,286,829,286"/>
-<area shape="poly" title=" " alt="" coords="927,343,361,343,361,338,927,338"/>
-<area shape="poly" title=" " alt="" coords="962,330,843,299,844,294,964,324"/>
-<area shape="rect" href="classc___output_mgr.html#a7471954d6a26b6894c4066a424d8aec8" title=" " alt="" coords="1142,300,1309,325"/>
-<area shape="poly" title=" " alt="" coords="1063,330,1127,322,1128,327,1063,335"/>
-<area shape="poly" title=" " alt="" coords="1058,351,1156,373,1154,378,1057,356"/>
-<area shape="poly" title=" " alt="" coords="1020,351,1075,382,1143,414,1171,424,1169,429,1141,419,1073,387,1017,356"/>
-<area shape="poly" title=" " alt="" coords="1241,297,1430,133,1434,137,1244,301"/>
-<area shape="rect" href="classc___output_mgr.html#aec62685e8fb4eff73bfefd3ed5321b01" title="Get the address of the buffer into which the E1.31 handler will stuff data." alt="" coords="1357,300,1563,325"/>
-<area shape="poly" title=" " alt="" coords="1309,310,1341,310,1341,315,1309,315"/>
-<area shape="rect" href="classc___output_mgr.html#aa5fa47aab179e25649aa61acd159586d" title=" " alt="" coords="1367,349,1553,375"/>
-<area shape="poly" title=" " alt="" coords="1281,382,1352,373,1352,378,1282,387"/>
-<area shape="rect" href="classc___input_mgr.html#a8a195063dcc63c1fd8de7c14ab3bf0a2" title=" " alt="" coords="1371,399,1549,439"/>
-<area shape="poly" title=" " alt="" coords="1282,395,1356,404,1355,409,1281,400"/>
-<area shape="rect" href="classc___file_mgr.html#a91d8ba978954c06f5448afb5c75f34b4" title=" " alt="" coords="912,114,1079,140"/>
-<area shape="poly" title=" " alt="" coords="826,124,896,124,896,130,826,130"/>
-<area shape="rect" href="classc___output_mgr.html#ac9742371ff3eae19bc7f0ece84ea6c79" title=" " alt="" coords="903,25,1088,66"/>
-<area shape="poly" title=" " alt="" coords="787,111,896,75,915,69,917,74,898,80,789,116"/>
-<area shape="poly" title=" " alt="" coords="957,116,950,106,954,96,970,90,995,88,1023,90,1038,97,1035,102,1022,95,995,93,971,95,958,100,955,105,961,112"/>
+<area shape="rect" title="Call from loop(), renders output data." alt="" coords="5,434,130,460"/>
+<area shape="poly" title=" " alt="" coords="35,435,29,426,32,416,46,410,68,408,91,410,104,417,101,422,90,415,67,413,47,415,36,420,34,425,39,432"/>
+<area shape="rect" href="classc___output_mgr.html#a18f0345656b0c2795b7c925f6d797761" title="Read the current configuration data from nvram." alt="" coords="178,333,345,358"/>
+<area shape="poly" title=" " alt="" coords="93,431,220,364,223,368,95,436"/>
+<area shape="rect" href="_e_s_pixel_stick_8h.html#a97937ae3377e427d21b29966a14e964a" title=" " alt="" coords="1184,426,1267,452"/>
+<area shape="poly" title=" " alt="" coords="130,444,493,444,748,444,1169,438,1169,443,748,450,493,450,130,450"/>
+<area shape="rect" href="main_8cpp.html#aee3a92a77acd81bd67090432b16e23a1" title=" " alt="" coords="199,485,324,510"/>
+<area shape="poly" title=" " alt="" coords="120,458,196,478,195,483,119,463"/>
+<area shape="rect" href="classc___output_mgr.html#adc248025f3eafeac3261994673ce96d0" title=" " alt="" coords="393,197,596,222"/>
+<area shape="poly" title=" " alt="" coords="284,330,456,228,459,233,287,335"/>
+<area shape="rect" href="main_8cpp.html#a23252221d60de2259fe00859f716c72e" title=" " alt="" coords="1170,377,1281,402"/>
+<area shape="poly" title=" " alt="" coords="321,357,393,368,611,385,826,392,1015,392,1155,389,1155,395,1015,397,826,397,610,390,393,374,320,362"/>
+<area shape="rect" href="classc___file_mgr.html#a56a3ece591539d6b844ac99ecb2162bc" title=" " alt="" coords="412,333,578,358"/>
+<area shape="poly" title=" " alt="" coords="345,343,396,343,396,348,345,348"/>
+<area shape="rect" href="classc___output_mgr.html#a1e460ab7d570adbbb53dd0e4c6651f6d" title=" " alt="" coords="644,168,849,193"/>
+<area shape="poly" title=" " alt="" coords="597,195,629,191,629,197,597,200"/>
+<area shape="rect" href="classc___output_mgr.html#a7f11cdb7957ceba01ff6081016afc794" title=" " alt="" coords="665,217,828,258"/>
+<area shape="poly" title=" " alt="" coords="597,218,650,224,649,230,597,224"/>
+<area shape="rect" href="classc___output_mgr.html#a63b3162a5ec5fe39859401b4b817b892" title="Save the current configuration data to nvram." alt="" coords="667,94,826,120"/>
+<area shape="poly" title=" " alt="" coords="528,194,698,124,700,129,530,199"/>
+<area shape="rect" href="classc___output_mgr.html#a520a6f7c6d810b254b71f3712d6f9710" title=" " alt="" coords="916,144,1075,169"/>
+<area shape="poly" title=" " alt="" coords="849,168,900,163,900,168,849,173"/>
+<area shape="rect" href="classc___output_mgr.html#a17aadd243f3259a99b320652ab624d07" title=" " alt="" coords="899,193,1092,218"/>
+<area shape="poly" title=" " alt="" coords="849,188,884,192,883,197,849,193"/>
+<area shape="rect" href="classc___file_mgr.html#aab11aa92f9253ec95ec5b2dc7be1c55e" title=" " alt="" coords="1142,144,1309,169"/>
+<area shape="poly" title=" " alt="" coords="1076,154,1126,154,1126,159,1076,159"/>
+<area shape="poly" title=" " alt="" coords="828,224,884,217,884,223,829,230"/>
+<area shape="rect" href="classc___output_mgr.html#a90fb3f0faa9e11adcade9b0aee1525f3" title="set up the operating environment based on the current config (or defaults)" alt="" coords="928,308,1063,333"/>
+<area shape="poly" title=" " alt="" coords="777,256,850,286,898,304,913,309,912,314,896,310,848,291,775,261"/>
+<area shape="rect" href="classc___output_mgr.html#a5f037f089c20467b3f86841b46e1f60b" title=" " alt="" coords="897,243,1094,283"/>
+<area shape="poly" title=" " alt="" coords="829,243,882,249,881,254,829,249"/>
+<area shape="poly" title=" " alt="" coords="927,319,691,312,542,314,393,323,335,332,334,327,393,318,542,308,691,306,927,313"/>
+<area shape="poly" title=" " alt="" coords="974,309,896,286,848,267,842,264,843,259,850,262,898,280,975,304"/>
+<area shape="rect" href="classc___output_mgr.html#a7471954d6a26b6894c4066a424d8aec8" title=" " alt="" coords="1142,308,1309,333"/>
+<area shape="poly" title=" " alt="" coords="1063,318,1127,318,1127,323,1063,323"/>
+<area shape="poly" title=" " alt="" coords="1041,331,1167,369,1165,374,1040,336"/>
+<area shape="poly" title=" " alt="" coords="1015,332,1070,371,1143,413,1171,423,1169,428,1141,417,1067,376,1012,336"/>
+<area shape="rect" href="classc___output_mgr.html#abc896c708fce43b559a42ba4e67c9976" title="Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data." alt="" coords="1359,308,1541,333"/>
+<area shape="poly" title=" " alt="" coords="1309,318,1343,318,1343,323,1309,323"/>
+<area shape="rect" href="classc___output_mgr.html#aa5fa47aab179e25649aa61acd159586d" title=" " alt="" coords="1357,370,1543,396"/>
+<area shape="poly" title=" " alt="" coords="1281,385,1342,384,1342,389,1281,391"/>
+<area shape="rect" href="classc___input_mgr.html#a8a195063dcc63c1fd8de7c14ab3bf0a2" title=" " alt="" coords="1361,420,1539,461"/>
+<area shape="poly" title=" " alt="" coords="1282,399,1346,414,1345,419,1281,405"/>
+<area shape="rect" href="classc___file_mgr.html#a91d8ba978954c06f5448afb5c75f34b4" title=" " alt="" coords="912,94,1079,120"/>
+<area shape="poly" title=" " alt="" coords="826,104,896,104,896,110,826,110"/>
+<area shape="rect" href="classc___output_mgr.html#ac9742371ff3eae19bc7f0ece84ea6c79" title=" " alt="" coords="903,5,1088,46"/>
+<area shape="poly" title=" " alt="" coords="787,91,896,55,915,49,917,54,898,60,789,96"/>
+<area shape="poly" title=" " alt="" coords="957,95,950,86,954,76,970,70,995,68,1023,70,1038,77,1035,82,1022,75,995,73,971,75,958,80,955,85,961,92"/>
 </map>
 </div>
 <div class="dynheader">
@@ -2362,70 +2144,66 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classc___output_mgr_a33b3e6588cc7639555d7e91b59378540_cgraph.png" border="0" usemap="#aclassc___output_mgr_a33b3e6588cc7639555d7e91b59378540_cgraph" alt=""/></div>
 <map name="aclassc___output_mgr_a33b3e6588cc7639555d7e91b59378540_cgraph" id="aclassc___output_mgr_a33b3e6588cc7639555d7e91b59378540_cgraph">
-<area shape="rect" title=" " alt="" coords="5,501,184,542"/>
-<area shape="rect" href="classc___output_mgr.html#adc248025f3eafeac3261994673ce96d0" title=" " alt="" coords="232,246,435,272"/>
-<area shape="poly" title=" " alt="" coords="112,499,230,368,308,282,312,285,234,371,116,503"/>
-<area shape="rect" href="classc___output_mgr.html#a7f11cdb7957ceba01ff6081016afc794" title=" " alt="" coords="504,63,667,103"/>
-<area shape="poly" title=" " alt="" coords="98,500,112,448,138,377,176,300,201,264,230,232,289,185,356,148,425,120,488,101,489,106,426,125,359,153,292,189,233,236,205,267,181,303,143,379,117,449,103,502"/>
-<area shape="rect" href="classc___output_mgr.html#aa5fa47aab179e25649aa61acd159586d" title=" " alt="" coords="1449,333,1635,358"/>
-<area shape="poly" title=" " alt="" coords="184,527,368,540,584,547,1066,547,1134,541,1202,526,1267,504,1329,476,1436,416,1510,366,1513,370,1439,421,1332,481,1269,509,1203,531,1135,547,1066,552,584,552,368,545,184,532"/>
-<area shape="rect" href="classc___output_mgr.html#a63b3162a5ec5fe39859401b4b817b892" title="Save the current configuration data to nvram." alt="" coords="506,357,664,382"/>
-<area shape="poly" title=" " alt="" coords="136,498,231,458,374,415,502,384,504,389,375,420,233,463,138,503"/>
-<area shape="rect" href="classc___output_mgr.html#a33e2ed6b4463a8ed5cb5658d28f59240" title=" " alt="" coords="232,637,434,678"/>
-<area shape="poly" title=" " alt="" coords="122,540,172,578,233,617,258,629,256,634,230,621,169,582,119,544"/>
-<area shape="rect" href="_e_s_pixel_stick_8h.html#a8295d2ec53bab395bfc5811cfd78ca4d" title=" " alt="" coords="532,616,638,641"/>
-<area shape="poly" title=" " alt="" coords="151,540,232,566,385,598,517,618,517,623,384,603,231,571,149,545"/>
-<area shape="rect" href="classc___output_mgr.html#a943339390f6e515338978cef94a029f3" title=" " alt="" coords="243,702,424,728"/>
-<area shape="poly" title=" " alt="" coords="109,541,128,574,156,613,192,654,233,687,244,693,241,698,230,692,188,657,152,617,124,577,104,544"/>
-<area shape="rect" href="classc___output_mgr.html#a2af1d94181e97f732be0b66be3b944dd" title=" " alt="" coords="240,472,426,513"/>
-<area shape="poly" title=" " alt="" coords="184,508,224,503,225,508,184,513"/>
-<area shape="rect" href="classc___output_mgr.html#a1e460ab7d570adbbb53dd0e4c6651f6d" title=" " alt="" coords="483,221,687,246"/>
-<area shape="poly" title=" " alt="" coords="435,246,467,243,468,248,436,251"/>
-<area shape="rect" href="classc___output_mgr.html#abc896c708fce43b559a42ba4e67c9976" title="Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data." alt="" coords="1208,272,1390,297"/>
-<area shape="poly" title=" " alt="" coords="435,259,1192,279,1192,284,435,264"/>
-<area shape="poly" title=" " alt="" coords="352,243,390,213,433,176,456,147,466,133,481,120,500,108,503,113,485,124,469,137,460,150,437,179,394,218,355,248"/>
-<area shape="poly" title=" " alt="" coords="366,270,541,348,539,353,364,275"/>
-<area shape="rect" href="classc___output_mgr.html#a520a6f7c6d810b254b71f3712d6f9710" title=" " alt="" coords="754,221,914,246"/>
-<area shape="poly" title=" " alt="" coords="688,231,739,231,739,236,688,236"/>
-<area shape="rect" href="classc___output_mgr.html#a17aadd243f3259a99b320652ab624d07" title=" " alt="" coords="738,172,930,197"/>
-<area shape="poly" title=" " alt="" coords="653,218,750,198,751,203,654,223"/>
-<area shape="rect" href="classc___file_mgr.html#aab11aa92f9253ec95ec5b2dc7be1c55e" title=" " alt="" coords="981,221,1148,246"/>
-<area shape="poly" title=" " alt="" coords="914,231,965,231,965,236,914,236"/>
-<area shape="poly" title=" " alt="" coords="639,102,787,163,785,168,636,106"/>
+<area shape="rect" title=" " alt="" coords="5,427,184,467"/>
+<area shape="rect" href="classc___output_mgr.html#adc248025f3eafeac3261994673ce96d0" title=" " alt="" coords="232,220,435,245"/>
+<area shape="poly" title=" " alt="" coords="117,424,304,254,308,258,121,428"/>
+<area shape="rect" href="classc___output_mgr.html#a7f11cdb7957ceba01ff6081016afc794" title=" " alt="" coords="504,84,667,125"/>
+<area shape="poly" title=" " alt="" coords="99,425,115,380,142,320,180,258,203,230,230,205,291,167,358,139,425,121,487,110,488,115,427,126,360,144,293,171,233,209,207,233,184,261,146,323,120,382,104,427"/>
+<area shape="rect" href="classc___output_mgr.html#aa5fa47aab179e25649aa61acd159586d" title=" " alt="" coords="1426,342,1612,368"/>
+<area shape="poly" title=" " alt="" coords="184,437,368,425,584,419,1066,419,1170,414,1274,402,1447,369,1448,374,1275,407,1171,419,1066,424,584,424,368,431,184,442"/>
+<area shape="rect" href="classc___output_mgr.html#a63b3162a5ec5fe39859401b4b817b892" title="Save the current configuration data to nvram." alt="" coords="506,317,664,342"/>
+<area shape="poly" title=" " alt="" coords="155,424,231,400,368,368,492,343,493,348,369,373,232,406,156,429"/>
+<area shape="rect" href="classc___output_mgr.html#a33e2ed6b4463a8ed5cb5658d28f59240" title=" " alt="" coords="232,509,434,550"/>
+<area shape="poly" title=" " alt="" coords="156,465,259,501,257,506,155,470"/>
+<area shape="rect" href="_e_s_pixel_stick_8h.html#a8295d2ec53bab395bfc5811cfd78ca4d" title=" " alt="" coords="532,489,638,514"/>
+<area shape="poly" title=" " alt="" coords="185,454,518,492,517,497,184,460"/>
+<area shape="rect" href="classc___output_mgr.html#a943339390f6e515338978cef94a029f3" title=" " alt="" coords="243,574,424,600"/>
+<area shape="poly" title=" " alt="" coords="116,466,166,513,198,538,233,559,248,566,246,571,230,564,195,543,163,517,113,470"/>
+<area shape="rect" href="classc___output_mgr.html#a2af1d94181e97f732be0b66be3b944dd" title=" " alt="" coords="240,624,426,665"/>
+<area shape="poly" title=" " alt="" coords="109,466,158,537,193,576,233,610,240,614,237,619,230,614,189,580,153,540,105,469"/>
+<area shape="rect" href="classc___output_mgr.html#a1e460ab7d570adbbb53dd0e4c6651f6d" title=" " alt="" coords="483,169,687,194"/>
+<area shape="poly" title=" " alt="" coords="400,216,502,195,504,201,401,222"/>
+<area shape="poly" title=" " alt="" coords="360,217,529,130,531,134,362,221"/>
+<area shape="poly" title=" " alt="" coords="370,243,537,308,535,313,368,248"/>
+<area shape="rect" href="classc___output_mgr.html#a520a6f7c6d810b254b71f3712d6f9710" title=" " alt="" coords="754,169,914,194"/>
+<area shape="poly" title=" " alt="" coords="688,179,739,179,739,184,688,184"/>
+<area shape="rect" href="classc___output_mgr.html#a17aadd243f3259a99b320652ab624d07" title=" " alt="" coords="738,120,930,145"/>
+<area shape="poly" title=" " alt="" coords="653,166,750,146,751,151,654,171"/>
+<area shape="rect" href="classc___file_mgr.html#aab11aa92f9253ec95ec5b2dc7be1c55e" title=" " alt="" coords="981,170,1148,196"/>
+<area shape="poly" title=" " alt="" coords="914,179,965,180,965,185,914,185"/>
+<area shape="poly" title=" " alt="" coords="668,111,723,117,722,122,667,116"/>
 <area shape="rect" href="classc___output_mgr.html#a90fb3f0faa9e11adcade9b0aee1525f3" title="set up the operating environment based on the current config (or defaults)" alt="" coords="766,70,902,96"/>
-<area shape="poly" title=" " alt="" coords="667,89,751,89,751,94,667,94"/>
+<area shape="poly" title=" " alt="" coords="667,103,754,96,754,101,668,108"/>
 <area shape="rect" href="classc___output_mgr.html#a5f037f089c20467b3f86841b46e1f60b" title=" " alt="" coords="735,5,933,46"/>
-<area shape="poly" title=" " alt="" coords="667,62,728,47,729,53,668,67"/>
-<area shape="poly" title=" " alt="" coords="766,78,683,77,683,72,766,72"/>
-<area shape="rect" href="classc___output_mgr.html#a7471954d6a26b6894c4066a424d8aec8" title=" " alt="" coords="981,172,1148,197"/>
-<area shape="poly" title=" " alt="" coords="859,94,914,125,982,157,1001,164,999,169,980,161,912,129,857,99"/>
-<area shape="rect" href="classc___output_mgr.html#a18f0345656b0c2795b7c925f6d797761" title="Read the current configuration data from nvram." alt="" coords="981,121,1148,146"/>
-<area shape="poly" title=" " alt="" coords="896,94,989,114,987,120,895,99"/>
-<area shape="rect" href="main_8cpp.html#a23252221d60de2259fe00859f716c72e" title=" " alt="" coords="1244,73,1354,98"/>
-<area shape="poly" title=" " alt="" coords="902,67,980,56,1064,52,1148,56,1229,68,1228,73,1148,62,1064,57,981,62,902,72"/>
-<area shape="rect" href="_e_s_pixel_stick_8h.html#a97937ae3377e427d21b29966a14e964a" title=" " alt="" coords="1023,72,1106,97"/>
-<area shape="poly" title=" " alt="" coords="902,81,1008,81,1008,87,902,86"/>
-<area shape="poly" title=" " alt="" coords="1118,195,1149,206,1210,233,1263,261,1260,266,1208,238,1147,211,1116,200"/>
-<area shape="rect" href="classc___output_mgr.html#aec62685e8fb4eff73bfefd3ed5321b01" title="Get the address of the buffer into which the E1.31 handler will stuff data." alt="" coords="1196,172,1401,197"/>
-<area shape="poly" title=" " alt="" coords="1148,182,1180,182,1180,187,1148,187"/>
-<area shape="poly" title=" " alt="" coords="980,134,877,137,751,147,616,171,548,188,484,211,460,226,436,241,431,243,429,238,434,237,458,221,482,206,547,183,614,165,751,142,877,131,980,129"/>
-<area shape="rect" href="classc___file_mgr.html#a56a3ece591539d6b844ac99ecb2162bc" title=" " alt="" coords="1216,122,1382,148"/>
-<area shape="poly" title=" " alt="" coords="1149,131,1200,132,1200,137,1149,137"/>
-<area shape="poly" title=" " alt="" coords="1130,118,1228,97,1229,103,1131,123"/>
-<area shape="poly" title=" " alt="" coords="1355,88,1380,95,1403,107,1429,130,1453,156,1491,214,1518,271,1535,317,1530,319,1513,273,1486,217,1448,160,1425,134,1400,112,1378,100,1354,93"/>
-<area shape="rect" href="classc___input_mgr.html#a8a195063dcc63c1fd8de7c14ab3bf0a2" title=" " alt="" coords="1453,65,1631,106"/>
-<area shape="poly" title=" " alt="" coords="1354,83,1437,83,1437,88,1354,88"/>
-<area shape="rect" href="classc___file_mgr.html#a91d8ba978954c06f5448afb5c75f34b4" title=" " alt="" coords="750,410,918,436"/>
-<area shape="poly" title=" " alt="" coords="649,381,756,404,755,409,648,386"/>
-<area shape="rect" href="classc___output_mgr.html#ac9742371ff3eae19bc7f0ece84ea6c79" title=" " alt="" coords="741,321,927,362"/>
-<area shape="poly" title=" " alt="" coords="664,358,726,351,726,356,665,363"/>
-<area shape="poly" title=" " alt="" coords="796,411,788,402,793,392,808,386,834,384,862,386,876,393,874,398,861,391,834,389,810,391,796,396,794,401,800,408"/>
-<area shape="poly" title=" " alt="" coords="435,643,517,634,517,639,435,649"/>
-<area shape="rect" href="_web_mgr_8cpp.html#a47bc5f5aa91e940e6cfc297466285595" title=" " alt="" coords="793,616,875,641"/>
-<area shape="poly" title=" " alt="" coords="638,626,777,626,777,631,638,631"/>
-<area shape="poly" title=" " alt="" coords="427,477,483,471,610,466,710,469,808,467,865,460,932,446,1028,415,1121,377,1201,336,1261,303,1264,308,1203,341,1123,381,1030,420,933,451,866,465,809,472,710,475,610,471,483,476,427,482"/>
-<area shape="rect" href="classc___input_mgr.html#a795c7c292277523fefb8363d2f8285e8" title=" " alt="" coords="501,486,669,512"/>
-<area shape="poly" title=" " alt="" coords="427,492,485,494,485,499,427,497"/>
+<area shape="poly" title=" " alt="" coords="651,81,752,49,753,54,653,86"/>
+<area shape="poly" title=" " alt="" coords="766,83,683,90,682,85,766,78"/>
+<area shape="rect" href="classc___output_mgr.html#a7471954d6a26b6894c4066a424d8aec8" title=" " alt="" coords="981,20,1148,45"/>
+<area shape="poly" title=" " alt="" coords="895,67,987,46,989,52,896,72"/>
+<area shape="rect" href="classc___output_mgr.html#a18f0345656b0c2795b7c925f6d797761" title="Read the current configuration data from nvram." alt="" coords="981,220,1148,245"/>
+<area shape="poly" title=" " alt="" coords="903,89,934,105,946,118,954,131,960,157,965,182,971,194,982,206,986,209,983,213,979,210,967,198,960,184,954,158,949,133,942,121,931,109,901,93"/>
+<area shape="rect" href="main_8cpp.html#a23252221d60de2259fe00859f716c72e" title=" " alt="" coords="1232,194,1342,220"/>
+<area shape="poly" title=" " alt="" coords="902,76,957,75,1019,79,1085,88,1149,106,1182,121,1214,141,1264,182,1260,186,1211,145,1180,126,1147,111,1084,93,1019,84,957,81,902,81"/>
+<area shape="rect" href="_e_s_pixel_stick_8h.html#a97937ae3377e427d21b29966a14e964a" title=" " alt="" coords="1023,121,1106,146"/>
+<area shape="poly" title=" " alt="" coords="896,94,1009,119,1007,124,895,99"/>
+<area shape="rect" href="classc___output_mgr.html#abc896c708fce43b559a42ba4e67c9976" title="Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data." alt="" coords="1196,20,1378,45"/>
+<area shape="poly" title=" " alt="" coords="1148,30,1181,30,1181,35,1148,35"/>
+<area shape="poly" title=" " alt="" coords="981,235,451,235,451,230,981,230"/>
+<area shape="rect" href="classc___file_mgr.html#a56a3ece591539d6b844ac99ecb2162bc" title=" " alt="" coords="1204,244,1370,269"/>
+<area shape="poly" title=" " alt="" coords="1149,239,1189,243,1188,248,1148,244"/>
+<area shape="poly" title=" " alt="" coords="1148,220,1216,212,1217,218,1149,225"/>
+<area shape="poly" title=" " alt="" coords="1344,215,1380,229,1415,251,1448,278,1499,328,1495,332,1444,282,1412,256,1377,233,1342,220"/>
+<area shape="rect" href="classc___input_mgr.html#a8a195063dcc63c1fd8de7c14ab3bf0a2" title=" " alt="" coords="1430,187,1608,227"/>
+<area shape="poly" title=" " alt="" coords="1343,204,1414,204,1414,210,1343,210"/>
+<area shape="rect" href="classc___file_mgr.html#a91d8ba978954c06f5448afb5c75f34b4" title=" " alt="" coords="750,358,918,384"/>
+<area shape="poly" title=" " alt="" coords="665,340,738,352,737,358,664,345"/>
+<area shape="rect" href="classc___output_mgr.html#ac9742371ff3eae19bc7f0ece84ea6c79" title=" " alt="" coords="741,269,927,310"/>
+<area shape="poly" title=" " alt="" coords="664,314,726,304,726,310,665,320"/>
+<area shape="poly" title=" " alt="" coords="796,359,788,350,793,340,808,334,834,332,862,334,876,341,874,346,861,339,834,337,810,339,796,344,794,349,800,356"/>
+<area shape="poly" title=" " alt="" coords="435,516,517,507,517,512,435,521"/>
+<area shape="rect" href="_web_mgr_8cpp.html#a47bc5f5aa91e940e6cfc297466285595" title=" " alt="" coords="793,489,875,514"/>
+<area shape="poly" title=" " alt="" coords="638,499,777,499,777,504,638,504"/>
+<area shape="rect" href="classc___input_mgr.html#a795c7c292277523fefb8363d2f8285e8" title=" " alt="" coords="501,632,669,657"/>
+<area shape="poly" title=" " alt="" coords="427,642,485,642,485,647,427,647"/>
 </map>
 </div>
 
@@ -2956,11 +2734,9 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classc___output_mgr_a2af1d94181e97f732be0b66be3b944dd_cgraph.png" border="0" usemap="#aclassc___output_mgr_a2af1d94181e97f732be0b66be3b944dd_cgraph" alt=""/></div>
 <map name="aclassc___output_mgr_a2af1d94181e97f732be0b66be3b944dd_cgraph" id="aclassc___output_mgr_a2af1d94181e97f732be0b66be3b944dd_cgraph">
-<area shape="rect" title=" " alt="" coords="5,23,192,64"/>
-<area shape="rect" href="classc___output_mgr.html#abc896c708fce43b559a42ba4e67c9976" title="Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data." alt="" coords="240,5,422,31"/>
-<area shape="poly" title=" " alt="" coords="192,31,224,27,224,32,192,36"/>
-<area shape="rect" href="classc___input_mgr.html#a795c7c292277523fefb8363d2f8285e8" title=" " alt="" coords="247,55,415,80"/>
-<area shape="poly" title=" " alt="" coords="192,50,231,55,231,60,192,56"/>
+<area shape="rect" title=" " alt="" coords="5,5,192,46"/>
+<area shape="rect" href="classc___input_mgr.html#a795c7c292277523fefb8363d2f8285e8" title=" " alt="" coords="240,13,408,38"/>
+<area shape="poly" title=" " alt="" coords="192,23,224,23,224,28,192,28"/>
 </map>
 </div>
 <div class="dynheader">
@@ -3311,28 +3087,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a068bba05c9c35db7db26d5516c904f9e" name="a068bba05c9c35db7db26d5516c904f9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a068bba05c9c35db7db26d5516c904f9e">&#9670;&#160;</a></span>pOutputBuffer</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t* c_OutputMgr::pOutputBuffer = nullptr</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="aaacf05b73ebdb85157dd3d691ced89e1" name="aaacf05b73ebdb85157dd3d691ced89e1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaacf05b73ebdb85157dd3d691ced89e1">&#9670;&#160;</a></span>pOutputChannelDrivers</h2>
 
@@ -3366,28 +3120,6 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">uint32_t c_OutputMgr::SizeOfTable = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5484318ee435976c6ab5b9b2c32e53da" name="a5484318ee435976c6ab5b9b2c32e53da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5484318ee435976c6ab5b9b2c32e53da">&#9670;&#160;</a></span>UsedBufferSize</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t c_OutputMgr::UsedBufferSize = 0</td>
         </tr>
       </table>
   </td>

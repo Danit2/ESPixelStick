@@ -9,7 +9,6 @@ var searchData=
   ['universearray_6',['UniverseArray',['../classc___input_artnet.html#a79d16153a8b4a8e1b17e9faa53217b84',1,'c_InputArtnet::UniverseArray'],['../classc___input_e131.html#af6a61e337351f87db42592d96bb1a295',1,'c_InputE131::UniverseArray']]],
   ['uploadfilename_7',['UploadFileName',['../classc___f_p_p_discovery.html#ae140f6d6f54d71b86cf627f8dad3ab4e',1,'c_FPPDiscovery']]],
   ['used_8',['Used',['../structc___file_mgr_1_1_sd_info.html#a31a8fe08aa340ed6a3d2c16aa581e5ca',1,'c_FileMgr::SdInfo']]],
-  ['usedbuffersize_9',['UsedBufferSize',['../classc___output_mgr.html#a5484318ee435976c6ab5b9b2c32e53da',1,'c_OutputMgr']]],
-  ['usedhcp_10',['UseDhcp',['../classc___wi_fi_driver.html#ab5080bdd7d15b1a5042d944f078fab3e',1,'c_WiFiDriver']]],
-  ['user_11',['user',['../classc___input_m_q_t_t.html#abffca11b66f7991c1c9c2793c3bcdc1c',1,'c_InputMQTT']]]
+  ['usedhcp_9',['UseDhcp',['../classc___wi_fi_driver.html#ab5080bdd7d15b1a5042d944f078fab3e',1,'c_WiFiDriver']]],
+  ['user_10',['user',['../classc___input_m_q_t_t.html#abffca11b66f7991c1c9c2793c3bcdc1c',1,'c_InputMQTT']]]
 ];
