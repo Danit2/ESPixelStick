@@ -30,7 +30,6 @@ var classc___output_mgr =
     [ "GetDriverName", "classc___output_mgr.html#a17aadd243f3259a99b320652ab624d07", null ],
     [ "GetDriverSize", "classc___output_mgr.html#a9ada6e65bb85cf170a0edd014b7046be", null ],
     [ "GetNumPorts", "classc___output_mgr.html#a861cf67886d1b3eccab0efc061e89963", null ],
-    [ "GetPortCounts", "classc___output_mgr.html#a37df24ad4fc6541891e76e7906255b2d", null ],
     [ "GetStatus", "classc___output_mgr.html#a56f81964a988693f278fd65cf43277c6", null ],
     [ "InstantiateNewOutputChannel", "classc___output_mgr.html#a7f11cdb7957ceba01ff6081016afc794", null ],
     [ "LoadConfig", "classc___output_mgr.html#a18f0345656b0c2795b7c925f6d797761", null ],
@@ -57,6 +56,7 @@ var classc___output_mgr =
     [ "NumOutputPorts", "classc___output_mgr.html#a58a51be534451fb96d35c3281bf68ff0", null ],
     [ "OutputBuffer", "classc___output_mgr.html#a5f00159a5326bf76a2c3be9fc387b340", null ],
     [ "OutputIsPaused", "classc___output_mgr.html#affde0fc6a806f815ee874e5cb3d24a03", null ],
+    [ "OutputType_End", "classc___output_mgr.html#abbad6df24191cc99877a8885332b0767", null ],
     [ "pOutputChannelDrivers", "classc___output_mgr.html#aaacf05b73ebdb85157dd3d691ced89e1", null ],
     [ "SizeOfTable", "classc___output_mgr.html#a0910e3aaedd527a8eef53ffd9f2a81e8", null ],
     [ "UsedBufferSize", "classc___output_mgr.html#a5484318ee435976c6ab5b9b2c32e53da", null ]
