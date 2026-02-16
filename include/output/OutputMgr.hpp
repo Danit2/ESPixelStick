@@ -38,6 +38,13 @@ class c_OutputCommon; ///< forward declaration to the pure virtual output class 
 
 class c_OutputMgr
 {
+private:
+    #ifdef ARDUINO_ARCH_ESP8266
+    #define OM_MAX_NUM_CHANNELS  (1200 * 3)
+    #else // ARDUINO_ARCH_ESP32
+    #define OM_MAX_NUM_CHANNELS  (3000 * 3)
+    #endif // !def ARDUINO_ARCH_ESP32
+
 public:
     c_OutputMgr ();
     virtual ~c_OutputMgr ();
@@ -52,9 +59,9 @@ public:
     void      SetConfig         (ArduinoJson::JsonDocument & NewConfig);  ///< Save the current configuration data to nvram
     void      GetStatus         (JsonObject & jsonStatus);
 //    void      GetPortCounts     (uint16_t& PixelCount, uint16_t& SerialCount) {PixelCount = uint16_t(OutputPortId_End); SerialCount = uint16_t(NUM_UARTS); }
-    uint8_t*  GetBufferAddress  () { return OutputBuffer; } ///< Get the address of the buffer into which the E1.31 handler will stuff data
+    uint8_t*  GetBufferAddress  () { return pOutputBuffer; } ///< Get the address of the buffer into which the E1.31 handler will stuff data
     uint32_t  GetBufferUsedSize () { return UsedBufferSize; } ///< Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data
-    uint32_t  GetBufferSize     () { return sizeof(OutputBuffer); } ///< Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data
+    uint32_t  GetBufferSize     () { return uint32_t(OM_MAX_NUM_CHANNELS); } ///< Get the size (in intensities) of the buffer into which the E1.31 handler will stuff data
     void      DeleteConfig      () { FileMgr.DeleteFlashFile (ConfigFileName); }
     void      PauseOutputs      (bool NewState);
     void      GetDriverName     (String & Name) { Name = "OutputMgr"; }
@@ -137,22 +144,7 @@ public:
 
         // Add new types here
     };
-uint32_t OutputType_End = uint32_t(-1);
-
-#ifdef ARDUINO_ARCH_ESP8266
-#   define OM_MAX_NUM_CHANNELS  (1200 * 3)
-#else // ARDUINO_ARCH_ESP32
-#   define OM_MAX_NUM_CHANNELS  (3000 * 3)
-#endif // !def ARDUINO_ARCH_ESP32
-
-    enum OM_PortType_t
-    {
-        Uart = 0,
-        Rmt,
-        Spi,
-        Relay,
-        Undefined
-    };
+    uint32_t OutputType_End = uint32_t(-1);
 
     // must be 16 byte aligned. Determined by upshifting the max size of all drivers
     #define OutputDriverMemorySize 1200
@@ -198,7 +190,7 @@ private:
 
     String ConfigFileName;
 
-    uint8_t    OutputBuffer[OM_MAX_NUM_CHANNELS];
+    uint8_t    *pOutputBuffer = nullptr;
     uint32_t   UsedBufferSize = 0;
 
     #ifndef DEFAULT_CONSOLE_TX_GPIO
