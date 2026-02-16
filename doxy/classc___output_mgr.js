@@ -4,13 +4,6 @@ var classc___output_mgr =
     [ "e_OutputProtocolType", "classc___output_mgr.html#a3dec27ef1775dc596e2ce87038b692ce", [
       [ "OutputProtocol_Disabled", "classc___output_mgr.html#a3dec27ef1775dc596e2ce87038b692cea0e3696fb135fb8df5fce3e953c064f98", null ]
     ] ],
-    [ "OM_PortType_t", "classc___output_mgr.html#a970adc830ccb78bebef75d526c515cc9", [
-      [ "Uart", "classc___output_mgr.html#a970adc830ccb78bebef75d526c515cc9a0d7d932dc2c4279872b476c6ada24d3f", null ],
-      [ "Rmt", "classc___output_mgr.html#a970adc830ccb78bebef75d526c515cc9afb1a932142103c9fcad347c899382cbf", null ],
-      [ "Spi", "classc___output_mgr.html#a970adc830ccb78bebef75d526c515cc9a67150b88c1fa1742ea618da86b829a7a", null ],
-      [ "Relay", "classc___output_mgr.html#a970adc830ccb78bebef75d526c515cc9ac572c651ab04a645468cef2d7510045e", null ],
-      [ "Undefined", "classc___output_mgr.html#a970adc830ccb78bebef75d526c515cc9a17e6bd48a93211095b0f0b6ba780a092", null ]
-    ] ],
     [ "c_OutputMgr", "classc___output_mgr.html#a3785b017fd1890570afd8c1054095b41", null ],
     [ "~c_OutputMgr", "classc___output_mgr.html#a53b2aa00d678f200c871af2db1d44b01", null ],
     [ "Begin", "classc___output_mgr.html#a90fb3f0faa9e11adcade9b0aee1525f3", null ],
@@ -52,9 +45,9 @@ var classc___output_mgr =
     [ "ConsoleTxGpio", "classc___output_mgr.html#ac9701b8ceebd130258b2bc0a4a53d02d", null ],
     [ "HasBeenInitialized", "classc___output_mgr.html#aff2c5504636afdba4780a62c204969fb", null ],
     [ "NumOutputPorts", "classc___output_mgr.html#a58a51be534451fb96d35c3281bf68ff0", null ],
-    [ "OutputBuffer", "classc___output_mgr.html#a5f00159a5326bf76a2c3be9fc387b340", null ],
     [ "OutputIsPaused", "classc___output_mgr.html#affde0fc6a806f815ee874e5cb3d24a03", null ],
     [ "OutputType_End", "classc___output_mgr.html#abbad6df24191cc99877a8885332b0767", null ],
+    [ "pOutputBuffer", "classc___output_mgr.html#a068bba05c9c35db7db26d5516c904f9e", null ],
     [ "pOutputChannelDrivers", "classc___output_mgr.html#aaacf05b73ebdb85157dd3d691ced89e1", null ],
     [ "SizeOfTable", "classc___output_mgr.html#a0910e3aaedd527a8eef53ffd9f2a81e8", null ],
     [ "UsedBufferSize", "classc___output_mgr.html#a5484318ee435976c6ab5b9b2c32e53da", null ]
