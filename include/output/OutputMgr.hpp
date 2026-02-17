@@ -42,7 +42,7 @@ private:
     #ifdef ARDUINO_ARCH_ESP8266
     #define OM_MAX_NUM_CHANNELS  (1200 * 3)
     #else // ARDUINO_ARCH_ESP32
-    #define OM_MAX_NUM_CHANNELS  (100 * 3)
+    #define OM_MAX_NUM_CHANNELS  (3000 * 3)
     #endif // !def ARDUINO_ARCH_ESP32
 
 public:
